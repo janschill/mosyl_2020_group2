@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="depot" nsURI="http://mdse.org/pts/depot" nsPrefix="depot">
-  <eClassifiers xsi:type="ecore:EClass" name="Depot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Depot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trains" upperBound="-1"
+        eType="#//Train" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Train" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coaches" upperBound="-1"
+        eType="#//Coach" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Coach" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RegionalTrain" eSuperTypes="#//Train"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntercityTrain" eSuperTypes="#//Train"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Locomotive" eSuperTypes="#//OuterCoach"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PassengerCoach" eSuperTypes="#//InnerCoach #//OuterCoach">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DiningCoach" eSuperTypes="#//InnerCoach #//OuterCoach"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InnerCoach" abstract="true" eSuperTypes="#//Coach">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OuterCoach" abstract="true" eSuperTypes="#//Coach"/>
 </ecore:EPackage>
