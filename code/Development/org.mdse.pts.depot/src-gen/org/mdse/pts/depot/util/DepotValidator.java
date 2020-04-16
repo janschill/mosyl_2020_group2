@@ -106,6 +106,10 @@ public class DepotValidator extends EObjectValidator {
 				return validateInnerCoach((InnerCoach)value, diagnostics, context);
 			case DepotPackage.OUTER_COACH:
 				return validateOuterCoach((OuterCoach)value, diagnostics, context);
+			case DepotPackage.FIRST_CLASS_PASSENGER_COACH:
+				return validateFirstClassPassengerCoach((FirstClassPassengerCoach)value, diagnostics, context);
+			case DepotPackage.SECOND_CLASS_PASSENGER_COACH:
+				return validateSecondClassPassengerCoach((SecondClassPassengerCoach)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -136,6 +140,10 @@ public class DepotValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(train, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(train, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTrain_LocomotiveInEitherEnd(train, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_UniqueInnerCoachNumbersInTrain(train, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_TrainCanHaveAtMostOneDiningCoach(train, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_InnerCoachesInSequence(train, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_DiningCoachBetweenFirstAndSecondClassPassengerCoaches(train, diagnostics, context);
 		return result;
 	}
 
@@ -145,7 +153,7 @@ public class DepotValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String TRAIN__LOCOMOTIVE_IN_EITHER_END__EEXPRESSION = "self.coaches->first().oclIsTypeOf(Locomotive) or self.coaches->last().oclIsTypeOf(Locomotive)";
+	protected static final String TRAIN__LOCOMOTIVE_IN_EITHER_END__EEXPRESSION = "self.coaches->size() > 0 implies self.coaches->first().oclIsTypeOf(Locomotive) or self.coaches->last().oclIsTypeOf(Locomotive)";
 
 	/**
 	 * Validates the LocomotiveInEitherEnd constraint of '<em>Train</em>'.
@@ -163,6 +171,171 @@ public class DepotValidator extends EObjectValidator {
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 				 "LocomotiveInEitherEnd",
 				 TRAIN__LOCOMOTIVE_IN_EITHER_END__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the UniqueInnerCoachNumbersInTrain constraint of '<em>Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String TRAIN__UNIQUE_INNER_COACH_NUMBERS_IN_TRAIN__EEXPRESSION = "\n" +
+		"\t\t\tself.coaches->select(oclIsKindOf(InnerCoach))->isUnique(oclAsType(InnerCoach).number)";
+
+	/**
+	 * Validates the UniqueInnerCoachNumbersInTrain constraint of '<em>Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTrain_UniqueInnerCoachNumbersInTrain(Train train, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(DepotPackage.Literals.TRAIN,
+				 train,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "UniqueInnerCoachNumbersInTrain",
+				 TRAIN__UNIQUE_INNER_COACH_NUMBERS_IN_TRAIN__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the TrainCanHaveAtMostOneDiningCoach constraint of '<em>Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String TRAIN__TRAIN_CAN_HAVE_AT_MOST_ONE_DINING_COACH__EEXPRESSION = "\n" +
+		"\t\t\tself.coaches->select(oclIsKindOf(DiningCoach))->size() <= 1";
+
+	/**
+	 * Validates the TrainCanHaveAtMostOneDiningCoach constraint of '<em>Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTrain_TrainCanHaveAtMostOneDiningCoach(Train train, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(DepotPackage.Literals.TRAIN,
+				 train,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "TrainCanHaveAtMostOneDiningCoach",
+				 TRAIN__TRAIN_CAN_HAVE_AT_MOST_ONE_DINING_COACH__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the InnerCoachesInSequence constraint of '<em>Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String TRAIN__INNER_COACHES_IN_SEQUENCE__EEXPRESSION = "\n" +
+		"\t\t\tlet innerCoaches: OrderedSet(Coach) = self.coaches->select(oclIsKindOf(InnerCoach)),\n" +
+		"\t\t\t\tfirstClassPCIndexes: OrderedSet(Integer) = \n" +
+		"\t\t\t\t\tSequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |\n" +
+		"\t\t\t\t\t\tif(innerCoaches->at(idx).oclIsKindOf(FirstClassPassengerCoach)) then res->append(idx)\t\n" +
+		"\t\t\t\t\t\telse res\n" +
+		"\t\t\t\t\t\tendif\n" +
+		"\t\t\t\t\t),\n" +
+		"\t\t\t\tfirstClassPCInSequence : Boolean = Sequence{1..firstClassPCIndexes->size()}->forAll(idx: Integer |\n" +
+		"\t\t\t\t\tidx = 1 or (firstClassPCIndexes->at(idx) = firstClassPCIndexes->at(idx - 1) + 1)\n" +
+		"\t\t\t\t),\n" +
+		"\t\t\t\tsecondClassPCIndexes: OrderedSet(Integer) = \n" +
+		"\t\t\t\t\tSequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |\n" +
+		"\t\t\t\t\t\tif(innerCoaches->at(idx).oclIsKindOf(SecondClassPassengerCoach)) then res->append(idx)\t\n" +
+		"\t\t\t\t\t\telse res\n" +
+		"\t\t\t\t\t\tendif\n" +
+		"\t\t\t\t\t),\n" +
+		"\t\t\t\tsecondClassPCInSequence : Boolean = Sequence{1..secondClassPCIndexes->size()}->forAll(idx: Integer |\n" +
+		"\t\t\t\t\tidx = 1 or (secondClassPCIndexes->at(idx) = secondClassPCIndexes->at(idx - 1) + 1)\n" +
+		"\t\t\t\t)\n" +
+		"\t\t\tin\n" +
+		"\t\t\tfirstClassPCInSequence and secondClassPCInSequence";
+
+	/**
+	 * Validates the InnerCoachesInSequence constraint of '<em>Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTrain_InnerCoachesInSequence(Train train, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(DepotPackage.Literals.TRAIN,
+				 train,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "InnerCoachesInSequence",
+				 TRAIN__INNER_COACHES_IN_SEQUENCE__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the DiningCoachBetweenFirstAndSecondClassPassengerCoaches constraint of '<em>Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String TRAIN__DINING_COACH_BETWEEN_FIRST_AND_SECOND_CLASS_PASSENGER_COACHES__EEXPRESSION = "\n" +
+		"\t\t\tlet innerCoaches: OrderedSet(Coach) = self.coaches->select(oclIsKindOf(InnerCoach)),\n" +
+		"\t\t\t\tfirstClassPCIndexes: OrderedSet(Integer) = \n" +
+		"\t\t\t\t\tSequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |\n" +
+		"\t\t\t\t\t\tif(innerCoaches->at(idx).oclIsKindOf(FirstClassPassengerCoach)) then res->append(idx)\t\n" +
+		"\t\t\t\t\t\telse res\n" +
+		"\t\t\t\t\t\tendif\n" +
+		"\t\t\t\t\t),\n" +
+		"\t\t\t\tsecondClassPCIndexes: OrderedSet(Integer) = \n" +
+		"\t\t\t\t\tSequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |\n" +
+		"\t\t\t\t\t\tif(innerCoaches->at(idx).oclIsKindOf(SecondClassPassengerCoach)) then res->append(idx)\t\n" +
+		"\t\t\t\t\t\telse res\n" +
+		"\t\t\t\t\t\tendif\n" +
+		"\t\t\t\t\t),\n" +
+		"\t\t\t\tdiningCoachIndexes: OrderedSet(Integer) = \n" +
+		"\t\t\t\t\tSequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |\n" +
+		"\t\t\t\t\t\tif(innerCoaches->at(idx).oclIsKindOf(DiningCoach)) then res->append(idx)\t\n" +
+		"\t\t\t\t\t\telse res\n" +
+		"\t\t\t\t\t\tendif\n" +
+		"\t\t\t\t\t)\n" +
+		"\t\t\tin\n" +
+		"\t\t\t(firstClassPCIndexes->size() > 0 and secondClassPCIndexes->size() > 0 and diningCoachIndexes->size() > 0)\n" +
+		"\t\t\timplies (\n" +
+		"\t\t\t\t(firstClassPCIndexes->last() + 1 = diningCoachIndexes->first() and secondClassPCIndexes->first() - 1 = diningCoachIndexes->first())\n" +
+		"\t\t\t\tor\n" +
+		"\t\t\t\t(secondClassPCIndexes->last() + 1 = diningCoachIndexes->first() and firstClassPCIndexes->first() - 1 = diningCoachIndexes->first())\n" +
+		"\t\t\t)";
+
+	/**
+	 * Validates the DiningCoachBetweenFirstAndSecondClassPassengerCoaches constraint of '<em>Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTrain_DiningCoachBetweenFirstAndSecondClassPassengerCoaches(Train train, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(DepotPackage.Literals.TRAIN,
+				 train,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "DiningCoachBetweenFirstAndSecondClassPassengerCoaches",
+				 TRAIN__DINING_COACH_BETWEEN_FIRST_AND_SECOND_CLASS_PASSENGER_COACHES__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -193,6 +366,10 @@ public class DepotValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(regionalTrain, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(regionalTrain, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTrain_LocomotiveInEitherEnd(regionalTrain, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_UniqueInnerCoachNumbersInTrain(regionalTrain, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_TrainCanHaveAtMostOneDiningCoach(regionalTrain, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_InnerCoachesInSequence(regionalTrain, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_DiningCoachBetweenFirstAndSecondClassPassengerCoaches(regionalTrain, diagnostics, context);
 		return result;
 	}
 
@@ -212,7 +389,42 @@ public class DepotValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(intercityTrain, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(intercityTrain, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTrain_LocomotiveInEitherEnd(intercityTrain, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_UniqueInnerCoachNumbersInTrain(intercityTrain, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_TrainCanHaveAtMostOneDiningCoach(intercityTrain, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_InnerCoachesInSequence(intercityTrain, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTrain_DiningCoachBetweenFirstAndSecondClassPassengerCoaches(intercityTrain, diagnostics, context);
+		if (result || diagnostics != null) result &= validateIntercityTrain_IntercityTrainMustHaveDiningCoach(intercityTrain, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the IntercityTrainMustHaveDiningCoach constraint of '<em>Intercity Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String INTERCITY_TRAIN__INTERCITY_TRAIN_MUST_HAVE_DINING_COACH__EEXPRESSION = "\n" +
+		"\t\tself.coaches->size() > 0 implies self.coaches->exists(oclIsKindOf(DiningCoach))";
+
+	/**
+	 * Validates the IntercityTrainMustHaveDiningCoach constraint of '<em>Intercity Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateIntercityTrain_IntercityTrainMustHaveDiningCoach(IntercityTrain intercityTrain, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(DepotPackage.Literals.INTERCITY_TRAIN,
+				 intercityTrain,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "IntercityTrainMustHaveDiningCoach",
+				 INTERCITY_TRAIN__INTERCITY_TRAIN_MUST_HAVE_DINING_COACH__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -258,6 +470,24 @@ public class DepotValidator extends EObjectValidator {
 	 */
 	public boolean validateOuterCoach(OuterCoach outerCoach, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(outerCoach, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFirstClassPassengerCoach(FirstClassPassengerCoach firstClassPassengerCoach, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(firstClassPassengerCoach, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSecondClassPassengerCoach(SecondClassPassengerCoach secondClassPassengerCoach, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(secondClassPassengerCoach, diagnostics, context);
 	}
 
 	/**

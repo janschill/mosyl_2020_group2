@@ -375,22 +375,13 @@ public interface DepotPackage extends EPackage {
 	int PASSENGER_COACH__NUMBER = INNER_COACH__NUMBER;
 
 	/**
-	 * The feature id for the '<em><b>Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PASSENGER_COACH__CLASS = INNER_COACH_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Passenger Coach</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PASSENGER_COACH_FEATURE_COUNT = INNER_COACH_FEATURE_COUNT + 1;
+	int PASSENGER_COACH_FEATURE_COUNT = INNER_COACH_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Passenger Coach</em>' class.
@@ -437,6 +428,81 @@ public interface DepotPackage extends EPackage {
 	 * @ordered
 	 */
 	int DINING_COACH_OPERATION_COUNT = INNER_COACH_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link org.mdse.pts.depot.impl.FirstClassPassengerCoachImpl <em>First Class Passenger Coach</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.mdse.pts.depot.impl.FirstClassPassengerCoachImpl
+	 * @see org.mdse.pts.depot.impl.DepotPackageImpl#getFirstClassPassengerCoach()
+	 * @generated
+	 */
+	int FIRST_CLASS_PASSENGER_COACH = 10;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIRST_CLASS_PASSENGER_COACH__NUMBER = PASSENGER_COACH__NUMBER;
+
+	/**
+	 * The number of structural features of the '<em>First Class Passenger Coach</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIRST_CLASS_PASSENGER_COACH_FEATURE_COUNT = PASSENGER_COACH_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>First Class Passenger Coach</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIRST_CLASS_PASSENGER_COACH_OPERATION_COUNT = PASSENGER_COACH_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.mdse.pts.depot.impl.SecondClassPassengerCoachImpl <em>Second Class Passenger Coach</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.mdse.pts.depot.impl.SecondClassPassengerCoachImpl
+	 * @see org.mdse.pts.depot.impl.DepotPackageImpl#getSecondClassPassengerCoach()
+	 * @generated
+	 */
+	int SECOND_CLASS_PASSENGER_COACH = 11;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECOND_CLASS_PASSENGER_COACH__NUMBER = PASSENGER_COACH__NUMBER;
+
+	/**
+	 * The number of structural features of the '<em>Second Class Passenger Coach</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECOND_CLASS_PASSENGER_COACH_FEATURE_COUNT = PASSENGER_COACH_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Second Class Passenger Coach</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECOND_CLASS_PASSENGER_COACH_OPERATION_COUNT = PASSENGER_COACH_OPERATION_COUNT + 0;
 
 
 	/**
@@ -543,17 +609,6 @@ public interface DepotPackage extends EPackage {
 	EClass getPassengerCoach();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.mdse.pts.depot.PassengerCoach#getClass_ <em>Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Class</em>'.
-	 * @see org.mdse.pts.depot.PassengerCoach#getClass_()
-	 * @see #getPassengerCoach()
-	 * @generated
-	 */
-	EAttribute getPassengerCoach_Class();
-
-	/**
 	 * Returns the meta object for class '{@link org.mdse.pts.depot.DiningCoach <em>Dining Coach</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -593,6 +648,26 @@ public interface DepotPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOuterCoach();
+
+	/**
+	 * Returns the meta object for class '{@link org.mdse.pts.depot.FirstClassPassengerCoach <em>First Class Passenger Coach</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>First Class Passenger Coach</em>'.
+	 * @see org.mdse.pts.depot.FirstClassPassengerCoach
+	 * @generated
+	 */
+	EClass getFirstClassPassengerCoach();
+
+	/**
+	 * Returns the meta object for class '{@link org.mdse.pts.depot.SecondClassPassengerCoach <em>Second Class Passenger Coach</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Second Class Passenger Coach</em>'.
+	 * @see org.mdse.pts.depot.SecondClassPassengerCoach
+	 * @generated
+	 */
+	EClass getSecondClassPassengerCoach();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -702,13 +777,6 @@ public interface DepotPackage extends EPackage {
 		 */
 		EClass PASSENGER_COACH = eINSTANCE.getPassengerCoach();
 		/**
-		 * The meta object literal for the '<em><b>Class</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PASSENGER_COACH__CLASS = eINSTANCE.getPassengerCoach_Class();
-		/**
 		 * The meta object literal for the '{@link org.mdse.pts.depot.impl.DiningCoachImpl <em>Dining Coach</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -742,6 +810,24 @@ public interface DepotPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OUTER_COACH = eINSTANCE.getOuterCoach();
+		/**
+		 * The meta object literal for the '{@link org.mdse.pts.depot.impl.FirstClassPassengerCoachImpl <em>First Class Passenger Coach</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.mdse.pts.depot.impl.FirstClassPassengerCoachImpl
+		 * @see org.mdse.pts.depot.impl.DepotPackageImpl#getFirstClassPassengerCoach()
+		 * @generated
+		 */
+		EClass FIRST_CLASS_PASSENGER_COACH = eINSTANCE.getFirstClassPassengerCoach();
+		/**
+		 * The meta object literal for the '{@link org.mdse.pts.depot.impl.SecondClassPassengerCoachImpl <em>Second Class Passenger Coach</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.mdse.pts.depot.impl.SecondClassPassengerCoachImpl
+		 * @see org.mdse.pts.depot.impl.DepotPackageImpl#getSecondClassPassengerCoach()
+		 * @generated
+		 */
+		EClass SECOND_CLASS_PASSENGER_COACH = eINSTANCE.getSecondClassPassengerCoach();
 
 	}
 

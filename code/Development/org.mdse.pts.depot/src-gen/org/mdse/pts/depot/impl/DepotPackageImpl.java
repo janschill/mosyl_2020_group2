@@ -15,12 +15,14 @@ import org.mdse.pts.depot.Depot;
 import org.mdse.pts.depot.DepotFactory;
 import org.mdse.pts.depot.DepotPackage;
 import org.mdse.pts.depot.DiningCoach;
+import org.mdse.pts.depot.FirstClassPassengerCoach;
 import org.mdse.pts.depot.InnerCoach;
 import org.mdse.pts.depot.IntercityTrain;
 import org.mdse.pts.depot.Locomotive;
 import org.mdse.pts.depot.OuterCoach;
 import org.mdse.pts.depot.PassengerCoach;
 import org.mdse.pts.depot.RegionalTrain;
+import org.mdse.pts.depot.SecondClassPassengerCoach;
 import org.mdse.pts.depot.Train;
 import org.mdse.pts.depot.util.DepotValidator;
 
@@ -92,6 +94,20 @@ public class DepotPackageImpl extends EPackageImpl implements DepotPackage {
 	 * @generated
 	 */
 	private EClass outerCoachEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass firstClassPassengerCoachEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass secondClassPassengerCoachEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -270,16 +286,6 @@ public class DepotPackageImpl extends EPackageImpl implements DepotPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPassengerCoach_Class() {
-		return (EAttribute)passengerCoachEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getDiningCoach() {
 		return diningCoachEClass;
 	}
@@ -312,6 +318,26 @@ public class DepotPackageImpl extends EPackageImpl implements DepotPackage {
 	@Override
 	public EClass getOuterCoach() {
 		return outerCoachEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getFirstClassPassengerCoach() {
+		return firstClassPassengerCoachEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSecondClassPassengerCoach() {
+		return secondClassPassengerCoachEClass;
 	}
 
 	/**
@@ -359,7 +385,6 @@ public class DepotPackageImpl extends EPackageImpl implements DepotPackage {
 		locomotiveEClass = createEClass(LOCOMOTIVE);
 
 		passengerCoachEClass = createEClass(PASSENGER_COACH);
-		createEAttribute(passengerCoachEClass, PASSENGER_COACH__CLASS);
 
 		diningCoachEClass = createEClass(DINING_COACH);
 
@@ -367,6 +392,10 @@ public class DepotPackageImpl extends EPackageImpl implements DepotPackage {
 		createEAttribute(innerCoachEClass, INNER_COACH__NUMBER);
 
 		outerCoachEClass = createEClass(OUTER_COACH);
+
+		firstClassPassengerCoachEClass = createEClass(FIRST_CLASS_PASSENGER_COACH);
+
+		secondClassPassengerCoachEClass = createEClass(SECOND_CLASS_PASSENGER_COACH);
 	}
 
 	/**
@@ -406,6 +435,8 @@ public class DepotPackageImpl extends EPackageImpl implements DepotPackage {
 		diningCoachEClass.getESuperTypes().add(this.getOuterCoach());
 		innerCoachEClass.getESuperTypes().add(this.getCoach());
 		outerCoachEClass.getESuperTypes().add(this.getCoach());
+		firstClassPassengerCoachEClass.getESuperTypes().add(this.getPassengerCoach());
+		secondClassPassengerCoachEClass.getESuperTypes().add(this.getPassengerCoach());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(depotEClass, Depot.class, "Depot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -423,8 +454,7 @@ public class DepotPackageImpl extends EPackageImpl implements DepotPackage {
 
 		initEClass(locomotiveEClass, Locomotive.class, "Locomotive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(passengerCoachEClass, PassengerCoach.class, "PassengerCoach", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPassengerCoach_Class(), ecorePackage.getEInt(), "class", null, 1, 1, PassengerCoach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(passengerCoachEClass, PassengerCoach.class, "PassengerCoach", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(diningCoachEClass, DiningCoach.class, "DiningCoach", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -432,6 +462,10 @@ public class DepotPackageImpl extends EPackageImpl implements DepotPackage {
 		initEAttribute(getInnerCoach_Number(), ecorePackage.getEInt(), "number", null, 1, 1, InnerCoach.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outerCoachEClass, OuterCoach.class, "OuterCoach", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(firstClassPassengerCoachEClass, FirstClassPassengerCoach.class, "FirstClassPassengerCoach", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(secondClassPassengerCoachEClass, SecondClassPassengerCoach.class, "SecondClassPassengerCoach", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -481,7 +515,13 @@ public class DepotPackageImpl extends EPackageImpl implements DepotPackage {
 		  (trainEClass,
 		   source,
 		   new String[] {
-			   "constraints", "LocomotiveInEitherEnd"
+			   "constraints", "LocomotiveInEitherEnd UniqueInnerCoachNumbersInTrain TrainCanHaveAtMostOneDiningCoach InnerCoachesInSequence DiningCoachBetweenFirstAndSecondClassPassengerCoaches"
+		   });
+		addAnnotation
+		  (intercityTrainEClass,
+		   source,
+		   new String[] {
+			   "constraints", "IntercityTrainMustHaveDiningCoach"
 		   });
 	}
 
@@ -497,7 +537,17 @@ public class DepotPackageImpl extends EPackageImpl implements DepotPackage {
 		  (trainEClass,
 		   source,
 		   new String[] {
-			   "LocomotiveInEitherEnd", "self.coaches->first().oclIsTypeOf(Locomotive) or self.coaches->last().oclIsTypeOf(Locomotive)"
+			   "LocomotiveInEitherEnd", "self.coaches->size() > 0 implies self.coaches->first().oclIsTypeOf(Locomotive) or self.coaches->last().oclIsTypeOf(Locomotive)",
+			   "UniqueInnerCoachNumbersInTrain", "\n\t\t\tself.coaches->select(oclIsKindOf(InnerCoach))->isUnique(oclAsType(InnerCoach).number)",
+			   "TrainCanHaveAtMostOneDiningCoach", "\n\t\t\tself.coaches->select(oclIsKindOf(DiningCoach))->size() <= 1",
+			   "InnerCoachesInSequence", "\n\t\t\tlet innerCoaches: OrderedSet(Coach) = self.coaches->select(oclIsKindOf(InnerCoach)),\n\t\t\t\tfirstClassPCIndexes: OrderedSet(Integer) = \n\t\t\t\t\tSequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |\n\t\t\t\t\t\tif(innerCoaches->at(idx).oclIsKindOf(FirstClassPassengerCoach)) then res->append(idx)\t\n\t\t\t\t\t\telse res\n\t\t\t\t\t\tendif\n\t\t\t\t\t),\n\t\t\t\tfirstClassPCInSequence : Boolean = Sequence{1..firstClassPCIndexes->size()}->forAll(idx: Integer |\n\t\t\t\t\tidx = 1 or (firstClassPCIndexes->at(idx) = firstClassPCIndexes->at(idx - 1) + 1)\n\t\t\t\t),\n\t\t\t\tsecondClassPCIndexes: OrderedSet(Integer) = \n\t\t\t\t\tSequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |\n\t\t\t\t\t\tif(innerCoaches->at(idx).oclIsKindOf(SecondClassPassengerCoach)) then res->append(idx)\t\n\t\t\t\t\t\telse res\n\t\t\t\t\t\tendif\n\t\t\t\t\t),\n\t\t\t\tsecondClassPCInSequence : Boolean = Sequence{1..secondClassPCIndexes->size()}->forAll(idx: Integer |\n\t\t\t\t\tidx = 1 or (secondClassPCIndexes->at(idx) = secondClassPCIndexes->at(idx - 1) + 1)\n\t\t\t\t)\n\t\t\tin\n\t\t\tfirstClassPCInSequence and secondClassPCInSequence",
+			   "DiningCoachBetweenFirstAndSecondClassPassengerCoaches", "\n\t\t\tlet innerCoaches: OrderedSet(Coach) = self.coaches->select(oclIsKindOf(InnerCoach)),\n\t\t\t\tfirstClassPCIndexes: OrderedSet(Integer) = \n\t\t\t\t\tSequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |\n\t\t\t\t\t\tif(innerCoaches->at(idx).oclIsKindOf(FirstClassPassengerCoach)) then res->append(idx)\t\n\t\t\t\t\t\telse res\n\t\t\t\t\t\tendif\n\t\t\t\t\t),\n\t\t\t\tsecondClassPCIndexes: OrderedSet(Integer) = \n\t\t\t\t\tSequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |\n\t\t\t\t\t\tif(innerCoaches->at(idx).oclIsKindOf(SecondClassPassengerCoach)) then res->append(idx)\t\n\t\t\t\t\t\telse res\n\t\t\t\t\t\tendif\n\t\t\t\t\t),\n\t\t\t\tdiningCoachIndexes: OrderedSet(Integer) = \n\t\t\t\t\tSequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |\n\t\t\t\t\t\tif(innerCoaches->at(idx).oclIsKindOf(DiningCoach)) then res->append(idx)\t\n\t\t\t\t\t\telse res\n\t\t\t\t\t\tendif\n\t\t\t\t\t)\n\t\t\tin\n\t\t\t(firstClassPCIndexes->size() > 0 and secondClassPCIndexes->size() > 0 and diningCoachIndexes->size() > 0)\n\t\t\timplies (\n\t\t\t\t(firstClassPCIndexes->last() + 1 = diningCoachIndexes->first() and secondClassPCIndexes->first() - 1 = diningCoachIndexes->first())\n\t\t\t\tor\n\t\t\t\t(secondClassPCIndexes->last() + 1 = diningCoachIndexes->first() and firstClassPCIndexes->first() - 1 = diningCoachIndexes->first())\n\t\t\t)"
+		   });
+		addAnnotation
+		  (intercityTrainEClass,
+		   source,
+		   new String[] {
+			   "IntercityTrainMustHaveDiningCoach", "\n\t\tself.coaches->size() > 0 implies self.coaches->exists(oclIsKindOf(DiningCoach))"
 		   });
 	}
 

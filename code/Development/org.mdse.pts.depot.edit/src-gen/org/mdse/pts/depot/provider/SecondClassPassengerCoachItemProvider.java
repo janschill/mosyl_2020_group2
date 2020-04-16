@@ -8,23 +8,25 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.mdse.pts.depot.PassengerCoach;
+
+import org.mdse.pts.depot.SecondClassPassengerCoach;
 
 /**
- * This is the item provider adapter for a {@link org.mdse.pts.depot.PassengerCoach} object.
+ * This is the item provider adapter for a {@link org.mdse.pts.depot.SecondClassPassengerCoach} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PassengerCoachItemProvider extends InnerCoachItemProvider {
+public class SecondClassPassengerCoachItemProvider extends PassengerCoachItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PassengerCoachItemProvider(AdapterFactory adapterFactory) {
+	public SecondClassPassengerCoachItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +46,14 @@ public class PassengerCoachItemProvider extends InnerCoachItemProvider {
 	}
 
 	/**
-	 * This returns PassengerCoach.gif.
+	 * This returns SecondClassPassengerCoach.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PassengerCoach"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SecondClassPassengerCoach"));
 	}
 
 	/**
@@ -62,8 +64,8 @@ public class PassengerCoachItemProvider extends InnerCoachItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		PassengerCoach passengerCoach = (PassengerCoach)object;
-		return getString("_UI_PassengerCoach_type") + " " + passengerCoach.getNumber();
+		SecondClassPassengerCoach secondClassPassengerCoach = (SecondClassPassengerCoach)object;
+		return getString("_UI_SecondClassPassengerCoach_type") + " " + secondClassPassengerCoach.getNumber();
 	}
 
 

@@ -10,7 +10,8 @@ package org.mdse.pts.depot;
  *
  *
  * @see org.mdse.pts.depot.DepotPackage#getIntercityTrain()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='IntercityTrainMustHaveDiningCoach'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot IntercityTrainMustHaveDiningCoach='\n\t\tself.coaches-&gt;size() &gt; 0 implies self.coaches-&gt;exists(oclIsKindOf(DiningCoach))'"
  * @generated
  */
 public interface IntercityTrain extends Train {

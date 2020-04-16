@@ -176,12 +176,17 @@ public class TrainItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DepotPackage.Literals.TRAIN__COACHES,
-				 DepotFactory.eINSTANCE.createPassengerCoach()));
+				 DepotFactory.eINSTANCE.createDiningCoach()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DepotPackage.Literals.TRAIN__COACHES,
-				 DepotFactory.eINSTANCE.createDiningCoach()));
+				 DepotFactory.eINSTANCE.createFirstClassPassengerCoach()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DepotPackage.Literals.TRAIN__COACHES,
+				 DepotFactory.eINSTANCE.createSecondClassPassengerCoach()));
 	}
 
 	/**

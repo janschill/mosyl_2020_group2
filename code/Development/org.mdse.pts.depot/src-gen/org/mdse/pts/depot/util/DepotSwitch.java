@@ -138,6 +138,26 @@ public class DepotSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DepotPackage.FIRST_CLASS_PASSENGER_COACH: {
+				FirstClassPassengerCoach firstClassPassengerCoach = (FirstClassPassengerCoach)theEObject;
+				T result = caseFirstClassPassengerCoach(firstClassPassengerCoach);
+				if (result == null) result = casePassengerCoach(firstClassPassengerCoach);
+				if (result == null) result = caseInnerCoach(firstClassPassengerCoach);
+				if (result == null) result = caseOuterCoach(firstClassPassengerCoach);
+				if (result == null) result = caseCoach(firstClassPassengerCoach);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DepotPackage.SECOND_CLASS_PASSENGER_COACH: {
+				SecondClassPassengerCoach secondClassPassengerCoach = (SecondClassPassengerCoach)theEObject;
+				T result = caseSecondClassPassengerCoach(secondClassPassengerCoach);
+				if (result == null) result = casePassengerCoach(secondClassPassengerCoach);
+				if (result == null) result = caseInnerCoach(secondClassPassengerCoach);
+				if (result == null) result = caseOuterCoach(secondClassPassengerCoach);
+				if (result == null) result = caseCoach(secondClassPassengerCoach);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -289,6 +309,36 @@ public class DepotSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOuterCoach(OuterCoach object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>First Class Passenger Coach</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>First Class Passenger Coach</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFirstClassPassengerCoach(FirstClassPassengerCoach object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Second Class Passenger Coach</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Second Class Passenger Coach</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSecondClassPassengerCoach(SecondClassPassengerCoach object) {
 		return null;
 	}
 

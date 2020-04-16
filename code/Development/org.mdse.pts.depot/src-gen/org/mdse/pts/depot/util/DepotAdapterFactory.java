@@ -108,6 +108,14 @@ public class DepotAdapterFactory extends AdapterFactoryImpl {
 				return createOuterCoachAdapter();
 			}
 			@Override
+			public Adapter caseFirstClassPassengerCoach(FirstClassPassengerCoach object) {
+				return createFirstClassPassengerCoachAdapter();
+			}
+			@Override
+			public Adapter caseSecondClassPassengerCoach(SecondClassPassengerCoach object) {
+				return createSecondClassPassengerCoachAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -264,6 +272,34 @@ public class DepotAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOuterCoachAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.FirstClassPassengerCoach <em>First Class Passenger Coach</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.FirstClassPassengerCoach
+	 * @generated
+	 */
+	public Adapter createFirstClassPassengerCoachAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.SecondClassPassengerCoach <em>Second Class Passenger Coach</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.SecondClassPassengerCoach
+	 * @generated
+	 */
+	public Adapter createSecondClassPassengerCoachAdapter() {
 		return null;
 	}
 

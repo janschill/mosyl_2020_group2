@@ -164,29 +164,6 @@ public class DepotItemProviderAdapterFactory extends DepotAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.mdse.pts.depot.PassengerCoach} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PassengerCoachItemProvider passengerCoachItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.mdse.pts.depot.PassengerCoach}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPassengerCoachAdapter() {
-		if (passengerCoachItemProvider == null) {
-			passengerCoachItemProvider = new PassengerCoachItemProvider(this);
-		}
-
-		return passengerCoachItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.mdse.pts.depot.DiningCoach} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,6 +184,52 @@ public class DepotItemProviderAdapterFactory extends DepotAdapterFactory impleme
 		}
 
 		return diningCoachItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mdse.pts.depot.FirstClassPassengerCoach} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FirstClassPassengerCoachItemProvider firstClassPassengerCoachItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mdse.pts.depot.FirstClassPassengerCoach}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFirstClassPassengerCoachAdapter() {
+		if (firstClassPassengerCoachItemProvider == null) {
+			firstClassPassengerCoachItemProvider = new FirstClassPassengerCoachItemProvider(this);
+		}
+
+		return firstClassPassengerCoachItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mdse.pts.depot.SecondClassPassengerCoach} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SecondClassPassengerCoachItemProvider secondClassPassengerCoachItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mdse.pts.depot.SecondClassPassengerCoach}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSecondClassPassengerCoachAdapter() {
+		if (secondClassPassengerCoachItemProvider == null) {
+			secondClassPassengerCoachItemProvider = new SecondClassPassengerCoachItemProvider(this);
+		}
+
+		return secondClassPassengerCoachItemProvider;
 	}
 
 	/**
@@ -318,8 +341,9 @@ public class DepotItemProviderAdapterFactory extends DepotAdapterFactory impleme
 		if (regionalTrainItemProvider != null) regionalTrainItemProvider.dispose();
 		if (intercityTrainItemProvider != null) intercityTrainItemProvider.dispose();
 		if (locomotiveItemProvider != null) locomotiveItemProvider.dispose();
-		if (passengerCoachItemProvider != null) passengerCoachItemProvider.dispose();
 		if (diningCoachItemProvider != null) diningCoachItemProvider.dispose();
+		if (firstClassPassengerCoachItemProvider != null) firstClassPassengerCoachItemProvider.dispose();
+		if (secondClassPassengerCoachItemProvider != null) secondClassPassengerCoachItemProvider.dispose();
 	}
 
 }

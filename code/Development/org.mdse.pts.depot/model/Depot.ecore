@@ -15,10 +15,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Train" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="LocomotiveInEitherEnd"/>
+      <details key="constraints" value="LocomotiveInEitherEnd UniqueInnerCoachNumbersInTrain TrainCanHaveAtMostOneDiningCoach InnerCoachesInSequence DiningCoachBetweenFirstAndSecondClassPassengerCoaches"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="LocomotiveInEitherEnd" value="self.coaches->first().oclIsTypeOf(Locomotive) or self.coaches->last().oclIsTypeOf(Locomotive)"/>
+      <details key="LocomotiveInEitherEnd" value="self.coaches->size() > 0 implies self.coaches->first().oclIsTypeOf(Locomotive) or self.coaches->last().oclIsTypeOf(Locomotive)"/>
+      <details key="UniqueInnerCoachNumbersInTrain" value="&#xA;&#x9;&#x9;&#x9;self.coaches->select(oclIsKindOf(InnerCoach))->isUnique(oclAsType(InnerCoach).number)"/>
+      <details key="TrainCanHaveAtMostOneDiningCoach" value="&#xA;&#x9;&#x9;&#x9;self.coaches->select(oclIsKindOf(DiningCoach))->size() &lt;= 1"/>
+      <details key="InnerCoachesInSequence" value="&#xA;&#x9;&#x9;&#x9;let innerCoaches: OrderedSet(Coach) = self.coaches->select(oclIsKindOf(InnerCoach)),&#xA;&#x9;&#x9;&#x9;&#x9;firstClassPCIndexes: OrderedSet(Integer) = &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Sequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(innerCoaches->at(idx).oclIsKindOf(FirstClassPassengerCoach)) then res->append(idx)&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else res&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;),&#xA;&#x9;&#x9;&#x9;&#x9;firstClassPCInSequence : Boolean = Sequence{1..firstClassPCIndexes->size()}->forAll(idx: Integer |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;idx = 1 or (firstClassPCIndexes->at(idx) = firstClassPCIndexes->at(idx - 1) + 1)&#xA;&#x9;&#x9;&#x9;&#x9;),&#xA;&#x9;&#x9;&#x9;&#x9;secondClassPCIndexes: OrderedSet(Integer) = &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Sequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(innerCoaches->at(idx).oclIsKindOf(SecondClassPassengerCoach)) then res->append(idx)&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else res&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;),&#xA;&#x9;&#x9;&#x9;&#x9;secondClassPCInSequence : Boolean = Sequence{1..secondClassPCIndexes->size()}->forAll(idx: Integer |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;idx = 1 or (secondClassPCIndexes->at(idx) = secondClassPCIndexes->at(idx - 1) + 1)&#xA;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;in&#xA;&#x9;&#x9;&#x9;firstClassPCInSequence and secondClassPCInSequence"/>
+      <details key="DiningCoachBetweenFirstAndSecondClassPassengerCoaches" value="&#xA;&#x9;&#x9;&#x9;let innerCoaches: OrderedSet(Coach) = self.coaches->select(oclIsKindOf(InnerCoach)),&#xA;&#x9;&#x9;&#x9;&#x9;firstClassPCIndexes: OrderedSet(Integer) = &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Sequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(innerCoaches->at(idx).oclIsKindOf(FirstClassPassengerCoach)) then res->append(idx)&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else res&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;),&#xA;&#x9;&#x9;&#x9;&#x9;secondClassPCIndexes: OrderedSet(Integer) = &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Sequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(innerCoaches->at(idx).oclIsKindOf(SecondClassPassengerCoach)) then res->append(idx)&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else res&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;),&#xA;&#x9;&#x9;&#x9;&#x9;diningCoachIndexes: OrderedSet(Integer) = &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Sequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(innerCoaches->at(idx).oclIsKindOf(DiningCoach)) then res->append(idx)&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else res&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;in&#xA;&#x9;&#x9;&#x9;(firstClassPCIndexes->size() > 0 and secondClassPCIndexes->size() > 0 and diningCoachIndexes->size() > 0)&#xA;&#x9;&#x9;&#x9;implies (&#xA;&#x9;&#x9;&#x9;&#x9;(firstClassPCIndexes->last() + 1 = diningCoachIndexes->first() and secondClassPCIndexes->first() - 1 = diningCoachIndexes->first())&#xA;&#x9;&#x9;&#x9;&#x9;or&#xA;&#x9;&#x9;&#x9;&#x9;(secondClassPCIndexes->last() + 1 = diningCoachIndexes->first() and firstClassPCIndexes->first() - 1 = diningCoachIndexes->first())&#xA;&#x9;&#x9;&#x9;)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="coaches" upperBound="-1"
@@ -26,15 +30,22 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Coach" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="RegionalTrain" eSuperTypes="#//Train"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IntercityTrain" eSuperTypes="#//Train"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Locomotive" eSuperTypes="#//OuterCoach"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PassengerCoach" eSuperTypes="#//InnerCoach #//OuterCoach">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntercityTrain" eSuperTypes="#//Train">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="IntercityTrainMustHaveDiningCoach"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="IntercityTrainMustHaveDiningCoach" value="&#xA;&#x9;&#x9;self.coaches->size() > 0 implies self.coaches->exists(oclIsKindOf(DiningCoach))"/>
+    </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Locomotive" eSuperTypes="#//OuterCoach"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PassengerCoach" abstract="true" eSuperTypes="#//InnerCoach #//OuterCoach"/>
   <eClassifiers xsi:type="ecore:EClass" name="DiningCoach" eSuperTypes="#//InnerCoach #//OuterCoach"/>
   <eClassifiers xsi:type="ecore:EClass" name="InnerCoach" abstract="true" eSuperTypes="#//Coach">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OuterCoach" abstract="true" eSuperTypes="#//Coach"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FirstClassPassengerCoach" eSuperTypes="#//PassengerCoach"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SecondClassPassengerCoach" eSuperTypes="#//PassengerCoach"/>
 </ecore:EPackage>

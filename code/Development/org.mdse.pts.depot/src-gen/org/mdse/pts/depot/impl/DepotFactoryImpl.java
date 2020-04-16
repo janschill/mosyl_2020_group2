@@ -60,8 +60,9 @@ public class DepotFactoryImpl extends EFactoryImpl implements DepotFactory {
 			case DepotPackage.REGIONAL_TRAIN: return createRegionalTrain();
 			case DepotPackage.INTERCITY_TRAIN: return createIntercityTrain();
 			case DepotPackage.LOCOMOTIVE: return createLocomotive();
-			case DepotPackage.PASSENGER_COACH: return createPassengerCoach();
 			case DepotPackage.DINING_COACH: return createDiningCoach();
+			case DepotPackage.FIRST_CLASS_PASSENGER_COACH: return createFirstClassPassengerCoach();
+			case DepotPackage.SECOND_CLASS_PASSENGER_COACH: return createSecondClassPassengerCoach();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -117,9 +118,9 @@ public class DepotFactoryImpl extends EFactoryImpl implements DepotFactory {
 	 * @generated
 	 */
 	@Override
-	public PassengerCoach createPassengerCoach() {
-		PassengerCoachImpl passengerCoach = new PassengerCoachImpl();
-		return passengerCoach;
+	public DiningCoach createDiningCoach() {
+		DiningCoachImpl diningCoach = new DiningCoachImpl();
+		return diningCoach;
 	}
 
 	/**
@@ -128,9 +129,20 @@ public class DepotFactoryImpl extends EFactoryImpl implements DepotFactory {
 	 * @generated
 	 */
 	@Override
-	public DiningCoach createDiningCoach() {
-		DiningCoachImpl diningCoach = new DiningCoachImpl();
-		return diningCoach;
+	public FirstClassPassengerCoach createFirstClassPassengerCoach() {
+		FirstClassPassengerCoachImpl firstClassPassengerCoach = new FirstClassPassengerCoachImpl();
+		return firstClassPassengerCoach;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SecondClassPassengerCoach createSecondClassPassengerCoach() {
+		SecondClassPassengerCoachImpl secondClassPassengerCoach = new SecondClassPassengerCoachImpl();
+		return secondClassPassengerCoach;
 	}
 
 	/**

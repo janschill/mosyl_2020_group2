@@ -58,15 +58,6 @@ public interface DepotFactory extends EFactory {
 	Locomotive createLocomotive();
 
 	/**
-	 * Returns a new object of class '<em>Passenger Coach</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Passenger Coach</em>'.
-	 * @generated
-	 */
-	PassengerCoach createPassengerCoach();
-
-	/**
 	 * Returns a new object of class '<em>Dining Coach</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,6 +65,24 @@ public interface DepotFactory extends EFactory {
 	 * @generated
 	 */
 	DiningCoach createDiningCoach();
+
+	/**
+	 * Returns a new object of class '<em>First Class Passenger Coach</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>First Class Passenger Coach</em>'.
+	 * @generated
+	 */
+	FirstClassPassengerCoach createFirstClassPassengerCoach();
+
+	/**
+	 * Returns a new object of class '<em>Second Class Passenger Coach</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Second Class Passenger Coach</em>'.
+	 * @generated
+	 */
+	SecondClassPassengerCoach createSecondClassPassengerCoach();
 
 	/**
 	 * Returns the package supported by this factory.

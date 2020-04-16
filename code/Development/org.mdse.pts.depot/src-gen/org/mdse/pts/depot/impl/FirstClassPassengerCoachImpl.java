@@ -3,23 +3,24 @@
 package org.mdse.pts.depot.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.mdse.pts.depot.DepotPackage;
-import org.mdse.pts.depot.PassengerCoach;
+import org.mdse.pts.depot.FirstClassPassengerCoach;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Passenger Coach</b></em>'.
+ * An implementation of the model object '<em><b>First Class Passenger Coach</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class PassengerCoachImpl extends InnerCoachImpl implements PassengerCoach {
+public class FirstClassPassengerCoachImpl extends PassengerCoachImpl implements FirstClassPassengerCoach {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PassengerCoachImpl() {
+	protected FirstClassPassengerCoachImpl() {
 		super();
 	}
 
@@ -30,7 +31,7 @@ public abstract class PassengerCoachImpl extends InnerCoachImpl implements Passe
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DepotPackage.Literals.PASSENGER_COACH;
+		return DepotPackage.Literals.FIRST_CLASS_PASSENGER_COACH;
 	}
 
-} //PassengerCoachImpl
+} //FirstClassPassengerCoachImpl
