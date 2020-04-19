@@ -31,6 +31,60 @@ public interface DepotFactory extends EFactory {
 	Depot createDepot();
 
 	/**
+	 * Returns a new object of class '<em>Regional Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Regional Train</em>'.
+	 * @generated
+	 */
+	RegionalTrain createRegionalTrain();
+
+	/**
+	 * Returns a new object of class '<em>Intercity Train</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Intercity Train</em>'.
+	 * @generated
+	 */
+	IntercityTrain createIntercityTrain();
+
+	/**
+	 * Returns a new object of class '<em>Locomotive</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Locomotive</em>'.
+	 * @generated
+	 */
+	Locomotive createLocomotive();
+
+	/**
+	 * Returns a new object of class '<em>Dining Coach</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dining Coach</em>'.
+	 * @generated
+	 */
+	DiningCoach createDiningCoach();
+
+	/**
+	 * Returns a new object of class '<em>First Class Passenger Coach</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>First Class Passenger Coach</em>'.
+	 * @generated
+	 */
+	FirstClassPassengerCoach createFirstClassPassengerCoach();
+
+	/**
+	 * Returns a new object of class '<em>Second Class Passenger Coach</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Second Class Passenger Coach</em>'.
+	 * @generated
+	 */
+	SecondClassPassengerCoach createSecondClassPassengerCoach();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

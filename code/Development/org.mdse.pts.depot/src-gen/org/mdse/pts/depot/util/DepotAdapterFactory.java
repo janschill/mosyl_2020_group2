@@ -72,6 +72,50 @@ public class DepotAdapterFactory extends AdapterFactoryImpl {
 				return createDepotAdapter();
 			}
 			@Override
+			public Adapter caseTrain(Train object) {
+				return createTrainAdapter();
+			}
+			@Override
+			public Adapter caseCoach(Coach object) {
+				return createCoachAdapter();
+			}
+			@Override
+			public Adapter caseRegionalTrain(RegionalTrain object) {
+				return createRegionalTrainAdapter();
+			}
+			@Override
+			public Adapter caseIntercityTrain(IntercityTrain object) {
+				return createIntercityTrainAdapter();
+			}
+			@Override
+			public Adapter caseLocomotive(Locomotive object) {
+				return createLocomotiveAdapter();
+			}
+			@Override
+			public Adapter casePassengerCoach(PassengerCoach object) {
+				return createPassengerCoachAdapter();
+			}
+			@Override
+			public Adapter caseDiningCoach(DiningCoach object) {
+				return createDiningCoachAdapter();
+			}
+			@Override
+			public Adapter caseInnerCoach(InnerCoach object) {
+				return createInnerCoachAdapter();
+			}
+			@Override
+			public Adapter caseOuterCoach(OuterCoach object) {
+				return createOuterCoachAdapter();
+			}
+			@Override
+			public Adapter caseFirstClassPassengerCoach(FirstClassPassengerCoach object) {
+				return createFirstClassPassengerCoachAdapter();
+			}
+			@Override
+			public Adapter caseSecondClassPassengerCoach(SecondClassPassengerCoach object) {
+				return createSecondClassPassengerCoachAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -102,6 +146,160 @@ public class DepotAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDepotAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.Train <em>Train</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.Train
+	 * @generated
+	 */
+	public Adapter createTrainAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.Coach <em>Coach</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.Coach
+	 * @generated
+	 */
+	public Adapter createCoachAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.RegionalTrain <em>Regional Train</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.RegionalTrain
+	 * @generated
+	 */
+	public Adapter createRegionalTrainAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.IntercityTrain <em>Intercity Train</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.IntercityTrain
+	 * @generated
+	 */
+	public Adapter createIntercityTrainAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.Locomotive <em>Locomotive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.Locomotive
+	 * @generated
+	 */
+	public Adapter createLocomotiveAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.PassengerCoach <em>Passenger Coach</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.PassengerCoach
+	 * @generated
+	 */
+	public Adapter createPassengerCoachAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.DiningCoach <em>Dining Coach</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.DiningCoach
+	 * @generated
+	 */
+	public Adapter createDiningCoachAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.InnerCoach <em>Inner Coach</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.InnerCoach
+	 * @generated
+	 */
+	public Adapter createInnerCoachAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.OuterCoach <em>Outer Coach</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.OuterCoach
+	 * @generated
+	 */
+	public Adapter createOuterCoachAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.FirstClassPassengerCoach <em>First Class Passenger Coach</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.FirstClassPassengerCoach
+	 * @generated
+	 */
+	public Adapter createFirstClassPassengerCoachAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.depot.SecondClassPassengerCoach <em>Second Class Passenger Coach</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.depot.SecondClassPassengerCoach
+	 * @generated
+	 */
+	public Adapter createSecondClassPassengerCoachAdapter() {
 		return null;
 	}
 
