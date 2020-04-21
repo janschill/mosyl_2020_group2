@@ -7,6 +7,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="withDepot" lowerBound="1"
         upperBound="-1" eType="ecore:EClass ../../org.mdse.pts.depot/model/Depot.ecore#//Depot"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Date">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" eType="#//Day"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hour" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Day">
+    <eLiterals name="Monday" value="1"/>
+    <eLiterals name="Tuesday" value="2"/>
+    <eLiterals name="Wednesday" value="3"/>
+    <eLiterals name="Thursday" value="4"/>
+    <eLiterals name="Friday" value="5"/>
+    <eLiterals name="Saturday" value="6"/>
+    <eLiterals name="Sunday" value="7"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NetworkReference">
     <eStructuralFeatures xsi:type="ecore:EReference" name="for" lowerBound="1" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Network"/>
   </eClassifiers>
