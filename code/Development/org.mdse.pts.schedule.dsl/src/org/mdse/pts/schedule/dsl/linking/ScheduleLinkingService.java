@@ -14,6 +14,7 @@ public class ScheduleLinkingService extends DefaultLinkingService {
 	public List<EObject> getLinkedObjects(EObject context, EReference reference, INode node) throws IllegalNodeException {
 		//TODO Implement custom linking service if needed.
 		
+		
 		return super.getLinkedObjects(context, reference, node);
 	}
 	
