@@ -2,4 +2,27 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="timetable" nsURI="http://mdse.org/pts/timetable" nsPrefix="timetable">
   <eClassifiers xsi:type="ecore:EClass" name="Timetable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Arrival" eSuperTypes="#//Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fromStation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Departure" eSuperTypes="#//Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toStation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entry" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" unique="false" lowerBound="1"
+        eType="#//Day"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hour" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="train" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="platform" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Day">
+    <eLiterals name="Monday"/>
+    <eLiterals name="Tuesday" value="1"/>
+    <eLiterals name="Wednesday" value="2"/>
+    <eLiterals name="Thursday" value="3"/>
+    <eLiterals name="Friday" value="4"/>
+    <eLiterals name="Saturday" value="5"/>
+    <eLiterals name="Sunday" value="6"/>
+  </eClassifiers>
 </ecore:EPackage>
