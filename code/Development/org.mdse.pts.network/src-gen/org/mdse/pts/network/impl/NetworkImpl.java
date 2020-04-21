@@ -84,7 +84,7 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	protected EList<Leg> legs;
 
 	/**
-	 * The cached value of the '{@link #getCountry() <em>Country</em>}' containment reference.
+	 * The cached value of the '{@link #getCountry() <em>Country</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCountry()
@@ -94,7 +94,7 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	protected Country country;
 
 	/**
-	 * The cached value of the '{@link #getRegion() <em>Region</em>}' containment reference.
+	 * The cached value of the '{@link #getRegion() <em>Region</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRegion()
@@ -178,6 +178,14 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 */
 	@Override
 	public Country getCountry() {
+		if (country != null && country.eIsProxy()) {
+			InternalEObject oldCountry = (InternalEObject)country;
+			country = (Country)eResolveProxy(oldCountry);
+			if (country != oldCountry) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NetworkPackage.NETWORK__COUNTRY, oldCountry, country));
+			}
+		}
 		return country;
 	}
 
@@ -186,14 +194,8 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCountry(Country newCountry, NotificationChain msgs) {
-		Country oldCountry = country;
-		country = newCountry;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NetworkPackage.NETWORK__COUNTRY, oldCountry, newCountry);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Country basicGetCountry() {
+		return country;
 	}
 
 	/**
@@ -203,17 +205,10 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 */
 	@Override
 	public void setCountry(Country newCountry) {
-		if (newCountry != country) {
-			NotificationChain msgs = null;
-			if (country != null)
-				msgs = ((InternalEObject)country).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NetworkPackage.NETWORK__COUNTRY, null, msgs);
-			if (newCountry != null)
-				msgs = ((InternalEObject)newCountry).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NetworkPackage.NETWORK__COUNTRY, null, msgs);
-			msgs = basicSetCountry(newCountry, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NetworkPackage.NETWORK__COUNTRY, newCountry, newCountry));
+		Country oldCountry = country;
+		country = newCountry;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NetworkPackage.NETWORK__COUNTRY, oldCountry, country));
 	}
 
 	/**
@@ -223,6 +218,14 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 */
 	@Override
 	public Region getRegion() {
+		if (region != null && region.eIsProxy()) {
+			InternalEObject oldRegion = (InternalEObject)region;
+			region = (Region)eResolveProxy(oldRegion);
+			if (region != oldRegion) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NetworkPackage.NETWORK__REGION, oldRegion, region));
+			}
+		}
 		return region;
 	}
 
@@ -231,14 +234,8 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRegion(Region newRegion, NotificationChain msgs) {
-		Region oldRegion = region;
-		region = newRegion;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, NetworkPackage.NETWORK__REGION, oldRegion, newRegion);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Region basicGetRegion() {
+		return region;
 	}
 
 	/**
@@ -248,17 +245,10 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 */
 	@Override
 	public void setRegion(Region newRegion) {
-		if (newRegion != region) {
-			NotificationChain msgs = null;
-			if (region != null)
-				msgs = ((InternalEObject)region).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - NetworkPackage.NETWORK__REGION, null, msgs);
-			if (newRegion != null)
-				msgs = ((InternalEObject)newRegion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - NetworkPackage.NETWORK__REGION, null, msgs);
-			msgs = basicSetRegion(newRegion, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, NetworkPackage.NETWORK__REGION, newRegion, newRegion));
+		Region oldRegion = region;
+		region = newRegion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NetworkPackage.NETWORK__REGION, oldRegion, region));
 	}
 
 	/**
@@ -273,10 +263,6 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 				return ((InternalEList<?>)getStations()).basicRemove(otherEnd, msgs);
 			case NetworkPackage.NETWORK__LEGS:
 				return ((InternalEList<?>)getLegs()).basicRemove(otherEnd, msgs);
-			case NetworkPackage.NETWORK__COUNTRY:
-				return basicSetCountry(null, msgs);
-			case NetworkPackage.NETWORK__REGION:
-				return basicSetRegion(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -296,9 +282,11 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 			case NetworkPackage.NETWORK__LEGS:
 				return getLegs();
 			case NetworkPackage.NETWORK__COUNTRY:
-				return getCountry();
+				if (resolve) return getCountry();
+				return basicGetCountry();
 			case NetworkPackage.NETWORK__REGION:
-				return getRegion();
+				if (resolve) return getRegion();
+				return basicGetRegion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

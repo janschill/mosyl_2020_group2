@@ -96,7 +96,7 @@ public interface NetworkPackage extends EPackage {
 	int NETWORK__LEGS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Country</b></em>' containment reference.
+	 * The feature id for the '<em><b>Country</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -105,7 +105,7 @@ public interface NetworkPackage extends EPackage {
 	int NETWORK__COUNTRY = 3;
 
 	/**
-	 * The feature id for the '<em><b>Region</b></em>' containment reference.
+	 * The feature id for the '<em><b>Region</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -352,10 +352,10 @@ public interface NetworkPackage extends EPackage {
 	EReference getNetwork_Legs();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.mdse.pts.network.Network#getCountry <em>Country</em>}'.
+	 * Returns the meta object for the reference '{@link org.mdse.pts.network.Network#getCountry <em>Country</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Country</em>'.
+	 * @return the meta object for the reference '<em>Country</em>'.
 	 * @see org.mdse.pts.network.Network#getCountry()
 	 * @see #getNetwork()
 	 * @generated
@@ -363,10 +363,10 @@ public interface NetworkPackage extends EPackage {
 	EReference getNetwork_Country();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.mdse.pts.network.Network#getRegion <em>Region</em>}'.
+	 * Returns the meta object for the reference '{@link org.mdse.pts.network.Network#getRegion <em>Region</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Region</em>'.
+	 * @return the meta object for the reference '<em>Region</em>'.
 	 * @see org.mdse.pts.network.Network#getRegion()
 	 * @see #getNetwork()
 	 * @generated
@@ -548,7 +548,7 @@ public interface NetworkPackage extends EPackage {
 		EReference NETWORK__LEGS = eINSTANCE.getNetwork_Legs();
 
 		/**
-		 * The meta object literal for the '<em><b>Country</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Country</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -556,7 +556,7 @@ public interface NetworkPackage extends EPackage {
 		EReference NETWORK__COUNTRY = eINSTANCE.getNetwork_Country();
 
 		/**
-		 * The meta object literal for the '<em><b>Region</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Region</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

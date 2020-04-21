@@ -75,44 +75,44 @@ public interface Network extends EObject {
 	EList<Leg> getLegs();
 
 	/**
-	 * Returns the value of the '<em><b>Country</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Country</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Country</em>' containment reference.
+	 * @return the value of the '<em>Country</em>' reference.
 	 * @see #setCountry(Country)
 	 * @see org.mdse.pts.network.NetworkPackage#getNetwork_Country()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	Country getCountry();
 
 	/**
-	 * Sets the value of the '{@link org.mdse.pts.network.Network#getCountry <em>Country</em>}' containment reference.
+	 * Sets the value of the '{@link org.mdse.pts.network.Network#getCountry <em>Country</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Country</em>' containment reference.
+	 * @param value the new value of the '<em>Country</em>' reference.
 	 * @see #getCountry()
 	 * @generated
 	 */
 	void setCountry(Country value);
 
 	/**
-	 * Returns the value of the '<em><b>Region</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Region</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Region</em>' containment reference.
+	 * @return the value of the '<em>Region</em>' reference.
 	 * @see #setRegion(Region)
 	 * @see org.mdse.pts.network.NetworkPackage#getNetwork_Region()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	Region getRegion();
 
 	/**
-	 * Sets the value of the '{@link org.mdse.pts.network.Network#getRegion <em>Region</em>}' containment reference.
+	 * Sets the value of the '{@link org.mdse.pts.network.Network#getRegion <em>Region</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Region</em>' containment reference.
+	 * @param value the new value of the '<em>Region</em>' reference.
 	 * @see #getRegion()
 	 * @generated
 	 */
