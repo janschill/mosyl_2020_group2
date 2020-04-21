@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ui.IStartup;
+import org.mdse.pts.schedule.Date;
 import org.mdse.pts.schedule.Schedule;
 import org.mdse.pts.schedule.SchedulePackage;
 
@@ -43,30 +44,30 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 		this.diagnostics = diagnostics;
 		
 		if(SchedulePackage.eINSTANCE.getSchedule().equals(eClass)) {
-			Schedule schedule = (Schedule) eObject;
-			modelIsValid &= validateSchedule(schedule);
+			Date date = (Date) eObject;
+			modelIsValid &= validateDate(date);
 		}
 		
 		return modelIsValid;
 	}
 	
-	protected boolean validateSchedule(Schedule schedule) {
+	protected boolean validateDate(Date date) {
 		boolean modelIsValid = true;
 		
-		modelIsValid &= validateScheduleHasNetwork(schedule);
+		modelIsValid &= validateTime(date);
 		
 		return modelIsValid;
 	}
 	
-	protected boolean validateScheduleHasNetwork(Schedule schedule) {
+	protected boolean validateTime(Date date) {
 		boolean constraintViolated = false;
 		
-		if(schedule.getNetworkReference().getFor() == null) { 
+		if(date.getHour()<0 && date.getHour()>23 && date.getMinute()<0 && date.getMinute()>59) { 
 		constraintViolated = true;
 		}
 		
 		if(constraintViolated) {
-			return constraintViolated(schedule, "Network not defined for this schedule.");
+			return constraintViolated(date, date.getDay()+" has inappropriate time. (Hours should be 00-23 and minutes 00-59");
 		}
 	
 		return true;

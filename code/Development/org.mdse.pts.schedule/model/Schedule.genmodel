@@ -9,9 +9,23 @@
   <foreignModel>Schedule.ecore</foreignModel>
   <genPackages prefix="Schedule" basePackage="org.mdse.pts" disposableProviderFactory="true"
       ecorePackage="Schedule.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Schedule.ecore#//Day">
+      <genEnumLiterals ecoreEnumLiteral="Schedule.ecore#//Day/Monday"/>
+      <genEnumLiterals ecoreEnumLiteral="Schedule.ecore#//Day/Tuesday"/>
+      <genEnumLiterals ecoreEnumLiteral="Schedule.ecore#//Day/Wednesday"/>
+      <genEnumLiterals ecoreEnumLiteral="Schedule.ecore#//Day/Thursday"/>
+      <genEnumLiterals ecoreEnumLiteral="Schedule.ecore#//Day/Friday"/>
+      <genEnumLiterals ecoreEnumLiteral="Schedule.ecore#//Day/Saturday"/>
+      <genEnumLiterals ecoreEnumLiteral="Schedule.ecore#//Day/Sunday"/>
+    </genEnums>
     <genClasses ecoreClass="Schedule.ecore#//Schedule">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Schedule.ecore#//Schedule/networkReference"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Schedule.ecore#//Schedule/withDepot"/>
+    </genClasses>
+    <genClasses ecoreClass="Schedule.ecore#//Date">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//Date/day"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//Date/hour"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//Date/minute"/>
     </genClasses>
     <genClasses ecoreClass="Schedule.ecore#//NetworkReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Schedule.ecore#//NetworkReference/for"/>
