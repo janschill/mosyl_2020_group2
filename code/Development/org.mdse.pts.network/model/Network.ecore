@@ -15,7 +15,7 @@
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="NetworkNameUnique" value="&#xA;&#x9;&#x9;&#x9;Network.allInstances()->isUnique(name)"/>
-      <details key="LegMustCarryNameWhenAnotherLegExistsBtwnSameStations" value="&#xA;&#x9;&#x9;&#x9;legs->forAll(l |&#xA;&#x9;&#x9;&#x9;&#x9;not l.name.oclIsUndefined())"/>
+      <details key="LegMustCarryNameWhenAnotherLegExistsBtwnSameStations" value="&#xA;&#x9;&#x9;&#x9;self.legs->forAll(leg1 |&#xA;&#x9;&#x9;&#x9;&#x9;self.legs->forAll(leg2 |&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;leg1 &lt;> leg2 implies&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;leg1.stations->includesAll(leg2.stations) implies &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;leg1.name &lt;> leg2.name&#xA;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stations" upperBound="-1"
@@ -34,11 +34,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Leg">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="DistanceMustBePositiveInteger LegMustCarryNameWhenAnotherLegExistsBtwnSameStations"/>
+      <details key="constraints" value="DistanceMustBePositiveInteger"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="DistanceMustBePositiveInteger" value="&#xA;&#x9;&#x9;&#x9;distance > 0"/>
-      <details key="LegMustCarryNameWhenAnotherLegExistsBtwnSameStations" value="&#xA;&#x9;&#x9;&#x9;not self.name.oclIsUndefined()"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" lowerBound="1"
