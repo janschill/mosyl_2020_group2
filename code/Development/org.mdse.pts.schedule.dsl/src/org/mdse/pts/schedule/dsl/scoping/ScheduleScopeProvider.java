@@ -19,6 +19,7 @@ public class ScheduleScopeProvider extends AbstractScheduleScopeProvider {
 	public IScope getScope(EObject context, EReference reference) {
 		//TODO: Implement custom scope provider if needed.
 		
+		
 		return super.getScope(context, reference);
 	}
 }
