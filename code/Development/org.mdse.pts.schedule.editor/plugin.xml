@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Schedule -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.mdse.pts.schedule.presentation.ScheduleModelWizardID"
+            name="%_UI_ScheduleModelWizard_label"
+            class="org.mdse.pts.schedule.presentation.ScheduleModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ScheduleModelFile.gif">
+         <description>%_UI_ScheduleModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Schedule -->
+      <editor
+            id="org.mdse.pts.schedule.presentation.ScheduleEditorID"
+            name="%_UI_ScheduleEditor_label"
+            icon="icons/full/obj16/ScheduleModelFile.gif"
+            extensions="schedule"
+            class="org.mdse.pts.schedule.presentation.ScheduleEditor"
+            contributorClass="org.mdse.pts.schedule.presentation.ScheduleActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
