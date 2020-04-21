@@ -11,10 +11,11 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Network">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="NetworkNameUnique"/>
+      <details key="constraints" value="NetworkNameUnique LegMustCarryNameWhenAnotherLegExistsBtwnSameStations"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="NetworkNameUnique" value="&#xA;&#x9;&#x9;&#x9;Network.allInstances()->isUnique(name)"/>
+      <details key="LegMustCarryNameWhenAnotherLegExistsBtwnSameStations" value="&#xA;&#x9;&#x9;&#x9;legs->forAll(l |&#xA;&#x9;&#x9;&#x9;&#x9;not l.name.oclIsUndefined())"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stations" upperBound="-1"
@@ -32,6 +33,13 @@
         eOpposite="#//Leg/stations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Leg">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="DistanceMustBePositiveInteger LegMustCarryNameWhenAnotherLegExistsBtwnSameStations"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="DistanceMustBePositiveInteger" value="&#xA;&#x9;&#x9;&#x9;distance > 0"/>
+      <details key="LegMustCarryNameWhenAnotherLegExistsBtwnSameStations" value="&#xA;&#x9;&#x9;&#x9;not self.name.oclIsUndefined()"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
