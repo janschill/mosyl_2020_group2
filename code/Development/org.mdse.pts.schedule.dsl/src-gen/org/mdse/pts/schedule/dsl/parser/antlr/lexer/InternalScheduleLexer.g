@@ -13,7 +13,11 @@ import org.eclipse.xtext.parser.antlr.Lexer;
 
 Schedule : ('S'|'s')('C'|'c')('H'|'h')('E'|'e')('D'|'d')('U'|'u')('L'|'l')('E'|'e');
 
+With : ('W'|'w')('I'|'i')('T'|'t')('H'|'h');
+
 For : ('F'|'f')('O'|'o')('R'|'r');
+
+Colon : ':';
 
 fragment RULE_LETTER : ('a'..'z'|'A'..'Z');
 

@@ -5,8 +5,12 @@ package org.mdse.pts.schedule.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.mdse.pts.depot.DepotPackage;
+import org.mdse.pts.network.NetworkPackage;
+import org.mdse.pts.schedule.NetworkReference;
 import org.mdse.pts.schedule.Schedule;
 import org.mdse.pts.schedule.ScheduleFactory;
 import org.mdse.pts.schedule.SchedulePackage;
@@ -24,6 +28,13 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * @generated
 	 */
 	private EClass scheduleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass networkReferenceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -72,6 +83,10 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		DepotPackage.eINSTANCE.eClass();
+		NetworkPackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theSchedulePackage.createPackageContents();
 
@@ -94,6 +109,46 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	@Override
 	public EClass getSchedule() {
 		return scheduleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSchedule_NetworkReference() {
+		return (EReference)scheduleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSchedule_WithDepot() {
+		return (EReference)scheduleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNetworkReference() {
+		return networkReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNetworkReference_For() {
+		return (EReference)networkReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -126,6 +181,11 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 
 		// Create classes and their features
 		scheduleEClass = createEClass(SCHEDULE);
+		createEReference(scheduleEClass, SCHEDULE__NETWORK_REFERENCE);
+		createEReference(scheduleEClass, SCHEDULE__WITH_DEPOT);
+
+		networkReferenceEClass = createEClass(NETWORK_REFERENCE);
+		createEReference(networkReferenceEClass, NETWORK_REFERENCE__FOR);
 	}
 
 	/**
@@ -151,6 +211,10 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		DepotPackage theDepotPackage = (DepotPackage)EPackage.Registry.INSTANCE.getEPackage(DepotPackage.eNS_URI);
+		NetworkPackage theNetworkPackage = (NetworkPackage)EPackage.Registry.INSTANCE.getEPackage(NetworkPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -159,6 +223,11 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(scheduleEClass, Schedule.class, "Schedule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSchedule_NetworkReference(), this.getNetworkReference(), null, "networkReference", null, 1, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchedule_WithDepot(), theDepotPackage.getDepot(), null, "withDepot", null, 1, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(networkReferenceEClass, NetworkReference.class, "NetworkReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNetworkReference_For(), theNetworkPackage.getNetwork(), null, "for", null, 1, 1, NetworkReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

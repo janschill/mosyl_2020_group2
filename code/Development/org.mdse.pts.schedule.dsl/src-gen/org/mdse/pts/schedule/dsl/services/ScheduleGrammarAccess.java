@@ -6,12 +6,14 @@ package org.mdse.pts.schedule.dsl.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Action;
+import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
 import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
+import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
@@ -23,28 +25,76 @@ public class ScheduleGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.Schedule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cScheduleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cForKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Action cScheduleAction_2 = (Action)cGroup.eContents().get(2);
+		private final Assignment cNetworkReferenceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNetworkReferenceNetworkReferenceParserRuleCall_1_0 = (RuleCall)cNetworkReferenceAssignment_1.eContents().get(0);
+		private final Keyword cWithKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cWithDepotAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cWithDepotDepotCrossReference_3_0 = (CrossReference)cWithDepotAssignment_3.eContents().get(0);
+		private final RuleCall cWithDepotDepotIDTerminalRuleCall_3_0_1 = (RuleCall)cWithDepotDepotCrossReference_3_0.eContents().get(1);
+		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Schedule:
-		//	"schedule" "for" {Schedule};
+		//	"schedule" networkReference=NetworkReference "with" withDepot+=[depot::Depot] ":";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"schedule" "for" {Schedule}
+		//"schedule" networkReference=NetworkReference "with" withDepot+=[depot::Depot] ":"
 		public Group getGroup() { return cGroup; }
 		
 		//"schedule"
 		public Keyword getScheduleKeyword_0() { return cScheduleKeyword_0; }
 		
-		//"for"
-		public Keyword getForKeyword_1() { return cForKeyword_1; }
+		//networkReference=NetworkReference
+		public Assignment getNetworkReferenceAssignment_1() { return cNetworkReferenceAssignment_1; }
 		
-		//{Schedule}
-		public Action getScheduleAction_2() { return cScheduleAction_2; }
+		//NetworkReference
+		public RuleCall getNetworkReferenceNetworkReferenceParserRuleCall_1_0() { return cNetworkReferenceNetworkReferenceParserRuleCall_1_0; }
+		
+		//"with"
+		public Keyword getWithKeyword_2() { return cWithKeyword_2; }
+		
+		//withDepot+=[depot::Depot]
+		public Assignment getWithDepotAssignment_3() { return cWithDepotAssignment_3; }
+		
+		//[depot::Depot]
+		public CrossReference getWithDepotDepotCrossReference_3_0() { return cWithDepotDepotCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getWithDepotDepotIDTerminalRuleCall_3_0_1() { return cWithDepotDepotIDTerminalRuleCall_3_0_1; }
+		
+		//":"
+		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
+	}
+	public class NetworkReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.NetworkReference");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cForKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cForAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cForNetworkCrossReference_1_0 = (CrossReference)cForAssignment_1.eContents().get(0);
+		private final RuleCall cForNetworkIDTerminalRuleCall_1_0_1 = (RuleCall)cForNetworkCrossReference_1_0.eContents().get(1);
+		
+		//NetworkReference:
+		//	"for" for=[network::Network];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"for" for=[network::Network]
+		public Group getGroup() { return cGroup; }
+		
+		//"for"
+		public Keyword getForKeyword_0() { return cForKeyword_0; }
+		
+		//for=[network::Network]
+		public Assignment getForAssignment_1() { return cForAssignment_1; }
+		
+		//[network::Network]
+		public CrossReference getForNetworkCrossReference_1_0() { return cForNetworkCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getForNetworkIDTerminalRuleCall_1_0_1() { return cForNetworkIDTerminalRuleCall_1_0_1; }
 	}
 	
 	
 	private final ScheduleElements pSchedule;
+	private final NetworkReferenceElements pNetworkReference;
 	private final TerminalRule tLETTER;
 	private final TerminalRule tDIGIT;
 	private final TerminalRule tID;
@@ -60,6 +110,7 @@ public class ScheduleGrammarAccess extends AbstractGrammarElementFinder {
 	public ScheduleGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.pSchedule = new ScheduleElements();
+		this.pNetworkReference = new NetworkReferenceElements();
 		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.LETTER");
 		this.tDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.DIGIT");
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.ID");
@@ -94,13 +145,23 @@ public class ScheduleGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Schedule:
-	//	"schedule" "for" {Schedule};
+	//	"schedule" networkReference=NetworkReference "with" withDepot+=[depot::Depot] ":";
 	public ScheduleElements getScheduleAccess() {
 		return pSchedule;
 	}
 	
 	public ParserRule getScheduleRule() {
 		return getScheduleAccess().getRule();
+	}
+	
+	//NetworkReference:
+	//	"for" for=[network::Network];
+	public NetworkReferenceElements getNetworkReferenceAccess() {
+		return pNetworkReference;
+	}
+	
+	public ParserRule getNetworkReferenceRule() {
+		return getNetworkReferenceAccess().getRule();
 	}
 	
 	//terminal fragment LETTER:

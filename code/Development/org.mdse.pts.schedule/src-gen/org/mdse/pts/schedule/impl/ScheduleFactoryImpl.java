@@ -57,6 +57,7 @@ public class ScheduleFactoryImpl extends EFactoryImpl implements ScheduleFactory
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case SchedulePackage.SCHEDULE: return createSchedule();
+			case SchedulePackage.NETWORK_REFERENCE: return createNetworkReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -71,6 +72,17 @@ public class ScheduleFactoryImpl extends EFactoryImpl implements ScheduleFactory
 	public Schedule createSchedule() {
 		ScheduleImpl schedule = new ScheduleImpl();
 		return schedule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NetworkReference createNetworkReference() {
+		NetworkReferenceImpl networkReference = new NetworkReferenceImpl();
+		return networkReference;
 	}
 
 	/**

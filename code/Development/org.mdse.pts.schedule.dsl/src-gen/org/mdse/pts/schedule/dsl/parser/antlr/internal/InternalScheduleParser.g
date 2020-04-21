@@ -73,16 +73,81 @@ ruleSchedule returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getScheduleAccess().getScheduleKeyword_0());
 		}
-		otherlv_1=For
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getScheduleAccess().getNetworkReferenceNetworkReferenceParserRuleCall_1_0());
+				}
+				lv_networkReference_1_0=ruleNetworkReference
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getScheduleRule());
+					}
+					set(
+						$current,
+						"networkReference",
+						lv_networkReference_1_0,
+						"org.mdse.pts.schedule.dsl.Schedule.NetworkReference");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2=With
 		{
-			newLeafNode(otherlv_1, grammarAccess.getScheduleAccess().getForKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getScheduleAccess().getWithKeyword_2());
 		}
 		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getScheduleAccess().getScheduleAction_2(),
-					$current);
-			}
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getScheduleRule());
+					}
+				}
+				otherlv_3=RULE_ID
+				{
+					newLeafNode(otherlv_3, grammarAccess.getScheduleAccess().getWithDepotDepotCrossReference_3_0());
+				}
+			)
+		)
+		otherlv_4=Colon
+		{
+			newLeafNode(otherlv_4, grammarAccess.getScheduleAccess().getColonKeyword_4());
+		}
+	)
+;
+
+// Entry rule entryRuleNetworkReference
+entryRuleNetworkReference returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNetworkReferenceRule()); }
+	iv_ruleNetworkReference=ruleNetworkReference
+	{ $current=$iv_ruleNetworkReference.current; }
+	EOF;
+
+// Rule NetworkReference
+ruleNetworkReference returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0=For
+		{
+			newLeafNode(otherlv_0, grammarAccess.getNetworkReferenceAccess().getForKeyword_0());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getNetworkReferenceRule());
+					}
+				}
+				otherlv_1=RULE_ID
+				{
+					newLeafNode(otherlv_1, grammarAccess.getNetworkReferenceAccess().getForNetworkCrossReference_1_0());
+				}
+			)
 		)
 	)
 ;

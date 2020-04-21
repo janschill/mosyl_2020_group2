@@ -61,6 +61,10 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 	protected boolean validateScheduleHasNetwork(Schedule schedule) {
 		boolean constraintViolated = false;
 		
+		if(schedule.getNetworkReference().getFor() == null) { 
+		constraintViolated = true;
+		}
+		
 		if(constraintViolated) {
 			return constraintViolated(schedule, "Network not defined for this schedule.");
 		}

@@ -31,6 +31,15 @@ public interface ScheduleFactory extends EFactory {
 	Schedule createSchedule();
 
 	/**
+	 * Returns a new object of class '<em>Network Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Network Reference</em>'.
+	 * @generated
+	 */
+	NetworkReference createNetworkReference();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

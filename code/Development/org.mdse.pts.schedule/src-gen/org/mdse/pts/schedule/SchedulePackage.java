@@ -4,6 +4,7 @@ package org.mdse.pts.schedule;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,13 +66,31 @@ public interface SchedulePackage extends EPackage {
 	int SCHEDULE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Network Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__NETWORK_REFERENCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>With Depot</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__WITH_DEPOT = 1;
+
+	/**
 	 * The number of structural features of the '<em>Schedule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_FEATURE_COUNT = 0;
+	int SCHEDULE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Schedule</em>' class.
@@ -84,6 +103,44 @@ public interface SchedulePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.mdse.pts.schedule.impl.NetworkReferenceImpl <em>Network Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.mdse.pts.schedule.impl.NetworkReferenceImpl
+	 * @see org.mdse.pts.schedule.impl.SchedulePackageImpl#getNetworkReference()
+	 * @generated
+	 */
+	int NETWORK_REFERENCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>For</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_REFERENCE__FOR = 0;
+
+	/**
+	 * The number of structural features of the '<em>Network Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_REFERENCE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Network Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_REFERENCE_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.mdse.pts.schedule.Schedule <em>Schedule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +149,49 @@ public interface SchedulePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSchedule();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.mdse.pts.schedule.Schedule#getNetworkReference <em>Network Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Network Reference</em>'.
+	 * @see org.mdse.pts.schedule.Schedule#getNetworkReference()
+	 * @see #getSchedule()
+	 * @generated
+	 */
+	EReference getSchedule_NetworkReference();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.mdse.pts.schedule.Schedule#getWithDepot <em>With Depot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>With Depot</em>'.
+	 * @see org.mdse.pts.schedule.Schedule#getWithDepot()
+	 * @see #getSchedule()
+	 * @generated
+	 */
+	EReference getSchedule_WithDepot();
+
+	/**
+	 * Returns the meta object for class '{@link org.mdse.pts.schedule.NetworkReference <em>Network Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Network Reference</em>'.
+	 * @see org.mdse.pts.schedule.NetworkReference
+	 * @generated
+	 */
+	EClass getNetworkReference();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.mdse.pts.schedule.NetworkReference#getFor <em>For</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>For</em>'.
+	 * @see org.mdse.pts.schedule.NetworkReference#getFor()
+	 * @see #getNetworkReference()
+	 * @generated
+	 */
+	EReference getNetworkReference_For();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -125,6 +225,36 @@ public interface SchedulePackage extends EPackage {
 		 * @generated
 		 */
 		EClass SCHEDULE = eINSTANCE.getSchedule();
+		/**
+		 * The meta object literal for the '<em><b>Network Reference</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEDULE__NETWORK_REFERENCE = eINSTANCE.getSchedule_NetworkReference();
+		/**
+		 * The meta object literal for the '<em><b>With Depot</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEDULE__WITH_DEPOT = eINSTANCE.getSchedule_WithDepot();
+		/**
+		 * The meta object literal for the '{@link org.mdse.pts.schedule.impl.NetworkReferenceImpl <em>Network Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.mdse.pts.schedule.impl.NetworkReferenceImpl
+		 * @see org.mdse.pts.schedule.impl.SchedulePackageImpl#getNetworkReference()
+		 * @generated
+		 */
+		EClass NETWORK_REFERENCE = eINSTANCE.getNetworkReference();
+		/**
+		 * The meta object literal for the '<em><b>For</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NETWORK_REFERENCE__FOR = eINSTANCE.getNetworkReference_For();
 
 	}
 

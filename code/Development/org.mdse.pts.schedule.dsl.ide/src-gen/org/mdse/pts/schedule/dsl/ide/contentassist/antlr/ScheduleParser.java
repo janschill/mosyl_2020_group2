@@ -32,6 +32,10 @@ public class ScheduleParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, ScheduleGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getScheduleAccess().getGroup(), "rule__Schedule__Group__0");
+			builder.put(grammarAccess.getNetworkReferenceAccess().getGroup(), "rule__NetworkReference__Group__0");
+			builder.put(grammarAccess.getScheduleAccess().getNetworkReferenceAssignment_1(), "rule__Schedule__NetworkReferenceAssignment_1");
+			builder.put(grammarAccess.getScheduleAccess().getWithDepotAssignment_3(), "rule__Schedule__WithDepotAssignment_3");
+			builder.put(grammarAccess.getNetworkReferenceAccess().getForAssignment_1(), "rule__NetworkReference__ForAssignment_1");
 		}
 	}
 	

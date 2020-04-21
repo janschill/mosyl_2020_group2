@@ -11,7 +11,10 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.mdse.pts.schedule.NetworkReference;
 import org.mdse.pts.schedule.Schedule;
 import org.mdse.pts.schedule.SchedulePackage;
 import org.mdse.pts.schedule.dsl.services.ScheduleGrammarAccess;
@@ -30,6 +33,9 @@ public class ScheduleSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SchedulePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case SchedulePackage.NETWORK_REFERENCE:
+				sequence_NetworkReference(context, (NetworkReference) semanticObject); 
+				return; 
 			case SchedulePackage.SCHEDULE:
 				sequence_Schedule(context, (Schedule) semanticObject); 
 				return; 
@@ -40,10 +46,28 @@ public class ScheduleSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     NetworkReference returns NetworkReference
+	 *
+	 * Constraint:
+	 *     for=[Network|ID]
+	 */
+	protected void sequence_NetworkReference(ISerializationContext context, NetworkReference semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SchedulePackage.Literals.NETWORK_REFERENCE__FOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchedulePackage.Literals.NETWORK_REFERENCE__FOR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNetworkReferenceAccess().getForNetworkIDTerminalRuleCall_1_0_1(), semanticObject.eGet(SchedulePackage.Literals.NETWORK_REFERENCE__FOR, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Schedule returns Schedule
 	 *
 	 * Constraint:
-	 *     {Schedule}
+	 *     (networkReference=NetworkReference withDepot+=[Depot|ID])
 	 */
 	protected void sequence_Schedule(ISerializationContext context, Schedule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

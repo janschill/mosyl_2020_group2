@@ -12,16 +12,18 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalScheduleLexer extends Lexer {
-    public static final int RULE_ID=8;
-    public static final int RULE_WS=13;
-    public static final int For=5;
-    public static final int RULE_DIGIT=7;
-    public static final int RULE_STRING=10;
-    public static final int RULE_SL_COMMENT=12;
-    public static final int RULE_LETTER=6;
-    public static final int RULE_INT=9;
+    public static final int RULE_ID=10;
+    public static final int RULE_WS=15;
+    public static final int For=6;
+    public static final int RULE_DIGIT=9;
+    public static final int RULE_STRING=12;
+    public static final int With=5;
+    public static final int RULE_SL_COMMENT=14;
+    public static final int RULE_LETTER=8;
+    public static final int RULE_INT=11;
     public static final int Schedule=4;
-    public static final int RULE_ML_COMMENT=11;
+    public static final int RULE_ML_COMMENT=13;
+    public static final int Colon=7;
     public static final int EOF=-1;
 
     // delegates
@@ -128,13 +130,68 @@ public class InternalScheduleLexer extends Lexer {
     }
     // $ANTLR end "Schedule"
 
+    // $ANTLR start "With"
+    public final void mWith() throws RecognitionException {
+        try {
+            int _type = With;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalScheduleLexer.g:16:6: ( ( 'W' | 'w' ) ( 'I' | 'i' ) ( 'T' | 't' ) ( 'H' | 'h' ) )
+            // InternalScheduleLexer.g:16:8: ( 'W' | 'w' ) ( 'I' | 'i' ) ( 'T' | 't' ) ( 'H' | 'h' )
+            {
+            if ( input.LA(1)=='W'||input.LA(1)=='w' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+            if ( input.LA(1)=='H'||input.LA(1)=='h' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "With"
+
     // $ANTLR start "For"
     public final void mFor() throws RecognitionException {
         try {
             int _type = For;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalScheduleLexer.g:16:5: ( ( 'F' | 'f' ) ( 'O' | 'o' ) ( 'R' | 'r' ) )
-            // InternalScheduleLexer.g:16:7: ( 'F' | 'f' ) ( 'O' | 'o' ) ( 'R' | 'r' )
+            // InternalScheduleLexer.g:18:5: ( ( 'F' | 'f' ) ( 'O' | 'o' ) ( 'R' | 'r' ) )
+            // InternalScheduleLexer.g:18:7: ( 'F' | 'f' ) ( 'O' | 'o' ) ( 'R' | 'r' )
             {
             if ( input.LA(1)=='F'||input.LA(1)=='f' ) {
                 input.consume();
@@ -174,11 +231,31 @@ public class InternalScheduleLexer extends Lexer {
     }
     // $ANTLR end "For"
 
+    // $ANTLR start "Colon"
+    public final void mColon() throws RecognitionException {
+        try {
+            int _type = Colon;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalScheduleLexer.g:20:7: ( ':' )
+            // InternalScheduleLexer.g:20:9: ':'
+            {
+            match(':'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "Colon"
+
     // $ANTLR start "RULE_LETTER"
     public final void mRULE_LETTER() throws RecognitionException {
         try {
-            // InternalScheduleLexer.g:18:22: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
-            // InternalScheduleLexer.g:18:24: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // InternalScheduleLexer.g:22:22: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
+            // InternalScheduleLexer.g:22:24: ( 'a' .. 'z' | 'A' .. 'Z' )
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -201,8 +278,8 @@ public class InternalScheduleLexer extends Lexer {
     // $ANTLR start "RULE_DIGIT"
     public final void mRULE_DIGIT() throws RecognitionException {
         try {
-            // InternalScheduleLexer.g:20:21: ( '0' .. '9' )
-            // InternalScheduleLexer.g:20:23: '0' .. '9'
+            // InternalScheduleLexer.g:24:21: ( '0' .. '9' )
+            // InternalScheduleLexer.g:24:23: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -219,10 +296,10 @@ public class InternalScheduleLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalScheduleLexer.g:22:9: ( ( '^' )? ( '_' | RULE_LETTER ) ( '_' | RULE_LETTER | RULE_DIGIT )* )
-            // InternalScheduleLexer.g:22:11: ( '^' )? ( '_' | RULE_LETTER ) ( '_' | RULE_LETTER | RULE_DIGIT )*
+            // InternalScheduleLexer.g:26:9: ( ( '^' )? ( '_' | RULE_LETTER ) ( '_' | RULE_LETTER | RULE_DIGIT )* )
+            // InternalScheduleLexer.g:26:11: ( '^' )? ( '_' | RULE_LETTER ) ( '_' | RULE_LETTER | RULE_DIGIT )*
             {
-            // InternalScheduleLexer.g:22:11: ( '^' )?
+            // InternalScheduleLexer.g:26:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -231,7 +308,7 @@ public class InternalScheduleLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalScheduleLexer.g:22:11: '^'
+                    // InternalScheduleLexer.g:26:11: '^'
                     {
                     match('^'); 
 
@@ -249,7 +326,7 @@ public class InternalScheduleLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalScheduleLexer.g:22:34: ( '_' | RULE_LETTER | RULE_DIGIT )*
+            // InternalScheduleLexer.g:26:34: ( '_' | RULE_LETTER | RULE_DIGIT )*
             loop2:
             do {
                 int alt2=2;
@@ -298,10 +375,10 @@ public class InternalScheduleLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalScheduleLexer.g:24:10: ( ( RULE_DIGIT )+ )
-            // InternalScheduleLexer.g:24:12: ( RULE_DIGIT )+
+            // InternalScheduleLexer.g:28:10: ( ( RULE_DIGIT )+ )
+            // InternalScheduleLexer.g:28:12: ( RULE_DIGIT )+
             {
-            // InternalScheduleLexer.g:24:12: ( RULE_DIGIT )+
+            // InternalScheduleLexer.g:28:12: ( RULE_DIGIT )+
             int cnt3=0;
             loop3:
             do {
@@ -315,7 +392,7 @@ public class InternalScheduleLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalScheduleLexer.g:24:12: RULE_DIGIT
+            	    // InternalScheduleLexer.g:28:12: RULE_DIGIT
             	    {
             	    mRULE_DIGIT(); 
 
@@ -347,11 +424,11 @@ public class InternalScheduleLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalScheduleLexer.g:26:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // InternalScheduleLexer.g:26:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // InternalScheduleLexer.g:30:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // InternalScheduleLexer.g:30:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // InternalScheduleLexer.g:26:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+            // InternalScheduleLexer.g:30:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
             loop4:
             do {
                 int alt4=3;
@@ -367,7 +444,7 @@ public class InternalScheduleLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalScheduleLexer.g:26:20: '\\\\' .
+            	    // InternalScheduleLexer.g:30:20: '\\\\' .
             	    {
             	    match('\\'); 
             	    matchAny(); 
@@ -375,7 +452,7 @@ public class InternalScheduleLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // InternalScheduleLexer.g:26:27: ~ ( ( '\\\\' | '\"' ) )
+            	    // InternalScheduleLexer.g:30:27: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -412,12 +489,12 @@ public class InternalScheduleLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalScheduleLexer.g:28:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalScheduleLexer.g:28:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalScheduleLexer.g:32:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalScheduleLexer.g:32:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalScheduleLexer.g:28:24: ( options {greedy=false; } : . )*
+            // InternalScheduleLexer.g:32:24: ( options {greedy=false; } : . )*
             loop5:
             do {
                 int alt5=2;
@@ -442,7 +519,7 @@ public class InternalScheduleLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalScheduleLexer.g:28:52: .
+            	    // InternalScheduleLexer.g:32:52: .
             	    {
             	    matchAny(); 
 
@@ -472,12 +549,12 @@ public class InternalScheduleLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalScheduleLexer.g:30:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalScheduleLexer.g:30:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalScheduleLexer.g:34:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalScheduleLexer.g:34:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalScheduleLexer.g:30:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalScheduleLexer.g:34:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop6:
             do {
                 int alt6=2;
@@ -490,7 +567,7 @@ public class InternalScheduleLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // InternalScheduleLexer.g:30:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalScheduleLexer.g:34:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -510,7 +587,7 @@ public class InternalScheduleLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalScheduleLexer.g:30:40: ( ( '\\r' )? '\\n' )?
+            // InternalScheduleLexer.g:34:40: ( ( '\\r' )? '\\n' )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -519,9 +596,9 @@ public class InternalScheduleLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalScheduleLexer.g:30:41: ( '\\r' )? '\\n'
+                    // InternalScheduleLexer.g:34:41: ( '\\r' )? '\\n'
                     {
-                    // InternalScheduleLexer.g:30:41: ( '\\r' )?
+                    // InternalScheduleLexer.g:34:41: ( '\\r' )?
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
@@ -530,7 +607,7 @@ public class InternalScheduleLexer extends Lexer {
                     }
                     switch (alt7) {
                         case 1 :
-                            // InternalScheduleLexer.g:30:41: '\\r'
+                            // InternalScheduleLexer.g:34:41: '\\r'
                             {
                             match('\r'); 
 
@@ -562,10 +639,10 @@ public class InternalScheduleLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalScheduleLexer.g:32:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalScheduleLexer.g:32:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalScheduleLexer.g:36:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalScheduleLexer.g:36:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalScheduleLexer.g:32:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalScheduleLexer.g:36:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt9=0;
             loop9:
             do {
@@ -615,8 +692,8 @@ public class InternalScheduleLexer extends Lexer {
     // $ANTLR end "RULE_WS"
 
     public void mTokens() throws RecognitionException {
-        // InternalScheduleLexer.g:1:8: ( Schedule | For | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS )
-        int alt10=8;
+        // InternalScheduleLexer.g:1:8: ( Schedule | With | For | Colon | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS )
+        int alt10=10;
         alt10 = dfa10.predict(input);
         switch (alt10) {
             case 1 :
@@ -627,49 +704,63 @@ public class InternalScheduleLexer extends Lexer {
                 }
                 break;
             case 2 :
-                // InternalScheduleLexer.g:1:19: For
+                // InternalScheduleLexer.g:1:19: With
+                {
+                mWith(); 
+
+                }
+                break;
+            case 3 :
+                // InternalScheduleLexer.g:1:24: For
                 {
                 mFor(); 
 
                 }
                 break;
-            case 3 :
-                // InternalScheduleLexer.g:1:23: RULE_ID
+            case 4 :
+                // InternalScheduleLexer.g:1:28: Colon
+                {
+                mColon(); 
+
+                }
+                break;
+            case 5 :
+                // InternalScheduleLexer.g:1:34: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 4 :
-                // InternalScheduleLexer.g:1:31: RULE_INT
+            case 6 :
+                // InternalScheduleLexer.g:1:42: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 5 :
-                // InternalScheduleLexer.g:1:40: RULE_STRING
+            case 7 :
+                // InternalScheduleLexer.g:1:51: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 6 :
-                // InternalScheduleLexer.g:1:52: RULE_ML_COMMENT
+            case 8 :
+                // InternalScheduleLexer.g:1:63: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 7 :
-                // InternalScheduleLexer.g:1:68: RULE_SL_COMMENT
+            case 9 :
+                // InternalScheduleLexer.g:1:79: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 8 :
-                // InternalScheduleLexer.g:1:84: RULE_WS
+            case 10 :
+                // InternalScheduleLexer.g:1:95: RULE_WS
                 {
                 mRULE_WS(); 
 
@@ -683,38 +774,44 @@ public class InternalScheduleLexer extends Lexer {
 
     protected DFA10 dfa10 = new DFA10(this);
     static final String DFA10_eotS =
-        "\1\uffff\2\3\5\uffff\2\3\2\uffff\1\3\1\17\1\3\1\uffff\3\3\1\24\1\uffff";
+        "\1\uffff\3\5\6\uffff\3\5\2\uffff\2\5\1\24\1\5\1\26\1\uffff\1\5\1\uffff\2\5\1\32\1\uffff";
     static final String DFA10_eofS =
-        "\25\uffff";
+        "\33\uffff";
     static final String DFA10_minS =
-        "\1\11\1\103\1\117\3\uffff\1\52\1\uffff\1\110\1\122\2\uffff\1\105\1\60\1\104\1\uffff\1\125\1\114\1\105\1\60\1\uffff";
+        "\1\11\1\103\1\111\1\117\4\uffff\1\52\1\uffff\1\110\1\124\1\122\2\uffff\1\105\1\110\1\60\1\104\1\60\1\uffff\1\125\1\uffff\1\114\1\105\1\60\1\uffff";
     static final String DFA10_maxS =
-        "\1\172\1\143\1\157\3\uffff\1\57\1\uffff\1\150\1\162\2\uffff\1\145\1\172\1\144\1\uffff\1\165\1\154\1\145\1\172\1\uffff";
+        "\1\172\1\143\1\151\1\157\4\uffff\1\57\1\uffff\1\150\1\164\1\162\2\uffff\1\145\1\150\1\172\1\144\1\172\1\uffff\1\165\1\uffff\1\154\1\145\1\172\1\uffff";
     static final String DFA10_acceptS =
-        "\3\uffff\1\3\1\4\1\5\1\uffff\1\10\2\uffff\1\6\1\7\3\uffff\1\2\4\uffff\1\1";
+        "\4\uffff\1\4\1\5\1\6\1\7\1\uffff\1\12\3\uffff\1\10\1\11\5\uffff\1\3\1\uffff\1\2\3\uffff\1\1";
     static final String DFA10_specialS =
-        "\25\uffff}>";
+        "\33\uffff}>";
     static final String[] DFA10_transitionS = {
-            "\2\7\2\uffff\1\7\22\uffff\1\7\1\uffff\1\5\14\uffff\1\6\12\4\7\uffff\5\3\1\2\14\3\1\1\7\3\3\uffff\2\3\1\uffff\5\3\1\2\14\3\1\1\7\3",
-            "\1\10\37\uffff\1\10",
-            "\1\11\37\uffff\1\11",
-            "",
-            "",
-            "",
-            "\1\12\4\uffff\1\13",
-            "",
+            "\2\11\2\uffff\1\11\22\uffff\1\11\1\uffff\1\7\14\uffff\1\10\12\6\1\4\6\uffff\5\5\1\3\14\5\1\1\3\5\1\2\3\5\3\uffff\2\5\1\uffff\5\5\1\3\14\5\1\1\3\5\1\2\3\5",
+            "\1\12\37\uffff\1\12",
+            "\1\13\37\uffff\1\13",
             "\1\14\37\uffff\1\14",
-            "\1\15\37\uffff\1\15",
             "",
             "",
-            "\1\16\37\uffff\1\16",
-            "\12\3\7\uffff\32\3\4\uffff\1\3\1\uffff\32\3",
+            "",
+            "",
+            "\1\15\4\uffff\1\16",
+            "",
+            "\1\17\37\uffff\1\17",
             "\1\20\37\uffff\1\20",
-            "",
             "\1\21\37\uffff\1\21",
+            "",
+            "",
             "\1\22\37\uffff\1\22",
             "\1\23\37\uffff\1\23",
-            "\12\3\7\uffff\32\3\4\uffff\1\3\1\uffff\32\3",
+            "\12\5\7\uffff\32\5\4\uffff\1\5\1\uffff\32\5",
+            "\1\25\37\uffff\1\25",
+            "\12\5\7\uffff\32\5\4\uffff\1\5\1\uffff\32\5",
+            "",
+            "\1\27\37\uffff\1\27",
+            "",
+            "\1\30\37\uffff\1\30",
+            "\1\31\37\uffff\1\31",
+            "\12\5\7\uffff\32\5\4\uffff\1\5\1\uffff\32\5",
             ""
     };
 
@@ -748,7 +845,7 @@ public class InternalScheduleLexer extends Lexer {
             this.transition = DFA10_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( Schedule | For | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS );";
+            return "1:1: Tokens : ( Schedule | With | For | Colon | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS );";
         }
     }
  
