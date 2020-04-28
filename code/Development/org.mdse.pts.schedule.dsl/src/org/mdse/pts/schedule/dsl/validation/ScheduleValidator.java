@@ -62,7 +62,7 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 	protected boolean validateTime(Date date) {
 		boolean constraintViolated = false;
 		
-		if(date.getHour()<0 && date.getHour()>23 && date.getMinute()<0 && date.getMinute()>59) { 
+		if(date.getHour()<0 || date.getHour()>23 || date.getMinute()<0 || date.getMinute()>59) { 
 		constraintViolated = true;
 		}
 		

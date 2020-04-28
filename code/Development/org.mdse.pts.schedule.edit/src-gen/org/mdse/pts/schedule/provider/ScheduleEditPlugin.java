@@ -5,6 +5,8 @@ package org.mdse.pts.schedule.provider;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.mdse.pts.depot.provider.DepotEditPlugin;
+import org.mdse.pts.network.provider.NetworkEditPlugin;
 
 /**
  * This is the central singleton for the Schedule edit plugin.
@@ -38,6 +40,8 @@ public final class ScheduleEditPlugin extends EMFPlugin {
 	public ScheduleEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     DepotEditPlugin.INSTANCE,
+		     NetworkEditPlugin.INSTANCE,
 		   });
 	}
 

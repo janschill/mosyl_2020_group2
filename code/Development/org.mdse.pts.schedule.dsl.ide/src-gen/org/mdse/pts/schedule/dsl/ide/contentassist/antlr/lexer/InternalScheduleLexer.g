@@ -11,11 +11,13 @@ package org.mdse.pts.schedule.dsl.ide.contentassist.antlr.lexer;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
 }
 
-Schedule : ('S'|'s')('C'|'c')('H'|'h')('E'|'e')('D'|'d')('U'|'u')('L'|'l')('E'|'e');
+SCHEDULE : ('S'|'s')('C'|'c')('H'|'h')('E'|'e')('D'|'d')('U'|'u')('L'|'l')('E'|'e');
 
-With : ('W'|'w')('I'|'i')('T'|'t')('H'|'h');
+TRAIN : ('T'|'t')('R'|'r')('A'|'a')('I'|'i')('N'|'n');
 
-For : ('F'|'f')('O'|'o')('R'|'r');
+WITH : ('W'|'w')('I'|'i')('T'|'t')('H'|'h');
+
+FOR : ('F'|'f')('O'|'o')('R'|'r');
 
 Colon : ':';
 

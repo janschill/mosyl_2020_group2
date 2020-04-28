@@ -24,77 +24,128 @@ public class ScheduleGrammarAccess extends AbstractGrammarElementFinder {
 	public class ScheduleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.Schedule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cScheduleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNetworkReferenceAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNetworkReferenceNetworkReferenceParserRuleCall_1_0 = (RuleCall)cNetworkReferenceAssignment_1.eContents().get(0);
-		private final Keyword cWithKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cWithDepotAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cWithDepotDepotCrossReference_3_0 = (CrossReference)cWithDepotAssignment_3.eContents().get(0);
-		private final RuleCall cWithDepotDepotIDTerminalRuleCall_3_0_1 = (RuleCall)cWithDepotDepotCrossReference_3_0.eContents().get(1);
-		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cSCHEDULEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cFORKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNetworkReferenceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNetworkReferenceNetworkReferenceParserRuleCall_2_0 = (RuleCall)cNetworkReferenceAssignment_2.eContents().get(0);
+		private final Keyword cWITHKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cDepotReferenceAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDepotReferenceDepotReferenceParserRuleCall_4_0 = (RuleCall)cDepotReferenceAssignment_4.eContents().get(0);
+		private final Keyword cColonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cTRAINKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cTrainReferenceAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTrainReferenceTrainReferenceParserRuleCall_7_0 = (RuleCall)cTrainReferenceAssignment_7.eContents().get(0);
 		
 		//Schedule:
-		//	"schedule" networkReference=NetworkReference "with" withDepot+=[depot::Depot] ":";
+		//	"SCHEDULE" "FOR"
+		//	networkReference=NetworkReference
+		//	"WITH"
+		//	depotReference+=DepotReference
+		//	":"
+		//	"TRAIN"
+		//	trainReference+=TrainReference;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"schedule" networkReference=NetworkReference "with" withDepot+=[depot::Depot] ":"
+		//"SCHEDULE" "FOR" networkReference=NetworkReference "WITH" depotReference+=DepotReference ":" "TRAIN"
+		//trainReference+=TrainReference
 		public Group getGroup() { return cGroup; }
 		
-		//"schedule"
-		public Keyword getScheduleKeyword_0() { return cScheduleKeyword_0; }
+		//"SCHEDULE"
+		public Keyword getSCHEDULEKeyword_0() { return cSCHEDULEKeyword_0; }
+		
+		//"FOR"
+		public Keyword getFORKeyword_1() { return cFORKeyword_1; }
 		
 		//networkReference=NetworkReference
-		public Assignment getNetworkReferenceAssignment_1() { return cNetworkReferenceAssignment_1; }
+		public Assignment getNetworkReferenceAssignment_2() { return cNetworkReferenceAssignment_2; }
 		
 		//NetworkReference
-		public RuleCall getNetworkReferenceNetworkReferenceParserRuleCall_1_0() { return cNetworkReferenceNetworkReferenceParserRuleCall_1_0; }
+		public RuleCall getNetworkReferenceNetworkReferenceParserRuleCall_2_0() { return cNetworkReferenceNetworkReferenceParserRuleCall_2_0; }
 		
-		//"with"
-		public Keyword getWithKeyword_2() { return cWithKeyword_2; }
+		//"WITH"
+		public Keyword getWITHKeyword_3() { return cWITHKeyword_3; }
 		
-		//withDepot+=[depot::Depot]
-		public Assignment getWithDepotAssignment_3() { return cWithDepotAssignment_3; }
+		//depotReference+=DepotReference
+		public Assignment getDepotReferenceAssignment_4() { return cDepotReferenceAssignment_4; }
 		
-		//[depot::Depot]
-		public CrossReference getWithDepotDepotCrossReference_3_0() { return cWithDepotDepotCrossReference_3_0; }
-		
-		//ID
-		public RuleCall getWithDepotDepotIDTerminalRuleCall_3_0_1() { return cWithDepotDepotIDTerminalRuleCall_3_0_1; }
+		//DepotReference
+		public RuleCall getDepotReferenceDepotReferenceParserRuleCall_4_0() { return cDepotReferenceDepotReferenceParserRuleCall_4_0; }
 		
 		//":"
-		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
+		public Keyword getColonKeyword_5() { return cColonKeyword_5; }
+		
+		//"TRAIN"
+		public Keyword getTRAINKeyword_6() { return cTRAINKeyword_6; }
+		
+		//trainReference+=TrainReference
+		public Assignment getTrainReferenceAssignment_7() { return cTrainReferenceAssignment_7; }
+		
+		//TrainReference
+		public RuleCall getTrainReferenceTrainReferenceParserRuleCall_7_0() { return cTrainReferenceTrainReferenceParserRuleCall_7_0; }
 	}
 	public class NetworkReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.NetworkReference");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cForKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cForAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cForNetworkCrossReference_1_0 = (CrossReference)cForAssignment_1.eContents().get(0);
-		private final RuleCall cForNetworkIDTerminalRuleCall_1_0_1 = (RuleCall)cForNetworkCrossReference_1_0.eContents().get(1);
+		private final Assignment cNetworkAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cNetworkNetworkCrossReference_0 = (CrossReference)cNetworkAssignment.eContents().get(0);
+		private final RuleCall cNetworkNetworkIDTerminalRuleCall_0_1 = (RuleCall)cNetworkNetworkCrossReference_0.eContents().get(1);
 		
 		//NetworkReference:
-		//	"for" for=[network::Network];
+		//	network=[networkM::Network];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"for" for=[network::Network]
-		public Group getGroup() { return cGroup; }
+		//network=[networkM::Network]
+		public Assignment getNetworkAssignment() { return cNetworkAssignment; }
 		
-		//"for"
-		public Keyword getForKeyword_0() { return cForKeyword_0; }
-		
-		//for=[network::Network]
-		public Assignment getForAssignment_1() { return cForAssignment_1; }
-		
-		//[network::Network]
-		public CrossReference getForNetworkCrossReference_1_0() { return cForNetworkCrossReference_1_0; }
+		//[networkM::Network]
+		public CrossReference getNetworkNetworkCrossReference_0() { return cNetworkNetworkCrossReference_0; }
 		
 		//ID
-		public RuleCall getForNetworkIDTerminalRuleCall_1_0_1() { return cForNetworkIDTerminalRuleCall_1_0_1; }
+		public RuleCall getNetworkNetworkIDTerminalRuleCall_0_1() { return cNetworkNetworkIDTerminalRuleCall_0_1; }
+	}
+	public class DepotReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.DepotReference");
+		private final Assignment cDepotAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cDepotDepotCrossReference_0 = (CrossReference)cDepotAssignment.eContents().get(0);
+		private final RuleCall cDepotDepotIDTerminalRuleCall_0_1 = (RuleCall)cDepotDepotCrossReference_0.eContents().get(1);
+		
+		//DepotReference:
+		//	depot=[depotM::Depot];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//depot=[depotM::Depot]
+		public Assignment getDepotAssignment() { return cDepotAssignment; }
+		
+		//[depotM::Depot]
+		public CrossReference getDepotDepotCrossReference_0() { return cDepotDepotCrossReference_0; }
+		
+		//ID
+		public RuleCall getDepotDepotIDTerminalRuleCall_0_1() { return cDepotDepotIDTerminalRuleCall_0_1; }
+	}
+	public class TrainReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.TrainReference");
+		private final Assignment cTrainAssignment = (Assignment)rule.eContents().get(1);
+		private final CrossReference cTrainTrainCrossReference_0 = (CrossReference)cTrainAssignment.eContents().get(0);
+		private final RuleCall cTrainTrainIDTerminalRuleCall_0_1 = (RuleCall)cTrainTrainCrossReference_0.eContents().get(1);
+		
+		//TrainReference:
+		//	train=[depotM::Train];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//train=[depotM::Train]
+		public Assignment getTrainAssignment() { return cTrainAssignment; }
+		
+		//[depotM::Train]
+		public CrossReference getTrainTrainCrossReference_0() { return cTrainTrainCrossReference_0; }
+		
+		//ID
+		public RuleCall getTrainTrainIDTerminalRuleCall_0_1() { return cTrainTrainIDTerminalRuleCall_0_1; }
 	}
 	
 	
 	private final ScheduleElements pSchedule;
 	private final NetworkReferenceElements pNetworkReference;
+	private final DepotReferenceElements pDepotReference;
+	private final TrainReferenceElements pTrainReference;
 	private final TerminalRule tLETTER;
 	private final TerminalRule tDIGIT;
 	private final TerminalRule tID;
@@ -111,6 +162,8 @@ public class ScheduleGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.pSchedule = new ScheduleElements();
 		this.pNetworkReference = new NetworkReferenceElements();
+		this.pDepotReference = new DepotReferenceElements();
+		this.pTrainReference = new TrainReferenceElements();
 		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.LETTER");
 		this.tDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.DIGIT");
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.mdse.pts.schedule.dsl.Schedule.ID");
@@ -145,7 +198,13 @@ public class ScheduleGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Schedule:
-	//	"schedule" networkReference=NetworkReference "with" withDepot+=[depot::Depot] ":";
+	//	"SCHEDULE" "FOR"
+	//	networkReference=NetworkReference
+	//	"WITH"
+	//	depotReference+=DepotReference
+	//	":"
+	//	"TRAIN"
+	//	trainReference+=TrainReference;
 	public ScheduleElements getScheduleAccess() {
 		return pSchedule;
 	}
@@ -155,13 +214,33 @@ public class ScheduleGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//NetworkReference:
-	//	"for" for=[network::Network];
+	//	network=[networkM::Network];
 	public NetworkReferenceElements getNetworkReferenceAccess() {
 		return pNetworkReference;
 	}
 	
 	public ParserRule getNetworkReferenceRule() {
 		return getNetworkReferenceAccess().getRule();
+	}
+	
+	//DepotReference:
+	//	depot=[depotM::Depot];
+	public DepotReferenceElements getDepotReferenceAccess() {
+		return pDepotReference;
+	}
+	
+	public ParserRule getDepotReferenceRule() {
+		return getDepotReferenceAccess().getRule();
+	}
+	
+	//TrainReference:
+	//	train=[depotM::Train];
+	public TrainReferenceElements getTrainReferenceAccess() {
+		return pTrainReference;
+	}
+	
+	public ParserRule getTrainReferenceRule() {
+		return getTrainReferenceAccess().getRule();
 	}
 	
 	//terminal fragment LETTER:

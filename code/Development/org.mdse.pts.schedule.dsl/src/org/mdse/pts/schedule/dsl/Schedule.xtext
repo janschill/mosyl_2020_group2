@@ -1,7 +1,7 @@
 grammar org.mdse.pts.schedule.dsl.Schedule hidden(WS, ML_COMMENT, SL_COMMENT)
 
-import "http://mdse.org/pts/network" as network
-import "http://mdse.org/pts/depot" as depot
+import "http://mdse.org/pts/network" as networkM
+import "http://mdse.org/pts/depot" as depotM
 import "http://mdse.org/pts/schedule"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
@@ -9,13 +9,25 @@ Schedule:
 	"SCHEDULE" "FOR"
 	networkReference=NetworkReference
 	"WITH"
-	withDepot+=[depot::Depot] 
+	depotReference+=DepotReference
 	":" 
+	
+	"TRAIN"
+	trainReference+=TrainReference
 ;
 
 NetworkReference:
-for=[network::Network]	
+	network=[networkM::Network]
 ;
+
+DepotReference:
+	depot=[depotM::Depot]
+;
+
+TrainReference:
+	train=[depotM::Train]
+;
+
 
 //TODO: Define syntax rules
 

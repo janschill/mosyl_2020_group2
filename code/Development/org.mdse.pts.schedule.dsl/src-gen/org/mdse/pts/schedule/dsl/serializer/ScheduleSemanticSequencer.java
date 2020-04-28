@@ -14,9 +14,11 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.mdse.pts.schedule.DepotReference;
 import org.mdse.pts.schedule.NetworkReference;
 import org.mdse.pts.schedule.Schedule;
 import org.mdse.pts.schedule.SchedulePackage;
+import org.mdse.pts.schedule.TrainReference;
 import org.mdse.pts.schedule.dsl.services.ScheduleGrammarAccess;
 
 @SuppressWarnings("all")
@@ -33,11 +35,17 @@ public class ScheduleSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SchedulePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case SchedulePackage.DEPOT_REFERENCE:
+				sequence_DepotReference(context, (DepotReference) semanticObject); 
+				return; 
 			case SchedulePackage.NETWORK_REFERENCE:
 				sequence_NetworkReference(context, (NetworkReference) semanticObject); 
 				return; 
 			case SchedulePackage.SCHEDULE:
 				sequence_Schedule(context, (Schedule) semanticObject); 
+				return; 
+			case SchedulePackage.TRAIN_REFERENCE:
+				sequence_TrainReference(context, (TrainReference) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -46,18 +54,36 @@ public class ScheduleSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     DepotReference returns DepotReference
+	 *
+	 * Constraint:
+	 *     depot=[Depot|ID]
+	 */
+	protected void sequence_DepotReference(ISerializationContext context, DepotReference semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SchedulePackage.Literals.DEPOT_REFERENCE__DEPOT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchedulePackage.Literals.DEPOT_REFERENCE__DEPOT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDepotReferenceAccess().getDepotDepotIDTerminalRuleCall_0_1(), semanticObject.eGet(SchedulePackage.Literals.DEPOT_REFERENCE__DEPOT, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     NetworkReference returns NetworkReference
 	 *
 	 * Constraint:
-	 *     for=[Network|ID]
+	 *     network=[Network|ID]
 	 */
 	protected void sequence_NetworkReference(ISerializationContext context, NetworkReference semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SchedulePackage.Literals.NETWORK_REFERENCE__FOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchedulePackage.Literals.NETWORK_REFERENCE__FOR));
+			if (transientValues.isValueTransient(semanticObject, SchedulePackage.Literals.NETWORK_REFERENCE__NETWORK) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchedulePackage.Literals.NETWORK_REFERENCE__NETWORK));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getNetworkReferenceAccess().getForNetworkIDTerminalRuleCall_1_0_1(), semanticObject.eGet(SchedulePackage.Literals.NETWORK_REFERENCE__FOR, false));
+		feeder.accept(grammarAccess.getNetworkReferenceAccess().getNetworkNetworkIDTerminalRuleCall_0_1(), semanticObject.eGet(SchedulePackage.Literals.NETWORK_REFERENCE__NETWORK, false));
 		feeder.finish();
 	}
 	
@@ -67,10 +93,28 @@ public class ScheduleSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Schedule returns Schedule
 	 *
 	 * Constraint:
-	 *     (networkReference=NetworkReference withDepot+=[Depot|ID])
+	 *     (networkReference=NetworkReference depotReference+=DepotReference trainReference+=TrainReference)
 	 */
 	protected void sequence_Schedule(ISerializationContext context, Schedule semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     TrainReference returns TrainReference
+	 *
+	 * Constraint:
+	 *     train=[Train|ID]
+	 */
+	protected void sequence_TrainReference(ISerializationContext context, TrainReference semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SchedulePackage.Literals.TRAIN_REFERENCE__TRAIN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchedulePackage.Literals.TRAIN_REFERENCE__TRAIN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTrainReferenceAccess().getTrainTrainIDTerminalRuleCall_0_1(), semanticObject.eGet(SchedulePackage.Literals.TRAIN_REFERENCE__TRAIN, false));
+		feeder.finish();
 	}
 	
 	

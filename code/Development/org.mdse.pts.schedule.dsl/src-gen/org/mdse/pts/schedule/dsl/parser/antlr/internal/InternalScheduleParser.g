@@ -69,16 +69,20 @@ ruleSchedule returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0=Schedule
+		otherlv_0=SCHEDULE
 		{
-			newLeafNode(otherlv_0, grammarAccess.getScheduleAccess().getScheduleKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getScheduleAccess().getSCHEDULEKeyword_0());
+		}
+		otherlv_1=FOR
+		{
+			newLeafNode(otherlv_1, grammarAccess.getScheduleAccess().getFORKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getScheduleAccess().getNetworkReferenceNetworkReferenceParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getScheduleAccess().getNetworkReferenceNetworkReferenceParserRuleCall_2_0());
 				}
-				lv_networkReference_1_0=ruleNetworkReference
+				lv_networkReference_2_0=ruleNetworkReference
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getScheduleRule());
@@ -86,33 +90,62 @@ ruleSchedule returns [EObject current=null]
 					set(
 						$current,
 						"networkReference",
-						lv_networkReference_1_0,
+						lv_networkReference_2_0,
 						"org.mdse.pts.schedule.dsl.Schedule.NetworkReference");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_2=With
+		otherlv_3=WITH
 		{
-			newLeafNode(otherlv_2, grammarAccess.getScheduleAccess().getWithKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getScheduleAccess().getWITHKeyword_3());
 		}
 		(
 			(
 				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getScheduleRule());
-					}
+					newCompositeNode(grammarAccess.getScheduleAccess().getDepotReferenceDepotReferenceParserRuleCall_4_0());
 				}
-				otherlv_3=RULE_ID
+				lv_depotReference_4_0=ruleDepotReference
 				{
-					newLeafNode(otherlv_3, grammarAccess.getScheduleAccess().getWithDepotDepotCrossReference_3_0());
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getScheduleRule());
+					}
+					add(
+						$current,
+						"depotReference",
+						lv_depotReference_4_0,
+						"org.mdse.pts.schedule.dsl.Schedule.DepotReference");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_4=Colon
+		otherlv_5=Colon
 		{
-			newLeafNode(otherlv_4, grammarAccess.getScheduleAccess().getColonKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getScheduleAccess().getColonKeyword_5());
 		}
+		otherlv_6=TRAIN
+		{
+			newLeafNode(otherlv_6, grammarAccess.getScheduleAccess().getTRAINKeyword_6());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getScheduleAccess().getTrainReferenceTrainReferenceParserRuleCall_7_0());
+				}
+				lv_trainReference_7_0=ruleTrainReference
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getScheduleRule());
+					}
+					add(
+						$current,
+						"trainReference",
+						lv_trainReference_7_0,
+						"org.mdse.pts.schedule.dsl.Schedule.TrainReference");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
@@ -132,22 +165,76 @@ ruleNetworkReference returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0=For
-		{
-			newLeafNode(otherlv_0, grammarAccess.getNetworkReferenceAccess().getForKeyword_0());
-		}
 		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getNetworkReferenceRule());
-					}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getNetworkReferenceRule());
 				}
-				otherlv_1=RULE_ID
-				{
-					newLeafNode(otherlv_1, grammarAccess.getNetworkReferenceAccess().getForNetworkCrossReference_1_0());
+			}
+			otherlv_0=RULE_ID
+			{
+				newLeafNode(otherlv_0, grammarAccess.getNetworkReferenceAccess().getNetworkNetworkCrossReference_0());
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleDepotReference
+entryRuleDepotReference returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDepotReferenceRule()); }
+	iv_ruleDepotReference=ruleDepotReference
+	{ $current=$iv_ruleDepotReference.current; }
+	EOF;
+
+// Rule DepotReference
+ruleDepotReference returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getDepotReferenceRule());
 				}
-			)
+			}
+			otherlv_0=RULE_ID
+			{
+				newLeafNode(otherlv_0, grammarAccess.getDepotReferenceAccess().getDepotDepotCrossReference_0());
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleTrainReference
+entryRuleTrainReference returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTrainReferenceRule()); }
+	iv_ruleTrainReference=ruleTrainReference
+	{ $current=$iv_ruleTrainReference.current; }
+	EOF;
+
+// Rule TrainReference
+ruleTrainReference returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getTrainReferenceRule());
+				}
+			}
+			otherlv_0=RULE_ID
+			{
+				newLeafNode(otherlv_0, grammarAccess.getTrainReferenceAccess().getTrainTrainCrossReference_0());
+			}
 		)
 	)
 ;

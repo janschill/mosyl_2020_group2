@@ -95,6 +95,121 @@ public class ScheduleItemProviderAdapterFactory extends ScheduleAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.mdse.pts.schedule.DepotReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DepotReferenceItemProvider depotReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mdse.pts.schedule.DepotReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDepotReferenceAdapter() {
+		if (depotReferenceItemProvider == null) {
+			depotReferenceItemProvider = new DepotReferenceItemProvider(this);
+		}
+
+		return depotReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mdse.pts.schedule.Route} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RouteItemProvider routeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mdse.pts.schedule.Route}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRouteAdapter() {
+		if (routeItemProvider == null) {
+			routeItemProvider = new RouteItemProvider(this);
+		}
+
+		return routeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mdse.pts.schedule.NetworkReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NetworkReferenceItemProvider networkReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mdse.pts.schedule.NetworkReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNetworkReferenceAdapter() {
+		if (networkReferenceItemProvider == null) {
+			networkReferenceItemProvider = new NetworkReferenceItemProvider(this);
+		}
+
+		return networkReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mdse.pts.schedule.TrainReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TrainReferenceItemProvider trainReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mdse.pts.schedule.TrainReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTrainReferenceAdapter() {
+		if (trainReferenceItemProvider == null) {
+			trainReferenceItemProvider = new TrainReferenceItemProvider(this);
+		}
+
+		return trainReferenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.mdse.pts.schedule.Date} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DateItemProvider dateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.mdse.pts.schedule.Date}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDateAdapter() {
+		if (dateItemProvider == null) {
+			dateItemProvider = new DateItemProvider(this);
+		}
+
+		return dateItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -200,6 +315,11 @@ public class ScheduleItemProviderAdapterFactory extends ScheduleAdapterFactory i
 	@Override
 	public void dispose() {
 		if (scheduleItemProvider != null) scheduleItemProvider.dispose();
+		if (depotReferenceItemProvider != null) depotReferenceItemProvider.dispose();
+		if (routeItemProvider != null) routeItemProvider.dispose();
+		if (networkReferenceItemProvider != null) networkReferenceItemProvider.dispose();
+		if (trainReferenceItemProvider != null) trainReferenceItemProvider.dispose();
+		if (dateItemProvider != null) dateItemProvider.dispose();
 	}
 
 }

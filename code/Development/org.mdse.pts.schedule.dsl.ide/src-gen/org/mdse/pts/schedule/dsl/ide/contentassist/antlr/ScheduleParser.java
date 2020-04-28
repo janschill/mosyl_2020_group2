@@ -32,10 +32,12 @@ public class ScheduleParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, ScheduleGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getScheduleAccess().getGroup(), "rule__Schedule__Group__0");
-			builder.put(grammarAccess.getNetworkReferenceAccess().getGroup(), "rule__NetworkReference__Group__0");
-			builder.put(grammarAccess.getScheduleAccess().getNetworkReferenceAssignment_1(), "rule__Schedule__NetworkReferenceAssignment_1");
-			builder.put(grammarAccess.getScheduleAccess().getWithDepotAssignment_3(), "rule__Schedule__WithDepotAssignment_3");
-			builder.put(grammarAccess.getNetworkReferenceAccess().getForAssignment_1(), "rule__NetworkReference__ForAssignment_1");
+			builder.put(grammarAccess.getScheduleAccess().getNetworkReferenceAssignment_2(), "rule__Schedule__NetworkReferenceAssignment_2");
+			builder.put(grammarAccess.getScheduleAccess().getDepotReferenceAssignment_4(), "rule__Schedule__DepotReferenceAssignment_4");
+			builder.put(grammarAccess.getScheduleAccess().getTrainReferenceAssignment_7(), "rule__Schedule__TrainReferenceAssignment_7");
+			builder.put(grammarAccess.getNetworkReferenceAccess().getNetworkAssignment(), "rule__NetworkReference__NetworkAssignment");
+			builder.put(grammarAccess.getDepotReferenceAccess().getDepotAssignment(), "rule__DepotReference__DepotAssignment");
+			builder.put(grammarAccess.getTrainReferenceAccess().getTrainAssignment(), "rule__TrainReference__TrainAssignment");
 		}
 	}
 	

@@ -11,26 +11,28 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.mdse.pts.schedule.Schedule;
-import org.mdse.pts.schedule.ScheduleFactory;
+
+import org.mdse.pts.schedule.Date;
+import org.mdse.pts.schedule.Day;
 import org.mdse.pts.schedule.SchedulePackage;
 
 /**
- * This is the item provider adapter for a {@link org.mdse.pts.schedule.Schedule} object.
+ * This is the item provider adapter for a {@link org.mdse.pts.schedule.Date} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ScheduleItemProvider 
+public class DateItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -44,7 +46,7 @@ public class ScheduleItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ScheduleItemProvider(AdapterFactory adapterFactory) {
+	public DateItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -59,51 +61,88 @@ public class ScheduleItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDayPropertyDescriptor(object);
+			addHourPropertyDescriptor(object);
+			addMinutePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Day feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(SchedulePackage.Literals.SCHEDULE__NETWORK_REFERENCE);
-			childrenFeatures.add(SchedulePackage.Literals.SCHEDULE__DEPOT_REFERENCE);
-			childrenFeatures.add(SchedulePackage.Literals.SCHEDULE__TRAIN_REFERENCE);
-		}
-		return childrenFeatures;
+	protected void addDayPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Date_day_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Date_day_feature", "_UI_Date_type"),
+				 SchedulePackage.Literals.DATE__DAY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This adds a property descriptor for the Hour feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addHourPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Date_hour_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Date_hour_feature", "_UI_Date_type"),
+				 SchedulePackage.Literals.DATE__HOUR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns Schedule.gif.
+	 * This adds a property descriptor for the Minute feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinutePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Date_minute_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Date_minute_feature", "_UI_Date_type"),
+				 SchedulePackage.Literals.DATE__MINUTE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns Date.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Schedule"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Date"));
 	}
 
 	/**
@@ -114,7 +153,11 @@ public class ScheduleItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Schedule_type");
+		Day labelValue = ((Date)object).getDay();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Date_type") :
+			getString("_UI_Date_type") + " " + label;
 	}
 
 
@@ -129,11 +172,11 @@ public class ScheduleItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Schedule.class)) {
-			case SchedulePackage.SCHEDULE__NETWORK_REFERENCE:
-			case SchedulePackage.SCHEDULE__DEPOT_REFERENCE:
-			case SchedulePackage.SCHEDULE__TRAIN_REFERENCE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(Date.class)) {
+			case SchedulePackage.DATE__DAY:
+			case SchedulePackage.DATE__HOUR:
+			case SchedulePackage.DATE__MINUTE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -149,21 +192,6 @@ public class ScheduleItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SchedulePackage.Literals.SCHEDULE__NETWORK_REFERENCE,
-				 ScheduleFactory.eINSTANCE.createNetworkReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SchedulePackage.Literals.SCHEDULE__DEPOT_REFERENCE,
-				 ScheduleFactory.eINSTANCE.createDepotReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SchedulePackage.Literals.SCHEDULE__TRAIN_REFERENCE,
-				 ScheduleFactory.eINSTANCE.createTrainReference()));
 	}
 
 	/**

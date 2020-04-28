@@ -158,6 +158,8 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.mdse.pts.schedule.provider.ScheduleItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.mdse.pts.depot.provider.DepotItemProviderAdapterFactory;
+import org.mdse.pts.network.provider.NetworkItemProviderAdapterFactory;
 
 
 /**
@@ -711,6 +713,8 @@ public class ScheduleEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ScheduleItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new DepotItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new NetworkItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

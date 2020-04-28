@@ -4,8 +4,29 @@
   <eClassifiers xsi:type="ecore:EClass" name="Schedule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="networkReference" lowerBound="1"
         eType="#//NetworkReference" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="withDepot" lowerBound="1"
-        upperBound="-1" eType="ecore:EClass ../../org.mdse.pts.depot/model/Depot.ecore#//Depot"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="depotReference" upperBound="-1"
+        eType="#//DepotReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trainReference" upperBound="-1"
+        eType="#//TrainReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DepotReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="depot" eType="ecore:EClass ../../org.mdse.pts.depot/model/Depot.ecore#//Depot"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Route">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="date" lowerBound="1" upperBound="-1"
+        eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="start" lowerBound="1" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Station"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="terminate" lowerBound="1"
+        eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Station"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="drive" upperBound="-1"
+        eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Leg"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stop" upperBound="-1" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Station"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="network" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Network"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TrainReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="train" eType="ecore:EClass ../../org.mdse.pts.depot/model/Depot.ecore#//Train"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Date">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" eType="#//Day"/>
@@ -20,8 +41,5 @@
     <eLiterals name="Friday" value="4"/>
     <eLiterals name="Saturday" value="5"/>
     <eLiterals name="Sunday" value="6"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NetworkReference">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="for" lowerBound="1" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Network"/>
   </eClassifiers>
 </ecore:EPackage>
