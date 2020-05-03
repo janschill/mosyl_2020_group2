@@ -9,7 +9,8 @@ Bundle-Activator: org.mdse.pts.timetable.presentation.TimetableEditorPlugin$Impl
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: org.mdse.pts.timetable.presentation
+Export-Package: org.mdse.pts.timetable.presentation,
+ time.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.mdse.pts.timetable.edit;visibility:=reexport,

@@ -8,15 +8,6 @@
   <foreignModel>Timetable.ecore</foreignModel>
   <genPackages prefix="Timetable" basePackage="org.mdse.pts" disposableProviderFactory="true"
       ecorePackage="Timetable.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Timetable.ecore#//Day">
-      <genEnumLiterals ecoreEnumLiteral="Timetable.ecore#//Day/Monday"/>
-      <genEnumLiterals ecoreEnumLiteral="Timetable.ecore#//Day/Tuesday"/>
-      <genEnumLiterals ecoreEnumLiteral="Timetable.ecore#//Day/Wednesday"/>
-      <genEnumLiterals ecoreEnumLiteral="Timetable.ecore#//Day/Thursday"/>
-      <genEnumLiterals ecoreEnumLiteral="Timetable.ecore#//Day/Friday"/>
-      <genEnumLiterals ecoreEnumLiteral="Timetable.ecore#//Day/Saturday"/>
-      <genEnumLiterals ecoreEnumLiteral="Timetable.ecore#//Day/Sunday"/>
-    </genEnums>
     <genClasses ecoreClass="Timetable.ecore#//Timetable">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Timetable.ecore#//Timetable/entries"/>
     </genClasses>
@@ -27,11 +18,25 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timetable.ecore#//Departure/toStation"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Timetable.ecore#//Entry">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timetable.ecore#//Entry/day"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timetable.ecore#//Entry/hour"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timetable.ecore#//Entry/minute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timetable.ecore#//Entry/train"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timetable.ecore#//Entry/platform"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Timetable.ecore#//Entry/time"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Time" ecorePackage="../../org.mdse.pts.time/model/Time.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../org.mdse.pts.time/model/Time.ecore#//Day">
+      <genEnumLiterals ecoreEnumLiteral="../../org.mdse.pts.time/model/Time.ecore#//Day/Monday"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.mdse.pts.time/model/Time.ecore#//Day/Tuesday"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.mdse.pts.time/model/Time.ecore#//Day/Wednesday"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.mdse.pts.time/model/Time.ecore#//Day/Thursday"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.mdse.pts.time/model/Time.ecore#//Day/Friday"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.mdse.pts.time/model/Time.ecore#//Day/Saturday"/>
+      <genEnumLiterals ecoreEnumLiteral="../../org.mdse.pts.time/model/Time.ecore#//Day/Sunday"/>
+    </genEnums>
+    <genClasses ecoreClass="../../org.mdse.pts.time/model/Time.ecore#//Time">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.mdse.pts.time/model/Time.ecore#//Time/day"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.mdse.pts.time/model/Time.ecore#//Time/hour"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../org.mdse.pts.time/model/Time.ecore#//Time/minute"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
