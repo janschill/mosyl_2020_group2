@@ -10,7 +10,10 @@ Automatic-Module-Name: org.mdse.pts.timetable
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.mdse.pts.timetable,
  org.mdse.pts.timetable.impl,
- org.mdse.pts.timetable.util
+ org.mdse.pts.timetable.util,
+ time,
+ time.impl,
+ time.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.mdse.pts.common;visibility:=reexport,
