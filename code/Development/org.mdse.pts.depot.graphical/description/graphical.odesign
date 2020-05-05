@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="graphical" version="12.0.0.2017041100">
+  <ownedViewpoints name="Depot Viewpoint" modelFileExtension="depot">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Depot" initialisation="true" showOnStartup="true" domainClass="depot::Depot" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="Train" semanticCandidatesExpression="feature:trains" domainClass="depot::Train" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="Locomotive" semanticCandidatesExpression="feature:coaches" domainClass="depot::Locomotive">
+            <conditionnalStyles predicateExpression="[container.oclAsType(Train).coaches->indexOf(self) = container.oclAsType(Train).coaches->size()/]">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="" sizeComputationExpression="" labelPosition="node" arcWidth="0" arcHeight="0" workspacePath="/org.mdse.pts.depot.dsl/symbols/LocomotiveLeading.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+            <conditionnalStyles predicateExpression="[container.oclAsType(Train).coaches->indexOf(self) = 1/]">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="" sizeComputationExpression="" labelPosition="node" arcWidth="0" arcHeight="0" workspacePath="/org.mdse.pts.depot.dsl/symbols/LocomotiveTrailing.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+          </subContainerMappings>
+          <subContainerMappings name="First Class Passenger Coach" semanticCandidatesExpression="feature:coaches" domainClass="depot::FirstClassPassengerCoach">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="" sizeComputationExpression="" labelPosition="node" arcWidth="0" arcHeight="0" workspacePath="/org.mdse.pts.depot.dsl/symbols/PassengerCoachFirstClass.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="Second Class Passenger Coach" semanticCandidatesExpression="feature:coaches" domainClass="depot::SecondClassPassengerCoach">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="" sizeComputationExpression="" labelPosition="node" arcWidth="0" arcHeight="0" workspacePath="/org.mdse.pts.depot.dsl/symbols/PassengerCoachSecondClass.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="Dining Coach" semanticCandidatesExpression="feature:coaches" domainClass="depot::DiningCoach">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="" sizeComputationExpression="" labelPosition="node" arcWidth="0" arcHeight="0" workspacePath="/org.mdse.pts.depot.dsl/symbols/DiningCoach.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subContainerMappings>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.mdse.pts.depot.graphical.Services"/>
+  </ownedViewpoints>
+</description:Group>
