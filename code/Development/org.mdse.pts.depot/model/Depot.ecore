@@ -10,6 +10,7 @@
     <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Depot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="trains" upperBound="-1"
         eType="#//Train" containment="true"/>
   </eClassifiers>

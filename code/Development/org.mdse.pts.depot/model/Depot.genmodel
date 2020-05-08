@@ -9,6 +9,7 @@
   <genPackages prefix="Depot" basePackage="org.mdse.pts" disposableProviderFactory="true"
       ecorePackage="Depot.ecore#/">
     <genClasses ecoreClass="Depot.ecore#//Depot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Depot.ecore#//Depot/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Depot.ecore#//Depot/trains"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Depot.ecore#//Train">
