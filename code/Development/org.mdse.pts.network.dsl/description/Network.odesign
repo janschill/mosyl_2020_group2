@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="Network" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="Network" version="12.0.0.2017041100">
   <ownedViewpoints name="NetworkViewpoint" modelFileExtension="network">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Network Diagram Description" domainClass="network.Network" enablePopupBars="true">
       <defaultLayer name="Default">
@@ -18,6 +18,26 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
+        <toolSections name="General Tool Section" label="General">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Normal Station Creation Tool" label="Station" nodeMappings="//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="network.Station" referenceName="stations">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Station"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Leg Creation Tool" label="Leg" edgeMappings="//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']" iconPath="/org.mdse.pts.network.dsl/icons/Leg.gif">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="legs" valueExpression="var:target"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.mdse.pts.network.dsl.Services"/>
