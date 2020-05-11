@@ -1,0 +1,33 @@
+modeltype MMNetwork uses "http://mdse.org/pts/network";
+modeltype MMStationPlan uses "http://mdse.org/gt/stationplan";
+
+transformation GT2NETWORK(in source : MMStationPlan, out target : MMNetwork);
+
+main() {
+  source.rootObjects()[StationPlan].map StationPlanToNetwork();
+}
+
+mapping StationPlan:: StationPlanToNetwork() : Network {
+	name := self.identifier;
+	legs := source.objectsOfType(Connection)->ConnectionToLeg();
+	stations := self.trainStations->TrainStationToStation();
+}
+
+
+mapping MMStationPlan::Connection :: ConnectionToLeg() : Leg {
+  name := self.identifier;
+  distance := self.getDistanceInKm();
+  stations += self.sourceStation.map TrainStationToStation();
+  stations += self.targetStation.map TrainStationToStation();
+}
+
+mapping MMStationPlan::TrainStation :: TrainStationToStation() : Station {
+  name := self.identifier;
+  legs += self.incomingConnections.map ConnectionToLeg();
+  legs += self.outgoingConnections.map ConnectionToLeg();
+}
+
+
+helper MMStationPlan::Connection :: getDistanceInKm() : Integer {
+  return self.distanceInMeters.div(1000);
+}
