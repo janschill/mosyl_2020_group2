@@ -4,7 +4,7 @@
     <semanticResources>platform:/resource/Network/Denmark.network</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_9LnmYJO8EeqzQYtzBT0w8g">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AS6HcJO9EeqzQYtzBT0w8g" name="Denmark Network Diagram Description" repPath="#_AQo2kJO9EeqzQYtzBT0w8g" changeId="a90405bd-7d5f-4d9c-89bf-6753b4773a59">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AS6HcJO9EeqzQYtzBT0w8g" name="Denmark Network Diagram Description" repPath="#_AQo2kJO9EeqzQYtzBT0w8g" changeId="0de434ff-8cd0-4eb3-b962-70e94f6a19a0">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']"/>
         <target xmi:type="network:Network" href="platform:/resource/Network/Denmark.network#/"/>
       </ownedRepresentationDescriptors>
@@ -25,7 +25,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATVlQpO9EeqzQYtzBT0w8g"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_ATG7wZO9EeqzQYtzBT0w8g" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATG7wpO9EeqzQYtzBT0w8g" x="144" y="54" width="30" height="30"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATG7wpO9EeqzQYtzBT0w8g" x="144" y="72" width="30" height="30"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_ATUXIJO9EeqzQYtzBT0w8g" type="2001" element="_AQr54ZO9EeqzQYtzBT0w8g">
           <children xmi:type="notation:Node" xmi:id="_ATUXI5O9EeqzQYtzBT0w8g" type="5002">
@@ -36,22 +36,33 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATVlRZO9EeqzQYtzBT0w8g"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_ATUXIZO9EeqzQYtzBT0w8g" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATUXIpO9EeqzQYtzBT0w8g" x="342" y="153" width="30" height="30"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATUXIpO9EeqzQYtzBT0w8g" x="333" y="225" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="__32w4JPBEeqO_f0wabuNDQ" type="2001" element="__3mSMJPBEeqO_f0wabuNDQ">
+          <children xmi:type="notation:Node" xmi:id="__35NIJPBEeqO_f0wabuNDQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="__35NIZPBEeqO_f0wabuNDQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="__3-FoJPBEeqO_f0wabuNDQ" type="3005" element="__3m5QJPBEeqO_f0wabuNDQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="__3-FoZPBEeqO_f0wabuNDQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__3-FopPBEeqO_f0wabuNDQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="__32w4ZPBEeqO_f0wabuNDQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__32w4pPBEeqO_f0wabuNDQ" x="531" y="81" width="30" height="30"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_ATD4cpO9EeqzQYtzBT0w8g"/>
         <edges xmi:type="notation:Edge" xmi:id="_ATWzYJO9EeqzQYtzBT0w8g" type="4001" element="_AQsg8JO9EeqzQYtzBT0w8g" source="_ATUXIJO9EeqzQYtzBT0w8g" target="_ATG7wJO9EeqzQYtzBT0w8g">
           <children xmi:type="notation:Node" xmi:id="_ATYBgJO9EeqzQYtzBT0w8g" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATYBgZO9EeqzQYtzBT0w8g" x="1" y="21"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATYBgZO9EeqzQYtzBT0w8g" x="9" y="19"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_ATYokJO9EeqzQYtzBT0w8g" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATYokZO9EeqzQYtzBT0w8g" x="12" y="1"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATYokZO9EeqzQYtzBT0w8g" x="13" y="3"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_ATZPoJO9EeqzQYtzBT0w8g" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATZPoZO9EeqzQYtzBT0w8g" x="11"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ATZPoZO9EeqzQYtzBT0w8g" x="15" y="2"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_ATXacJO9EeqzQYtzBT0w8g"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_ATXacZO9EeqzQYtzBT0w8g" fontName=".AppleSystemUIFont" fontHeight="12"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ATXacpO9EeqzQYtzBT0w8g" points="[-15, -8, 183, 91]$[-183, -92, 15, 7]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ATXacpO9EeqzQYtzBT0w8g" points="[-15, -13, 174, 140]$[-174, -141, 15, 12]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ATjnsJO9EeqzQYtzBT0w8g" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ATjnsZO9EeqzQYtzBT0w8g" id="(0.5,0.5)"/>
         </edges>
@@ -63,7 +74,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_AQqrwJO9EeqzQYtzBT0w8g" labelSize="12" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_AQqrwJO9EeqzQYtzBT0w8g" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
         <labelFormat>bold</labelFormat>
         <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
       </ownedStyle>
@@ -75,7 +86,19 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_AQr54pO9EeqzQYtzBT0w8g" labelSize="12" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_AQr54pO9EeqzQYtzBT0w8g" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="__3mSMJPBEeqO_f0wabuNDQ" name="Kolding" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.2"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.2"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="__3m5QJPBEeqO_f0wabuNDQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
         <labelFormat>bold</labelFormat>
         <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
       </ownedStyle>
