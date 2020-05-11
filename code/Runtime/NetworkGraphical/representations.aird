@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:network="http://mdse.org/pts/network" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_ecbewI7mEeqsGOW1oo9zSw" selectedViews="_lMr_sI7oEeq7ANy6ysIefQ" version="14.3.0.201909031200">
+    <semanticResources>platform:/resource/Network/Denmark.network</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_lMr_sI7oEeq7ANy6ysIefQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_1LM4kY7tEeqFw5RJI6X0xg" name="Denmark Network Diagram Description" repPath="#_1LHZAI7tEeqFw5RJI6X0xg" changeId="05b4c96e-60c7-4739-8d6a-057d0b6b2f2b">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']"/>
+        <target xmi:type="network:Network" href="platform:/resource/Network/Denmark.network#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_1LHZAI7tEeqFw5RJI6X0xg">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_1LLDYI7tEeqFw5RJI6X0xg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_1LLDYY7tEeqFw5RJI6X0xg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_1LS_MI7tEeqFw5RJI6X0xg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_1LS_MY7tEeqFw5RJI6X0xg" type="Sirius" element="_1LHZAI7tEeqFw5RJI6X0xg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_1LWCgI7tEeqFw5RJI6X0xg" type="2001" element="_1LJOMI7tEeqFw5RJI6X0xg">
+          <children xmi:type="notation:Node" xmi:id="_1LYewI7tEeqFw5RJI6X0xg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_1LYewY7tEeqFw5RJI6X0xg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1La7AI7tEeqFw5RJI6X0xg" type="3005" element="_1LJ1QI7tEeqFw5RJI6X0xg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1La7AY7tEeqFw5RJI6X0xg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1La7Ao7tEeqFw5RJI6X0xg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_1LWCgY7tEeqFw5RJI6X0xg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1LWCgo7tEeqFw5RJI6X0xg" x="54" y="90" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_1LZs4I7tEeqFw5RJI6X0xg" type="2001" element="_1LKcUY7tEeqFw5RJI6X0xg">
+          <children xmi:type="notation:Node" xmi:id="_1LaT8I7tEeqFw5RJI6X0xg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_1LaT8Y7tEeqFw5RJI6X0xg" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1La7A47tEeqFw5RJI6X0xg" type="3005" element="_1LKcUo7tEeqFw5RJI6X0xg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_1La7BI7tEeqFw5RJI6X0xg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1La7BY7tEeqFw5RJI6X0xg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_1LZs4Y7tEeqFw5RJI6X0xg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1LZs4o7tEeqFw5RJI6X0xg" x="234" y="90" width="30" height="30"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_1LS_Mo7tEeqFw5RJI6X0xg"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_1LJOMI7tEeqFw5RJI6X0xg" name="Name" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.0"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_1LJ1QI7tEeqFw5RJI6X0xg" labelSize="12" borderSize="2" borderSizeComputationExpression="2" labelPosition="node" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_1LKcUY7tEeqFw5RJI6X0xg" name="Name" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.1"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_1LKcUo7tEeqFw5RJI6X0xg" labelSize="12" borderSize="2" borderSizeComputationExpression="2" labelPosition="node" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_1LIAEI7tEeqFw5RJI6X0xg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer"/>
+    <target xmi:type="network:Network" href="platform:/resource/Network/Denmark.network#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
