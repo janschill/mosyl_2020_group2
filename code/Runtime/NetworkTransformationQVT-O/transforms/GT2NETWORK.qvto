@@ -17,8 +17,8 @@ mapping StationPlan:: StationPlanToNetwork() : Network {
 mapping MMStationPlan::Connection :: ConnectionToLeg() : Leg {
   name := self.identifier;
   distance := self.getDistanceInKm();
-  stations += self.sourceStation.map TrainStationToStation();
-  stations += self.targetStation.map TrainStationToStation();
+  sourceStation := self.sourceStation.map TrainStationToStation();
+  targetStation := self.targetStation.map TrainStationToStation();
 }
 
 mapping MMStationPlan::TrainStation :: TrainStationToStation() : Station {
