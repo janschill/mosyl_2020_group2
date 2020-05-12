@@ -13,7 +13,6 @@ mapping StationPlan:: StationPlanToNetwork() : Network {
 	stations := self.trainStations->TrainStationToStation();
 }
 
-
 mapping MMStationPlan::Connection :: ConnectionToLeg() : Leg {
   name := self.identifier;
   distance := self.getDistanceInKm();
@@ -26,7 +25,6 @@ mapping MMStationPlan::TrainStation :: TrainStationToStation() : Station {
   legs += self.incomingConnections.map ConnectionToLeg();
   legs += self.outgoingConnections.map ConnectionToLeg();
 }
-
 
 helper MMStationPlan::Connection :: getDistanceInKm() : Integer {
   return self.distanceInMeters.div(1000);
