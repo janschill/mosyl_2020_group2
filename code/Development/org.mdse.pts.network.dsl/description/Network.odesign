@@ -34,7 +34,18 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="legs" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="network.Leg" referenceName="legs">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="sourceStation" valueExpression="var:source"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="targetStation" valueExpression="var:target"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="distance" valueExpression="1"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Leg"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="legs" valueExpression="var:instance"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="legs" valueExpression="var:instance"/>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>

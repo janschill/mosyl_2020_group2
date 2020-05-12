@@ -3,5 +3,6 @@
   <stations name="Aarhus" legs="//@legs.0"/>
   <stations name="København" legs="//@legs.0"/>
   <stations name="Kolding"/>
+  <stations name="Flensburg"/>
   <legs name="AK 1" distance="250" sourceStation="//@stations.1" targetStation="//@stations.0"/>
 </network:Network>
