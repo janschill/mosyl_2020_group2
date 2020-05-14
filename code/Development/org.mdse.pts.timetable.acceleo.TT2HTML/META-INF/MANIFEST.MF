@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Acceleo TT2HTML Module Runtime Plug-in
+Bundle-SymbolicName: org.mdse.pts.timetable.acceleo.TT2HTML
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.mdse.pts.timetable.acceleo.TT2HTML.Activator
+Bundle-Vendor: Eclipse Modeling Project
+Require-Bundle: org.eclipse.core.runtime, 
+ org.mdse.pts.timetable, 
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.ocl,
+ org.eclipse.ocl.ecore,
+ org.eclipse.acceleo.common;bundle-version="3.3.0",
+ org.eclipse.acceleo.model;bundle-version="3.3.0",
+ org.eclipse.acceleo.profiler;bundle-version="3.3.0",
+ org.eclipse.acceleo.engine;bundle-version="3.3.0",
+ com.google.guava
+Bundle-RequiredExecutionEnvironment: JavaSE-12
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Export-Package: org.mdse.pts.timetable.acceleo.TT2HTML.main,
+ org.mdse.pts.timetable.acceleo.TT2HTML.services
+
