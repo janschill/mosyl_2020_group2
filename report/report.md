@@ -56,7 +56,11 @@
 
 #### Sirius Model of Network
 
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-network-graphical_editor.png)
+
 #### Screenshot of Example in Network Editor
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-network-graphical_editor_example.png)
 
 ### Depot Language
 
