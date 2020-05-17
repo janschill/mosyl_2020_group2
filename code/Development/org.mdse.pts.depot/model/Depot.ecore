@@ -10,15 +10,17 @@
     <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Depot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="trains" upperBound="-1"
         eType="#//Train" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Train" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="LocomotiveInEitherEnd UniqueInnerCoachNumbersInTrain TrainCanHaveAtMostOneDiningCoach InnerCoachesInSequence DiningCoachBetweenFirstAndSecondClassPassengerCoaches"/>
+      <details key="constraints" value="LocomotiveInEitherEnd NoLocomotiveInMiddleOfTrain UniqueInnerCoachNumbersInTrain TrainCanHaveAtMostOneDiningCoach InnerCoachesInSequence DiningCoachBetweenFirstAndSecondClassPassengerCoaches"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="LocomotiveInEitherEnd" value="self.coaches->size() > 0 implies self.coaches->first().oclIsTypeOf(Locomotive) or self.coaches->last().oclIsTypeOf(Locomotive)"/>
+      <details key="NoLocomotiveInMiddleOfTrain" value="&#xA;&#x9;&#x9;self.coaches->size() > 2 implies self.coaches->subOrderedSet(2, self.coaches->size() -1)->forAll(c: Coach | not c.oclIsKindOf(Locomotive))"/>
       <details key="UniqueInnerCoachNumbersInTrain" value="&#xA;&#x9;&#x9;&#x9;self.coaches->select(oclIsKindOf(InnerCoach))->isUnique(oclAsType(InnerCoach).number)"/>
       <details key="TrainCanHaveAtMostOneDiningCoach" value="&#xA;&#x9;&#x9;&#x9;self.coaches->select(oclIsKindOf(DiningCoach))->size() &lt;= 1"/>
       <details key="InnerCoachesInSequence" value="&#xA;&#x9;&#x9;&#x9;let innerCoaches: OrderedSet(Coach) = self.coaches->select(oclIsKindOf(InnerCoach)),&#xA;&#x9;&#x9;&#x9;&#x9;firstClassPCIndexes: OrderedSet(Integer) = &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Sequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(innerCoaches->at(idx).oclIsKindOf(FirstClassPassengerCoach)) then res->append(idx)&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else res&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;),&#xA;&#x9;&#x9;&#x9;&#x9;firstClassPCInSequence : Boolean = Sequence{1..firstClassPCIndexes->size()}->forAll(idx: Integer |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;idx = 1 or (firstClassPCIndexes->at(idx) = firstClassPCIndexes->at(idx - 1) + 1)&#xA;&#x9;&#x9;&#x9;&#x9;),&#xA;&#x9;&#x9;&#x9;&#x9;secondClassPCIndexes: OrderedSet(Integer) = &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Sequence{1..innerCoaches->size()}->iterate(idx: Integer; res: OrderedSet(Integer) = OrderedSet{} |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(innerCoaches->at(idx).oclIsKindOf(SecondClassPassengerCoach)) then res->append(idx)&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else res&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;),&#xA;&#x9;&#x9;&#x9;&#x9;secondClassPCInSequence : Boolean = Sequence{1..secondClassPCIndexes->size()}->forAll(idx: Integer |&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;idx = 1 or (secondClassPCIndexes->at(idx) = secondClassPCIndexes->at(idx - 1) + 1)&#xA;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;in&#xA;&#x9;&#x9;&#x9;firstClassPCInSequence and secondClassPCInSequence"/>

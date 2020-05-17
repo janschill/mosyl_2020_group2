@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<stationplan:StationPlan xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:stationplan="http://mdse.org/gt/stationplan">
+<stationplan:StationPlan xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:stationplan="http://mdse.org/gt/stationplan" identifier="StationPlan Identifier">
   <trainStations identifier="Aarhus Central" incomingConnections="//@trainStations.1/@outgoingConnections.0 //@trainStations.1/@outgoingConnections.1">
     <outgoingConnections identifier="E45" distanceInMeters="146213" targetStation="//@trainStations.2"/>
   </trainStations>

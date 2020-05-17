@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<network:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:network="http://mdse.org/pts/network" name="Schleswig Holstein">
+  <stations name="Flensburg" legs="//@legs.0 //@legs.1 //@legs.2"/>
+  <stations name="Niebuell"/>
+  <stations name="Schleswig" legs="//@legs.1"/>
+  <stations name="Husum" legs="//@legs.0"/>
+  <stations name="Rendsburg"/>
+  <stations name="Kiel" legs="//@legs.2"/>
+  <stations name="Neumuenster"/>
+  <stations name="Itzehoe"/>
+  <stations name="Luebeck"/>
+  <stations name="Hamburg"/>
+  <legs name="FL-HU" distance="45" stations="//@stations.0 //@stations.3"/>
+  <legs name="FL-SC" distance="42" stations="//@stations.0 //@stations.2"/>
+  <legs name="FL-KI" distance="90" stations="//@stations.0 //@stations.5"/>
+</network:Network>
