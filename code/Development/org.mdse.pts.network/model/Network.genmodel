@@ -12,8 +12,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Network.ecore#//Network/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Network.ecore#//Network/stations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Network.ecore#//Network/legs"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Network.ecore#//Network/country"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Network.ecore#//Network/region"/>
     </genClasses>
     <genClasses ecoreClass="Network.ecore#//Station">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Network.ecore#//Station/name"/>
@@ -23,12 +21,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Network.ecore#//Leg/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Network.ecore#//Leg/distance"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Network.ecore#//Leg/stations"/>
-    </genClasses>
-    <genClasses ecoreClass="Network.ecore#//Country">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Network.ecore#//Country/name"/>
-    </genClasses>
-    <genClasses ecoreClass="Network.ecore#//Region">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Network.ecore#//Region/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
