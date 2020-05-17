@@ -36,15 +36,25 @@
 
 ### Depot Metamodel
 
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-depot.png)
+
 ### Schedule Metamodel
 
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule.png)
+
 ### Timetable Metamodel
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-timetable.png)
 
 ## Constraints
 
 ### Constraints on Network Metamodel
 
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-network-constraints.png)
+
 ### Constraints on Depot Metamodel
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-depot-constraints.png)
 
 ### Constraints on Schedule Metamodel
 
