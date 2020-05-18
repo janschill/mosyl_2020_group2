@@ -551,7 +551,7 @@ public class EcoreIOUtil {
 	}
 	
 	
-	protected static Resource resolveAccompanyingResource(Resource originalResource, String extension) {
+	public static Resource resolveAccompanyingResource(Resource originalResource, String extension) {
 		URI originalURI = originalResource.getURI();
 		URI accompanyingURI = originalURI.trimFileExtension().appendFileExtension(extension);
 		
@@ -566,7 +566,7 @@ public class EcoreIOUtil {
 		return accompanyingResource;
 	}
 	
-	protected static IProject resolveProjectFromResource(Resource resource) {
+	public static IProject resolveProjectFromResource(Resource resource) {
 		if (resource == null) {
 			return null;
 		}
@@ -576,7 +576,7 @@ public class EcoreIOUtil {
 		return resolveProjectFromResourceURI(uri);
 	}
 	
-	protected static IProject resolveProjectFromResourceURI(URI resourceURI) {
+	public static IProject resolveProjectFromResourceURI(URI resourceURI) {
 		IFile file = resolveRelativeFileFromResourceURI(resourceURI);
 //		file = ResourceUtil.makeFileRelativeToWorkspace(file);
 
@@ -585,7 +585,7 @@ public class EcoreIOUtil {
 		return project;
 	}
 	
-	protected static IFile resolveRelativeFileFromEObject(EObject eObject) {
+	public static IFile resolveRelativeFileFromEObject(EObject eObject) {
 		Resource resource = eObject.eResource();
 		
 		if (resource == null) {
@@ -595,7 +595,7 @@ public class EcoreIOUtil {
 		return resolveRelativeFileFromResource(resource);
 	}
 	
-	protected static IFile resolveRelativeFileFromResource(Resource resource) {
+	public static IFile resolveRelativeFileFromResource(Resource resource) {
 		if (resource == null) {
 			return null;
 		}
@@ -604,7 +604,7 @@ public class EcoreIOUtil {
 		return resolveRelativeFileFromResourceURI(uri);
 	}
 	
-	protected static IFile resolveRelativeFileFromResourceURI(URI resourceURI) {
+	public static IFile resolveRelativeFileFromResourceURI(URI resourceURI) {
 		String uriString = null;
 		
 		if (resourceURI.isFile()) {
