@@ -41,9 +41,9 @@ public class ScheduleScopeProvider extends AbstractScheduleScopeProvider {
 			DepotReference depotReference = (DepotReference) context;
 			return getDepotReferenceScope(depotReference);
 		}*/
-		if(context instanceof TrainReference) {
-			TrainReference trainReference = (TrainReference) context;
-			return getTrainReferenceScope(trainReference);
+		if(context instanceof Train) {
+			Train train = (Train) context;
+			return getTrainReferenceScope(train);
 		}
 		
 		if(context instanceof Route) {
@@ -56,7 +56,7 @@ public class ScheduleScopeProvider extends AbstractScheduleScopeProvider {
 		return super.getScope(context, reference);
 	}
 	
-	protected IScope getTrainReferenceScope(TrainReference trainReference) {
+	protected IScope getTrainReferenceScope(Train trainReference) {
 		EObject rootModelElement = EcoreUtil.getRootContainer(trainReference);
 		
 		if(rootModelElement instanceof Schedule) {

@@ -8,8 +8,6 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.mdse.pts.time.Day;
 import org.mdse.pts.time.Time;
 import org.mdse.pts.time.TimePackage;
 
@@ -21,7 +19,6 @@ import org.mdse.pts.time.TimePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.mdse.pts.time.impl.TimeImpl#getDay <em>Day</em>}</li>
  *   <li>{@link org.mdse.pts.time.impl.TimeImpl#getHour <em>Hour</em>}</li>
  *   <li>{@link org.mdse.pts.time.impl.TimeImpl#getMinute <em>Minute</em>}</li>
  * </ul>
@@ -29,26 +26,6 @@ import org.mdse.pts.time.TimePackage;
  * @generated
  */
 public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
-	/**
-	 * The default value of the '{@link #getDay() <em>Day</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDay()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Day DAY_EDEFAULT = Day.MONDAY;
-
-	/**
-	 * The cached value of the '{@link #getDay() <em>Day</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDay()
-	 * @generated
-	 * @ordered
-	 */
-	protected Day day = DAY_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getHour() <em>Hour</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -113,27 +90,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Day getDay() {
-		return day;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDay(Day newDay) {
-		Day oldDay = day;
-		day = newDay == null ? DAY_EDEFAULT : newDay;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TimePackage.TIME__DAY, oldDay, day));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public int getHour() {
 		return hour;
 	}
@@ -143,6 +100,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHour(int newHour) {
 		int oldHour = hour;
 		hour = newHour;
@@ -155,6 +113,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getMinute() {
 		return minute;
 	}
@@ -164,6 +123,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinute(int newMinute) {
 		int oldMinute = minute;
 		minute = newMinute;
@@ -179,8 +139,6 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TimePackage.TIME__DAY:
-				return getDay();
 			case TimePackage.TIME__HOUR:
 				return getHour();
 			case TimePackage.TIME__MINUTE:
@@ -197,9 +155,6 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TimePackage.TIME__DAY:
-				setDay((Day)newValue);
-				return;
 			case TimePackage.TIME__HOUR:
 				setHour((Integer)newValue);
 				return;
@@ -218,9 +173,6 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TimePackage.TIME__DAY:
-				setDay(DAY_EDEFAULT);
-				return;
 			case TimePackage.TIME__HOUR:
 				setHour(HOUR_EDEFAULT);
 				return;
@@ -239,8 +191,6 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TimePackage.TIME__DAY:
-				return day != DAY_EDEFAULT;
 			case TimePackage.TIME__HOUR:
 				return hour != HOUR_EDEFAULT;
 			case TimePackage.TIME__MINUTE:
@@ -259,9 +209,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (day: ");
-		result.append(day);
-		result.append(", hour: ");
+		result.append(" (hour: ");
 		result.append(hour);
 		result.append(", minute: ");
 		result.append(minute);

@@ -59,6 +59,7 @@ public class ScheduleFactoryImpl extends EFactoryImpl implements ScheduleFactory
 			case SchedulePackage.SCHEDULE: return createSchedule();
 			case SchedulePackage.DEPOT_REFERENCE: return createDepotReference();
 			case SchedulePackage.ROUTE: return createRoute();
+			case SchedulePackage.STOP_TIME: return createStopTime();
 			case SchedulePackage.PLATFORM: return createPlatform();
 			case SchedulePackage.NETWORK_REFERENCE: return createNetworkReference();
 			case SchedulePackage.TRAIN_REFERENCE: return createTrainReference();
@@ -98,6 +99,17 @@ public class ScheduleFactoryImpl extends EFactoryImpl implements ScheduleFactory
 	public Route createRoute() {
 		RouteImpl route = new RouteImpl();
 		return route;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StopTime createStopTime() {
+		StopTimeImpl stopTime = new StopTimeImpl();
+		return stopTime;
 	}
 
 	/**

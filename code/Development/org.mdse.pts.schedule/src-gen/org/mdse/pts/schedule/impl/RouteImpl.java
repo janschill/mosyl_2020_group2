@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.mdse.pts.depot.Train;
 import org.mdse.pts.network.Leg;
 import org.mdse.pts.network.Station;
 import org.mdse.pts.schedule.Platform;
@@ -42,6 +43,8 @@ import org.mdse.pts.time.Time;
  *   <li>{@link org.mdse.pts.schedule.impl.RouteImpl#getStop <em>Stop</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.impl.RouteImpl#getDay <em>Day</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.impl.RouteImpl#getPlatform <em>Platform</em>}</li>
+ *   <li>{@link org.mdse.pts.schedule.impl.RouteImpl#getStopTime <em>Stop Time</em>}</li>
+ *   <li>{@link org.mdse.pts.schedule.impl.RouteImpl#getTrain <em>Train</em>}</li>
  * </ul>
  *
  * @generated
@@ -116,6 +119,26 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 	 * @ordered
 	 */
 	protected EList<Platform> platform;
+
+	/**
+	 * The cached value of the '{@link #getStopTime() <em>Stop Time</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStopTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Integer> stopTime;
+
+	/**
+	 * The cached value of the '{@link #getTrain() <em>Train</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTrain()
+	 * @generated
+	 * @ordered
+	 */
+	protected Train train;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -287,6 +310,59 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 	 * @generated
 	 */
 	@Override
+	public EList<Integer> getStopTime() {
+		if (stopTime == null) {
+			stopTime = new EDataTypeUniqueEList<Integer>(Integer.class, this, SchedulePackage.ROUTE__STOP_TIME);
+		}
+		return stopTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Train getTrain() {
+		if (train != null && train.eIsProxy()) {
+			InternalEObject oldTrain = (InternalEObject)train;
+			train = (Train)eResolveProxy(oldTrain);
+			if (train != oldTrain) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SchedulePackage.ROUTE__TRAIN, oldTrain, train));
+			}
+		}
+		return train;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Train basicGetTrain() {
+		return train;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTrain(Train newTrain) {
+		Train oldTrain = train;
+		train = newTrain;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SchedulePackage.ROUTE__TRAIN, oldTrain, train));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SchedulePackage.ROUTE__TIME:
@@ -321,6 +397,11 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 				return getDay();
 			case SchedulePackage.ROUTE__PLATFORM:
 				return getPlatform();
+			case SchedulePackage.ROUTE__STOP_TIME:
+				return getStopTime();
+			case SchedulePackage.ROUTE__TRAIN:
+				if (resolve) return getTrain();
+				return basicGetTrain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -360,6 +441,13 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 				getPlatform().clear();
 				getPlatform().addAll((Collection<? extends Platform>)newValue);
 				return;
+			case SchedulePackage.ROUTE__STOP_TIME:
+				getStopTime().clear();
+				getStopTime().addAll((Collection<? extends Integer>)newValue);
+				return;
+			case SchedulePackage.ROUTE__TRAIN:
+				setTrain((Train)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -393,6 +481,12 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 			case SchedulePackage.ROUTE__PLATFORM:
 				getPlatform().clear();
 				return;
+			case SchedulePackage.ROUTE__STOP_TIME:
+				getStopTime().clear();
+				return;
+			case SchedulePackage.ROUTE__TRAIN:
+				setTrain((Train)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -419,6 +513,10 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 				return day != null && !day.isEmpty();
 			case SchedulePackage.ROUTE__PLATFORM:
 				return platform != null && !platform.isEmpty();
+			case SchedulePackage.ROUTE__STOP_TIME:
+				return stopTime != null && !stopTime.isEmpty();
+			case SchedulePackage.ROUTE__TRAIN:
+				return train != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -435,6 +533,8 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (day: ");
 		result.append(day);
+		result.append(", stopTime: ");
+		result.append(stopTime);
 		result.append(')');
 		return result.toString();
 	}

@@ -49,6 +49,15 @@ public interface ScheduleFactory extends EFactory {
 	Route createRoute();
 
 	/**
+	 * Returns a new object of class '<em>Stop Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stop Time</em>'.
+	 * @generated
+	 */
+	StopTime createStopTime();
+
+	/**
 	 * Returns a new object of class '<em>Platform</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

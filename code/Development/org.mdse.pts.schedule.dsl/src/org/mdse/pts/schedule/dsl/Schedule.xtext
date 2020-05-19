@@ -10,9 +10,9 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 Schedule:
 	"SCHEDULE" "FOR" networkReference=NetworkReference "WITH" depotReference+=DepotReference ("," depotReference+=DepotReference)* ":" 
 	
-	"TRAIN" trainReference+=TrainReference ("," trainReference+=TrainReference)* 
+	//("TRAIN" trainReference+=TrainReference //("," trainReference+=TrainReference)* 
 	
-	"ON" routeReference+=Route
+	(routeReference+=Route)+
 ;
 
 //Network
@@ -34,19 +34,20 @@ TrainReference:
 
 //Route
 Route:
-day += Day ("," day += Day)* "AT" time += Time //Why Time Monday??
-("AND" day += Day ("," day += Day)* "AT" time+=Time)*
+"TRAIN" train = [depotM::Train]
+"ON"
+day += Day ("," day += Day)* "AT" time += Time ("AND" time += Time)* //Why Time Monday??
+("AND" day += Day ("," day += Day)* "AT" time+=Time ("AND" time += Time)*)* ":"
 
 
 "START" "AT" start = [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform
-("DRIVE" "VIA" drive += [networkM::Leg|STRING] ("," drive += [networkM::Leg])*)*
-("STOP" "AT" stop += [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform)* //"FOR" INT "MIN"
+("DRIVE" "VIA" drive += [networkM::Leg|ID] ("," drive += [networkM::Leg])*)*
+("STOP" "AT" stop += [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform "FOR" stopTime+=INT "MIN")*
 "TERMINATE" "AT" terminate = [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform
 ;
 
-
 Platform:
-	name = STRING
+	name = STRING 
 ;
 
 Time returns timeM::Time:

@@ -98,6 +98,7 @@ public class TimeFactoryImpl extends EFactoryImpl implements TimeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Time createTime() {
 		TimeImpl time = new TimeImpl();
 		return time;
@@ -128,6 +129,7 @@ public class TimeFactoryImpl extends EFactoryImpl implements TimeFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TimePackage getTimePackage() {
 		return (TimePackage)getEPackage();
 	}

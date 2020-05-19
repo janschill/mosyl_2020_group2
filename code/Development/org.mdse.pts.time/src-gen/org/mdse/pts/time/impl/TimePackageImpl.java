@@ -95,6 +95,7 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 		EValidator.Registry.INSTANCE.put
 			(theTimePackage,
 			 new EValidator.Descriptor() {
+				 @Override
 				 public EValidator getEValidator() {
 					 return TimeValidator.INSTANCE;
 				 }
@@ -113,6 +114,7 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTime() {
 		return timeEClass;
 	}
@@ -122,7 +124,8 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTime_Day() {
+	@Override
+	public EAttribute getTime_Hour() {
 		return (EAttribute)timeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -131,7 +134,8 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTime_Hour() {
+	@Override
+	public EAttribute getTime_Minute() {
 		return (EAttribute)timeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -140,15 +144,7 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTime_Minute() {
-		return (EAttribute)timeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public EEnum getDay() {
 		return dayEEnum;
 	}
@@ -158,6 +154,7 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TimeFactory getTimeFactory() {
 		return (TimeFactory)getEFactoryInstance();
 	}
@@ -182,7 +179,6 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 
 		// Create classes and their features
 		timeEClass = createEClass(TIME);
-		createEAttribute(timeEClass, TIME__DAY);
 		createEAttribute(timeEClass, TIME__HOUR);
 		createEAttribute(timeEClass, TIME__MINUTE);
 
@@ -221,7 +217,6 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(timeEClass, Time.class, "Time", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTime_Day(), this.getDay(), "day", null, 1, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTime_Hour(), ecorePackage.getEInt(), "hour", null, 1, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTime_Minute(), ecorePackage.getEInt(), "minute", null, 1, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

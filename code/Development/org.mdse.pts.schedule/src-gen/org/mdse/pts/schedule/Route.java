@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.mdse.pts.depot.Train;
 import org.mdse.pts.network.Leg;
 import org.mdse.pts.network.Station;
 import org.mdse.pts.time.Day;
@@ -27,6 +28,8 @@ import org.mdse.pts.time.Time;
  *   <li>{@link org.mdse.pts.schedule.Route#getStop <em>Stop</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.Route#getDay <em>Day</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.Route#getPlatform <em>Platform</em>}</li>
+ *   <li>{@link org.mdse.pts.schedule.Route#getStopTime <em>Stop Time</em>}</li>
+ *   <li>{@link org.mdse.pts.schedule.Route#getTrain <em>Train</em>}</li>
  * </ul>
  *
  * @see org.mdse.pts.schedule.SchedulePackage#getRoute()
@@ -139,5 +142,39 @@ public interface Route extends EObject {
 	 * @generated
 	 */
 	EList<Platform> getPlatform();
+
+	/**
+	 * Returns the value of the '<em><b>Stop Time</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.Integer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Stop Time</em>' attribute list.
+	 * @see org.mdse.pts.schedule.SchedulePackage#getRoute_StopTime()
+	 * @model
+	 * @generated
+	 */
+	EList<Integer> getStopTime();
+
+	/**
+	 * Returns the value of the '<em><b>Train</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Train</em>' reference.
+	 * @see #setTrain(Train)
+	 * @see org.mdse.pts.schedule.SchedulePackage#getRoute_Train()
+	 * @model required="true"
+	 * @generated
+	 */
+	Train getTrain();
+
+	/**
+	 * Sets the value of the '{@link org.mdse.pts.schedule.Route#getTrain <em>Train</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Train</em>' reference.
+	 * @see #getTrain()
+	 * @generated
+	 */
+	void setTrain(Train value);
 
 } // Route

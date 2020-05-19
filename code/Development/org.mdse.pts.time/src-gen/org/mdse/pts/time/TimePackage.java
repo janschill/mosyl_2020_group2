@@ -69,22 +69,13 @@ public interface TimePackage extends EPackage {
 	int TIME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Day</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME__DAY = 0;
-
-	/**
 	 * The feature id for the '<em><b>Hour</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__HOUR = 1;
+	int TIME__HOUR = 0;
 
 	/**
 	 * The feature id for the '<em><b>Minute</b></em>' attribute.
@@ -93,7 +84,7 @@ public interface TimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__MINUTE = 2;
+	int TIME__MINUTE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Time</em>' class.
@@ -102,7 +93,7 @@ public interface TimePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_FEATURE_COUNT = 3;
+	int TIME_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Time</em>' class.
@@ -133,17 +124,6 @@ public interface TimePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTime();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.mdse.pts.time.Time#getDay <em>Day</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Day</em>'.
-	 * @see org.mdse.pts.time.Time#getDay()
-	 * @see #getTime()
-	 * @generated
-	 */
-	EAttribute getTime_Day();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.mdse.pts.time.Time#getHour <em>Hour</em>}'.
@@ -209,14 +189,6 @@ public interface TimePackage extends EPackage {
 		 * @generated
 		 */
 		EClass TIME = eINSTANCE.getTime();
-
-		/**
-		 * The meta object literal for the '<em><b>Day</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TIME__DAY = eINSTANCE.getTime_Day();
 
 		/**
 		 * The meta object literal for the '<em><b>Hour</b></em>' attribute feature.

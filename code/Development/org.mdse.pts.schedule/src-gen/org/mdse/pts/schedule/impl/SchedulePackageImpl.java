@@ -19,6 +19,7 @@ import org.mdse.pts.schedule.Route;
 import org.mdse.pts.schedule.Schedule;
 import org.mdse.pts.schedule.ScheduleFactory;
 import org.mdse.pts.schedule.SchedulePackage;
+import org.mdse.pts.schedule.StopTime;
 import org.mdse.pts.schedule.TrainReference;
 import org.mdse.pts.time.TimePackage;
 
@@ -49,6 +50,13 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * @generated
 	 */
 	private EClass routeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stopTimeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -293,6 +301,36 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getRoute_StopTime() {
+		return (EAttribute)routeEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRoute_Train() {
+		return (EReference)routeEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStopTime() {
+		return stopTimeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPlatform() {
 		return platformEClass;
 	}
@@ -393,6 +431,10 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 		createEReference(routeEClass, ROUTE__STOP);
 		createEAttribute(routeEClass, ROUTE__DAY);
 		createEReference(routeEClass, ROUTE__PLATFORM);
+		createEAttribute(routeEClass, ROUTE__STOP_TIME);
+		createEReference(routeEClass, ROUTE__TRAIN);
+
+		stopTimeEClass = createEClass(STOP_TIME);
 
 		platformEClass = createEClass(PLATFORM);
 		createEAttribute(platformEClass, PLATFORM__NAME);
@@ -456,6 +498,10 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 		initEReference(getRoute_Stop(), theNetworkPackage.getStation(), null, "stop", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoute_Day(), theTimePackage.getDay(), "day", "Friday", 1, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoute_Platform(), this.getPlatform(), null, "platform", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRoute_StopTime(), ecorePackage.getEInt(), "stopTime", null, 0, -1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoute_Train(), theDepotPackage.getTrain(), null, "train", null, 1, 1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stopTimeEClass, StopTime.class, "StopTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(platformEClass, Platform.class, "Platform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlatform_Name(), ecorePackage.getEString(), "name", null, 1, 1, Platform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

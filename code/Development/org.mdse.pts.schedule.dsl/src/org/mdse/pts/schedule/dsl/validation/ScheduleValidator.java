@@ -3,80 +3,23 @@
  */
 package org.mdse.pts.schedule.dsl.validation;
 
-import java.util.Map;
-
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.ui.IStartup;
-import org.mdse.pts.schedule.Schedule;
-import org.mdse.pts.schedule.SchedulePackage;
 
 /**
  * This class contains custom validation rules. 
  *
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
-public class ScheduleValidator extends EObjectValidator implements IStartup {
-	private DiagnosticChain diagnostics;
+public class ScheduleValidator extends AbstractScheduleValidator {
 	
-	@Override
-	public void earlyStartup() {
-		//Install validator
-		EValidator.Registry.INSTANCE.put(SchedulePackage.eINSTANCE, new ScheduleValidator());
-	}
+//	public static final INVALID_NAME = 'invalidName'
+//
+//	@Check
+//	public void checkGreetingStartsWithCapital(Greeting greeting) {
+//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
+//			warning("Name should start with a capital",
+//					SchedulePackage.Literals.GREETING__NAME,
+//					INVALID_NAME);
+//		}
+//	}
 	
-	@Override
-	public boolean validate(EObject eObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		//Delegate to validate method with EClass
-		return validate(eObject.eClass(), eObject, diagnostics, context);
-	}
-	
-	@Override
-	public boolean validate(EClass eClass, EObject eObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean modelIsValid = super.validate(eClass, eObject, diagnostics, context);
-		
-		this.diagnostics = diagnostics;
-		
-		if(SchedulePackage.eINSTANCE.getSchedule().equals(eClass)) {
-			Schedule schedule = (Schedule) eObject;
-			modelIsValid &= validateSchedule(schedule);
-		}
-		
-		return modelIsValid;
-	}
-	
-	protected boolean validateSchedule(Schedule schedule) {
-		boolean modelIsValid = true;
-		
-		modelIsValid &= validateScheduleHasNetwork(schedule);
-		
-		return modelIsValid;
-	}
-	
-	protected boolean validateScheduleHasNetwork(Schedule schedule) {
-		boolean constraintViolated = false;
-		
-		if(schedule.getNetworkReference().getNetwork() == null) { 
-		constraintViolated = true;
-		}
-		
-		if(constraintViolated) {
-			return constraintViolated(schedule, "Network not defined for this schedule.");
-		}
-	
-		return true;
-	}
-	
-	//Utility method
-	protected boolean constraintViolated(EObject object, String message) {
-		Diagnostic diagnostic = new BasicDiagnostic(Diagnostic.ERROR, object.toString(), 0, message, new Object[] { object });
-		
-		diagnostics.add(diagnostic);
-		return false;
-	}
 }

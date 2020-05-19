@@ -21,8 +21,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.mdse.pts.time.Day;
 import org.mdse.pts.time.Time;
 import org.mdse.pts.time.TimePackage;
 
@@ -61,33 +59,10 @@ public class TimeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDayPropertyDescriptor(object);
 			addHourPropertyDescriptor(object);
 			addMinutePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Day feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDayPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Time_day_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Time_day_feature", "_UI_Time_type"),
-				 TimePackage.Literals.TIME__DAY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -153,11 +128,8 @@ public class TimeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Day labelValue = ((Time)object).getDay();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Time_type") :
-			getString("_UI_Time_type") + " " + label;
+		Time time = (Time)object;
+		return getString("_UI_Time_type") + " " + time.getHour();
 	}
 
 
@@ -173,7 +145,6 @@ public class TimeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Time.class)) {
-			case TimePackage.TIME__DAY:
 			case TimePackage.TIME__HOUR:
 			case TimePackage.TIME__MINUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

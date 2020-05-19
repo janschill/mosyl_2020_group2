@@ -84,6 +84,12 @@ public class ScheduleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SchedulePackage.STOP_TIME: {
+				StopTime stopTime = (StopTime)theEObject;
+				T result = caseStopTime(stopTime);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SchedulePackage.PLATFORM: {
 				Platform platform = (Platform)theEObject;
 				T result = casePlatform(platform);
@@ -148,6 +154,21 @@ public class ScheduleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRoute(Route object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stop Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stop Time</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStopTime(StopTime object) {
 		return null;
 	}
 
