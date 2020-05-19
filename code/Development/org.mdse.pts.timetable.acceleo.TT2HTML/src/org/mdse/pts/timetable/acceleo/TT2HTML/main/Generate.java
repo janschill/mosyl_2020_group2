@@ -24,9 +24,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.mdse.pts.time.TimePackage;
 import org.mdse.pts.timetable.TimetablePackage;
-
-import time.TimePackage;
 
 /**
  * Entry point of the 'Generate' generation module.
