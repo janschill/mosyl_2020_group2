@@ -1,32 +1,38 @@
 /**
  */
-package org.mdse.pts.time.impl;
+package schedule.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
 import org.mdse.pts.time.Day;
-import org.mdse.pts.time.Time;
-import org.mdse.pts.time.TimePackage;
+
+import schedule.STime;
+import schedule.SchedulePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Time</b></em>'.
+ * An implementation of the model object '<em><b>STime</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.mdse.pts.time.impl.TimeImpl#getDay <em>Day</em>}</li>
- *   <li>{@link org.mdse.pts.time.impl.TimeImpl#getHour <em>Hour</em>}</li>
- *   <li>{@link org.mdse.pts.time.impl.TimeImpl#getMinute <em>Minute</em>}</li>
+ *   <li>{@link schedule.impl.STimeImpl#getDay <em>Day</em>}</li>
+ *   <li>{@link schedule.impl.STimeImpl#getHour <em>Hour</em>}</li>
+ *   <li>{@link schedule.impl.STimeImpl#getMinute <em>Minute</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
+public class STimeImpl extends MinimalEObjectImpl.Container implements STime {
 	/**
 	 * The cached value of the '{@link #getDay() <em>Day</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -62,7 +68,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TimeImpl() {
+	protected STimeImpl() {
 		super();
 	}
 
@@ -73,7 +79,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TimePackage.Literals.TIME;
+		return SchedulePackage.Literals.STIME;
 	}
 
 	/**
@@ -84,7 +90,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	@Override
 	public EList<Day> getDay() {
 		if (day == null) {
-			day = new EDataTypeUniqueEList<Day>(Day.class, this, TimePackage.TIME__DAY);
+			day = new EDataTypeUniqueEList<Day>(Day.class, this, SchedulePackage.STIME__DAY);
 		}
 		return day;
 	}
@@ -97,7 +103,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	@Override
 	public EList<Integer> getHour() {
 		if (hour == null) {
-			hour = new EDataTypeUniqueEList<Integer>(Integer.class, this, TimePackage.TIME__HOUR);
+			hour = new EDataTypeUniqueEList<Integer>(Integer.class, this, SchedulePackage.STIME__HOUR);
 		}
 		return hour;
 	}
@@ -110,7 +116,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	@Override
 	public EList<Integer> getMinute() {
 		if (minute == null) {
-			minute = new EDataTypeUniqueEList<Integer>(Integer.class, this, TimePackage.TIME__MINUTE);
+			minute = new EDataTypeUniqueEList<Integer>(Integer.class, this, SchedulePackage.STIME__MINUTE);
 		}
 		return minute;
 	}
@@ -123,11 +129,11 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TimePackage.TIME__DAY:
+			case SchedulePackage.STIME__DAY:
 				return getDay();
-			case TimePackage.TIME__HOUR:
+			case SchedulePackage.STIME__HOUR:
 				return getHour();
-			case TimePackage.TIME__MINUTE:
+			case SchedulePackage.STIME__MINUTE:
 				return getMinute();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -142,15 +148,15 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TimePackage.TIME__DAY:
+			case SchedulePackage.STIME__DAY:
 				getDay().clear();
 				getDay().addAll((Collection<? extends Day>)newValue);
 				return;
-			case TimePackage.TIME__HOUR:
+			case SchedulePackage.STIME__HOUR:
 				getHour().clear();
 				getHour().addAll((Collection<? extends Integer>)newValue);
 				return;
-			case TimePackage.TIME__MINUTE:
+			case SchedulePackage.STIME__MINUTE:
 				getMinute().clear();
 				getMinute().addAll((Collection<? extends Integer>)newValue);
 				return;
@@ -166,13 +172,13 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TimePackage.TIME__DAY:
+			case SchedulePackage.STIME__DAY:
 				getDay().clear();
 				return;
-			case TimePackage.TIME__HOUR:
+			case SchedulePackage.STIME__HOUR:
 				getHour().clear();
 				return;
-			case TimePackage.TIME__MINUTE:
+			case SchedulePackage.STIME__MINUTE:
 				getMinute().clear();
 				return;
 		}
@@ -187,11 +193,11 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TimePackage.TIME__DAY:
+			case SchedulePackage.STIME__DAY:
 				return day != null && !day.isEmpty();
-			case TimePackage.TIME__HOUR:
+			case SchedulePackage.STIME__HOUR:
 				return hour != null && !hour.isEmpty();
-			case TimePackage.TIME__MINUTE:
+			case SchedulePackage.STIME__MINUTE:
 				return minute != null && !minute.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -217,4 +223,4 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 		return result.toString();
 	}
 
-} //TimeImpl
+} //STimeImpl

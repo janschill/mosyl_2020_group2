@@ -1,6 +1,6 @@
 /**
  */
-package org.mdse.pts.schedule;
+package schedule;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -17,23 +17,23 @@ import org.mdse.pts.depot.Train;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.mdse.pts.schedule.Route#getTime <em>Time</em>}</li>
- *   <li>{@link org.mdse.pts.schedule.Route#getTransits <em>Transits</em>}</li>
- *   <li>{@link org.mdse.pts.schedule.Route#getTrain <em>Train</em>}</li>
+ *   <li>{@link schedule.Route#getTime <em>Time</em>}</li>
+ *   <li>{@link schedule.Route#getTransits <em>Transits</em>}</li>
+ *   <li>{@link schedule.Route#getTrain <em>Train</em>}</li>
  * </ul>
  *
- * @see org.mdse.pts.schedule.SchedulePackage#getRoute()
+ * @see schedule.SchedulePackage#getRoute()
  * @model
  * @generated
  */
 public interface Route extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Time</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mdse.pts.schedule.STime}.
+	 * The list contents are of type {@link schedule.STime}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Time</em>' containment reference list.
-	 * @see org.mdse.pts.schedule.SchedulePackage#getRoute_Time()
+	 * @see schedule.SchedulePackage#getRoute_Time()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -41,11 +41,11 @@ public interface Route extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Transits</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mdse.pts.schedule.Transit}.
+	 * The list contents are of type {@link schedule.Transit}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Transits</em>' containment reference list.
-	 * @see org.mdse.pts.schedule.SchedulePackage#getRoute_Transits()
+	 * @see schedule.SchedulePackage#getRoute_Transits()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -57,14 +57,14 @@ public interface Route extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Train</em>' reference.
 	 * @see #setTrain(Train)
-	 * @see org.mdse.pts.schedule.SchedulePackage#getRoute_Train()
+	 * @see schedule.SchedulePackage#getRoute_Train()
 	 * @model required="true"
 	 * @generated
 	 */
 	Train getTrain();
 
 	/**
-	 * Sets the value of the '{@link org.mdse.pts.schedule.Route#getTrain <em>Train</em>}' reference.
+	 * Sets the value of the '{@link schedule.Route#getTrain <em>Train</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Train</em>' reference.

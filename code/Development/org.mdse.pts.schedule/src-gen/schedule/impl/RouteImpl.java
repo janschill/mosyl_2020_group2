@@ -1,12 +1,12 @@
 /**
  */
-package org.mdse.pts.schedule.impl;
+package schedule.impl;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -14,13 +14,16 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.mdse.pts.depot.Train;
-import org.mdse.pts.schedule.Route;
-import org.mdse.pts.schedule.STime;
-import org.mdse.pts.schedule.SchedulePackage;
-import org.mdse.pts.schedule.Transit;
+
+import schedule.Route;
+import schedule.STime;
+import schedule.SchedulePackage;
+import schedule.Transit;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,9 +33,9 @@ import org.mdse.pts.schedule.Transit;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.mdse.pts.schedule.impl.RouteImpl#getTime <em>Time</em>}</li>
- *   <li>{@link org.mdse.pts.schedule.impl.RouteImpl#getTransits <em>Transits</em>}</li>
- *   <li>{@link org.mdse.pts.schedule.impl.RouteImpl#getTrain <em>Train</em>}</li>
+ *   <li>{@link schedule.impl.RouteImpl#getTime <em>Time</em>}</li>
+ *   <li>{@link schedule.impl.RouteImpl#getTransits <em>Transits</em>}</li>
+ *   <li>{@link schedule.impl.RouteImpl#getTrain <em>Train</em>}</li>
  * </ul>
  *
  * @generated

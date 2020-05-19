@@ -1,6 +1,6 @@
 /**
  */
-package org.mdse.pts.schedule.util;
+package schedule.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -9,14 +9,14 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.mdse.pts.schedule.*;
+import schedule.*;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.mdse.pts.schedule.SchedulePackage
+ * @see schedule.SchedulePackage
  * @generated
  */
 public class ScheduleAdapterFactory extends AdapterFactoryImpl {
@@ -124,13 +124,13 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.Schedule <em>Schedule</em>}'.
+	 * Creates a new adapter for an object of class '{@link schedule.Schedule <em>Schedule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mdse.pts.schedule.Schedule
+	 * @see schedule.Schedule
 	 * @generated
 	 */
 	public Adapter createScheduleAdapter() {
@@ -138,13 +138,13 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.DepotReference <em>Depot Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link schedule.DepotReference <em>Depot Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mdse.pts.schedule.DepotReference
+	 * @see schedule.DepotReference
 	 * @generated
 	 */
 	public Adapter createDepotReferenceAdapter() {
@@ -152,13 +152,13 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.Route <em>Route</em>}'.
+	 * Creates a new adapter for an object of class '{@link schedule.Route <em>Route</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mdse.pts.schedule.Route
+	 * @see schedule.Route
 	 * @generated
 	 */
 	public Adapter createRouteAdapter() {
@@ -166,13 +166,13 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.STime <em>STime</em>}'.
+	 * Creates a new adapter for an object of class '{@link schedule.STime <em>STime</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mdse.pts.schedule.STime
+	 * @see schedule.STime
 	 * @generated
 	 */
 	public Adapter createSTimeAdapter() {
@@ -180,13 +180,13 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.StopTime <em>Stop Time</em>}'.
+	 * Creates a new adapter for an object of class '{@link schedule.StopTime <em>Stop Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mdse.pts.schedule.StopTime
+	 * @see schedule.StopTime
 	 * @generated
 	 */
 	public Adapter createStopTimeAdapter() {
@@ -194,13 +194,13 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.Platform <em>Platform</em>}'.
+	 * Creates a new adapter for an object of class '{@link schedule.Platform <em>Platform</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mdse.pts.schedule.Platform
+	 * @see schedule.Platform
 	 * @generated
 	 */
 	public Adapter createPlatformAdapter() {
@@ -208,13 +208,13 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.NetworkReference <em>Network Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link schedule.NetworkReference <em>Network Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mdse.pts.schedule.NetworkReference
+	 * @see schedule.NetworkReference
 	 * @generated
 	 */
 	public Adapter createNetworkReferenceAdapter() {
@@ -222,13 +222,13 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.TrainReference <em>Train Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link schedule.TrainReference <em>Train Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mdse.pts.schedule.TrainReference
+	 * @see schedule.TrainReference
 	 * @generated
 	 */
 	public Adapter createTrainReferenceAdapter() {
@@ -236,13 +236,13 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.Transit <em>Transit</em>}'.
+	 * Creates a new adapter for an object of class '{@link schedule.Transit <em>Transit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.mdse.pts.schedule.Transit
+	 * @see schedule.Transit
 	 * @generated
 	 */
 	public Adapter createTransitAdapter() {

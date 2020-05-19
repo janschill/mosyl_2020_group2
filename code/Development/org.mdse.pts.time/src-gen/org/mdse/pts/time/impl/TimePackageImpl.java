@@ -6,16 +6,12 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EValidator;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.mdse.pts.time.Day;
 import org.mdse.pts.time.Time;
 import org.mdse.pts.time.TimeFactory;
 import org.mdse.pts.time.TimePackage;
-
-import org.mdse.pts.time.util.TimeValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -91,16 +87,6 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 		// Initialize created meta-data
 		theTimePackage.initializePackageContents();
 
-		// Register package validator
-		EValidator.Registry.INSTANCE.put
-			(theTimePackage,
-			 new EValidator.Descriptor() {
-				 @Override
-				 public EValidator getEValidator() {
-					 return TimeValidator.INSTANCE;
-				 }
-			 });
-
 		// Mark meta-data to indicate it can't be changed
 		theTimePackage.freeze();
 
@@ -125,7 +111,7 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTime_Hour() {
+	public EAttribute getTime_Day() {
 		return (EAttribute)timeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -135,8 +121,18 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTime_Minute() {
+	public EAttribute getTime_Hour() {
 		return (EAttribute)timeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTime_Minute() {
+		return (EAttribute)timeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -179,6 +175,7 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 
 		// Create classes and their features
 		timeEClass = createEClass(TIME);
+		createEAttribute(timeEClass, TIME__DAY);
 		createEAttribute(timeEClass, TIME__HOUR);
 		createEAttribute(timeEClass, TIME__MINUTE);
 
@@ -217,8 +214,9 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(timeEClass, Time.class, "Time", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTime_Hour(), ecorePackage.getEInt(), "hour", null, 1, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTime_Minute(), ecorePackage.getEInt(), "minute", null, 1, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTime_Day(), this.getDay(), "day", null, 1, -1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTime_Hour(), ecorePackage.getEInt(), "hour", null, 1, -1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTime_Minute(), ecorePackage.getEInt(), "minute", null, 1, -1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dayEEnum, Day.class, "Day");
@@ -236,10 +234,6 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 		// Create annotations
 		// http://www.eclipse.org/OCL/Import
 		createImportAnnotations();
-		// http://www.eclipse.org/emf/2002/Ecore
-		createEcoreAnnotations();
-		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-		createPivotAnnotations();
 	}
 
 	/**
@@ -255,47 +249,6 @@ public class TimePackageImpl extends EPackageImpl implements TimePackage {
 		   source,
 		   new String[] {
 			   "ecore", "http://www.eclipse.org/emf/2002/Ecore"
-		   });
-	}
-
-	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";
-		addAnnotation
-		  (this,
-		   source,
-		   new String[] {
-			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });
-		addAnnotation
-		  (timeEClass,
-		   source,
-		   new String[] {
-			   "constraints", "ValidHourValue ValidMinuteValue"
-		   });
-	}
-
-	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createPivotAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-		addAnnotation
-		  (timeEClass,
-		   source,
-		   new String[] {
-			   "ValidHourValue", "\n\t\t\t0 <= hour and hour <= 23",
-			   "ValidMinuteValue", "\n\t\t\t 0 <= minute and minute <= 59"
 		   });
 	}
 

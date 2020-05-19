@@ -17,9 +17,9 @@
       <details key="ValidHourValue" value="&#xA;&#x9;&#x9;&#x9;0 &lt;= hour and hour &lt;= 23"/>
       <details key="ValidMinuteValue" value="&#xA;&#x9;&#x9;&#x9; 0 &lt;= minute and minute &lt;= 59"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hour" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minute" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" eType="#//Day"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hour" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Day">
     <eLiterals name="Monday"/>

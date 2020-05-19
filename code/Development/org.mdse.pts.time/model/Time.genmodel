@@ -18,6 +18,7 @@
       <genEnumLiterals ecoreEnumLiteral="Time.ecore#//Day/Sunday"/>
     </genEnums>
     <genClasses ecoreClass="Time.ecore#//Time">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Time.ecore#//Time/day"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Time.ecore#//Time/hour"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Time.ecore#//Time/minute"/>
     </genClasses>

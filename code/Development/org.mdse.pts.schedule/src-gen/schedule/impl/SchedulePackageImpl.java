@@ -1,6 +1,6 @@
 /**
  */
-package org.mdse.pts.schedule.impl;
+package schedule.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -12,18 +12,20 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.mdse.pts.depot.DepotPackage;
 
 import org.mdse.pts.network.NetworkPackage;
-import org.mdse.pts.schedule.DepotReference;
-import org.mdse.pts.schedule.NetworkReference;
-import org.mdse.pts.schedule.Platform;
-import org.mdse.pts.schedule.Route;
-import org.mdse.pts.schedule.STime;
-import org.mdse.pts.schedule.Schedule;
-import org.mdse.pts.schedule.ScheduleFactory;
-import org.mdse.pts.schedule.SchedulePackage;
-import org.mdse.pts.schedule.StopTime;
-import org.mdse.pts.schedule.TrainReference;
-import org.mdse.pts.schedule.Transit;
+
 import org.mdse.pts.time.TimePackage;
+
+import schedule.DepotReference;
+import schedule.NetworkReference;
+import schedule.Platform;
+import schedule.Route;
+import schedule.STime;
+import schedule.Schedule;
+import schedule.ScheduleFactory;
+import schedule.SchedulePackage;
+import schedule.StopTime;
+import schedule.TrainReference;
+import schedule.Transit;
 
 /**
  * <!-- begin-user-doc -->
@@ -106,7 +108,7 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see org.mdse.pts.schedule.SchedulePackage#eNS_URI
+	 * @see schedule.SchedulePackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */

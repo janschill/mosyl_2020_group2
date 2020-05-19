@@ -59,10 +59,33 @@ public class TimeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDayPropertyDescriptor(object);
 			addHourPropertyDescriptor(object);
 			addMinutePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Day feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDayPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Time_day_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Time_day_feature", "_UI_Time_type"),
+				 TimePackage.Literals.TIME__DAY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -128,8 +151,7 @@ public class TimeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Time time = (Time)object;
-		return getString("_UI_Time_type") + " " + time.getHour();
+		return getString("_UI_Time_type");
 	}
 
 
@@ -145,6 +167,7 @@ public class TimeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Time.class)) {
+			case TimePackage.TIME__DAY:
 			case TimePackage.TIME__HOUR:
 			case TimePackage.TIME__MINUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

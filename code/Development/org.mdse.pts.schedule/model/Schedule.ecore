@@ -15,20 +15,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="depot" eType="ecore:EClass ../../org.mdse.pts.depot/model/Depot.ecore#//Depot"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Route">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="time" upperBound="-1" eType="ecore:EClass ../../org.mdse.pts.time/model/Time.ecore#//Time"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="time" upperBound="-1" eType="#//STime"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Station"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="terminate" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Station"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="drive" upperBound="-1"
-        eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Leg"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stop" upperBound="-1" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Station"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" lowerBound="1" upperBound="-1"
-        eType="ecore:EEnum ../../org.mdse.pts.time/model/Time.ecore#//Day" defaultValueLiteral="Friday"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="platform" upperBound="-1"
-        eType="#//Platform" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stopTime" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transits" upperBound="-1"
+        eType="#//Transit" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="train" lowerBound="1" eType="ecore:EClass ../../org.mdse.pts.depot/model/Depot.ecore#//Train"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="STime">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" upperBound="-1" eType="ecore:EEnum ../../org.mdse.pts.time/model/Time.ecore#//Day"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hour" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minute" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StopTime"/>
   <eClassifiers xsi:type="ecore:EClass" name="Platform">
@@ -39,5 +36,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TrainReference">
     <eStructuralFeatures xsi:type="ecore:EReference" name="train" eType="ecore:EClass ../../org.mdse.pts.depot/model/Depot.ecore#//Train"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="platform" eType="#//Platform"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="station" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Station"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leg" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Leg"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="standingDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTerminateStop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

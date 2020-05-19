@@ -20,7 +20,7 @@ import org.mdse.pts.schedule.DepotReference;
 import org.mdse.pts.schedule.NetworkReference;
 import org.mdse.pts.schedule.Route;
 import org.mdse.pts.schedule.Schedule;
-import org.mdse.pts.schedule.TrainReference;
+import org.mdse.pts.schedule.Transit;
 
 /**
  * This class contains custom scoping description.
@@ -41,10 +41,11 @@ public class ScheduleScopeProvider extends AbstractScheduleScopeProvider {
 			DepotReference depotReference = (DepotReference) context;
 			return getDepotReferenceScope(depotReference);
 		}*/
-		if(context instanceof Train) {
+		
+		/*if(context instanceof Train) {
 			Train train = (Train) context;
 			return getTrainReferenceScope(train);
-		}
+		}*/
 		
 		if(context instanceof Route) {
 			//Station station = (Station) context;
@@ -53,11 +54,16 @@ public class ScheduleScopeProvider extends AbstractScheduleScopeProvider {
 			return getRouteScope(route);
 		}
 		
+		if(context instanceof Transit) {
+			Transit transit = (Transit)context;
+			return getTransitScope(transit);
+		}
+		
 		return super.getScope(context, reference);
 	}
 	
-	protected IScope getTrainReferenceScope(Train trainReference) {
-		EObject rootModelElement = EcoreUtil.getRootContainer(trainReference);
+	/*protected IScope getTrainReferenceScope(Train train) {
+		EObject rootModelElement = EcoreUtil.getRootContainer(train);
 		
 		if(rootModelElement instanceof Schedule) {
 			Schedule schedule = (Schedule) rootModelElement;
@@ -77,17 +83,58 @@ public class ScheduleScopeProvider extends AbstractScheduleScopeProvider {
 		}
 		
 		return null;
-	}
+	}*/
 	
 	protected IScope getRouteScope(Route route) {
 		EObject rootModelElement = EcoreUtil.getRootContainer(route);
 		
 		if(rootModelElement instanceof Schedule) {
 			Schedule schedule = (Schedule) rootModelElement;
+			
+			List<DepotReference> depotReferences = new ArrayList<DepotReference>();
+			depotReferences.addAll(schedule.getDepotReference());
+			List<Depot> depots = new ArrayList<Depot>();
+			for(DepotReference dep : depotReferences){
+				depots.add(dep.getDepot());
+			}
+			
+			List<Train> trains = new ArrayList<Train>();
+			for(Depot d : depots) {
+				trains.addAll(d.getTrains());
+			}
+			
+//			NetworkReference networkReference = schedule.getNetworkReference();
+//			Network network = networkReference.getNetwork();
+//			
+//			List<Station> stations = network.getStations();
+//			List<Leg> legs = new ArrayList<Leg>();
+//			
+//			for(Station st : stations) {
+//				legs.addAll(st.getLegs());
+//			}
+			List<EObject> objects = new ArrayList<EObject>();
+//			objects.addAll(stations);
+//			objects.addAll(legs);
+			objects.addAll(trains);
+			
+			return Scopes.scopeFor(objects);
+		}
+		
+		return null;
+	}
+	
+	protected IScope getTransitScope(Transit transit) {
+		EObject rootModelElement = EcoreUtil.getRootContainer(transit);
+		
+		if(rootModelElement instanceof Schedule) {
+			Schedule schedule = (Schedule) rootModelElement;
+			
 			NetworkReference networkReference = schedule.getNetworkReference();
 			Network network = networkReference.getNetwork();
+			
 			List<Station> stations = network.getStations();
 			List<Leg> legs = new ArrayList<Leg>();
+			
 			for(Station st : stations) {
 				legs.addAll(st.getLegs());
 			}

@@ -1,13 +1,13 @@
 /**
  */
-package org.mdse.pts.schedule.util;
+package schedule.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.mdse.pts.schedule.*;
+import schedule.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +19,7 @@ import org.mdse.pts.schedule.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.mdse.pts.schedule.SchedulePackage
+ * @see schedule.SchedulePackage
  * @generated
  */
 public class ScheduleSwitch<T> extends Switch<T> {

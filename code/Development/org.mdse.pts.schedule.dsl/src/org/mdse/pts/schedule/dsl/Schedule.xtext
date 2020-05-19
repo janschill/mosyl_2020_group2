@@ -34,24 +34,31 @@ TrainReference:
 
 //Route
 Route:
-"TRAIN" train = [depotM::Train]
+"TRAIN" (train=[depotM::Train|STRING] | train=[depotM::Train|ID])
 "ON"
-day += Day ("," day += Day)* "AT" time += Time ("AND" time += Time)* //Why Time Monday??
-("AND" day += Day ("," day += Day)* "AT" time+=Time ("AND" time += Time)*)* ":"
+time+=STime
+("AND" time+=STime)* ":"
 
+//"START" "AT" start = [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform
+//("DRIVE" "VIA" drive += [networkM::Leg|ID] ("," drive += [networkM::Leg])*)*
+//("STOP" "AT" stop += [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform "FOR" stopTime+=INT "MIN")*
+//"TERMINATE" "AT" terminate = [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform
+"START" "AT" transits+=Transit
+"DRIVE" "VIA" transits+=Transit
+("STOP" "AT" transits+=Transit)*
+"TERMINATE" "AT" transits+=Transit
+;
 
-"START" "AT" start = [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform
-("DRIVE" "VIA" drive += [networkM::Leg|ID] ("," drive += [networkM::Leg])*)*
-("STOP" "AT" stop += [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform "FOR" stopTime+=INT "MIN")*
-"TERMINATE" "AT" terminate = [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform
+Transit:
+(leg=[networkM::Leg|STRING] | leg=[networkM::Leg|ID]) | (station=[networkM::Station|STRING] "ON" "PLATFORM" platform=Platform ("FOR" standingDuration=INT "MIN")?)
 ;
 
 Platform:
-	name = STRING 
+	name=STRING
 ;
 
-Time returns timeM::Time:
-	hour = INT":"minute = INT
+STime:
+day+=Day ("," day+=Day)* "AT" hour+=INT":"minute+=INT ("AND" hour += INT":"minute += INT)*
 ;
 
 enum Day returns timeM::Day:

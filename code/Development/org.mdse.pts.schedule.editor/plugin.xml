@@ -33,5 +33,4 @@
             contributorClass="org.mdse.pts.schedule.presentation.ScheduleActionBarContributor">
       </editor>
    </extension>
-
 </plugin>
