@@ -16,28 +16,25 @@ import time.Time;
 public class EntrySortingService {
 	
 	public Collection<Arrival> getArrivalsByDay_Sorted(Collection<Entry> entries, String day) {
-		return entries.stream().filter(Arrival.class::isInstance).map(Arrival.class::cast).collect(Collectors.toList());
-//		List<Arrival> arrivals = entries.stream()
-//										.filter(e -> e.getTime().getDay().getLiteral().equals(day))
-//                						.filter(Arrival.class::isInstance)
-//                						.map(Arrival.class::cast)
-//                						.collect(Collectors.toList());
-//		Collections.sort(arrivals, new EntityComparator());
-//		
-//		return arrivals;
+		List<Arrival> arrivals = entries.stream()
+										.filter(e -> e.getTime().getDay().getLiteral().equals(day))
+                						.filter(Arrival.class::isInstance)
+                						.map(Arrival.class::cast)
+                						.collect(Collectors.toList());
+		Collections.sort(arrivals, new EntityComparator());
+		
+		return arrivals;
 	}
 	
 	public Collection<Departure> getDeparturesByDay_Sorted(Collection<Entry> entries, String day) {
-		Collection<Departure> result = entries.stream().filter(Departure.class::isInstance).map(Departure.class::cast).collect(Collectors.toList());
-		return result;
-//		List<Departure> departures = entries.stream()
-//										.filter(e -> e.getTime().getDay().getLiteral().equals(day))
-//                						.filter(Departure.class::isInstance)
-//                						.map(Departure.class::cast)
-//                						.collect(Collectors.toList());
-//		Collections.sort(departures, new EntityComparator());
-//		
-//		return departures;
+		List<Departure> departures = entries.stream()
+										.filter(e -> e.getTime().getDay().getLiteral().equals(day))
+                						.filter(Departure.class::isInstance)
+                						.map(Departure.class::cast)
+                						.collect(Collectors.toList());
+		Collections.sort(departures, new EntityComparator());
+		
+		return departures;
 	}
 	
 	
