@@ -1,0 +1,86 @@
+[comment encoding = UTF-8 /]
+[module generate('http://mdse.org/pts/timetable', 'http://mdse.org/pts/time')]
+
+[query public getArrivalsByDay_Sorted(entries: OrderedSet(Entry), day: String) : Collection(Arrival) = 
+	invoke('org.mdse.pts.timetable.acceleo.TT2HTML.services.EntrySortingService', 'getArrivalsByDay_Sorted(java.util.Collection, java.lang.String)', Sequence{entries, day})
+/]
+[query public getDeparturesByDay_Sorted(entries: OrderedSet(Entry), day: String) : Collection(Departure) = 
+	invoke('org.mdse.pts.timetable.acceleo.TT2HTML.services.EntrySortingService', 'getDeparturesByDay_Sorted(java.util.Collection, java.lang.String)', Sequence{entries, day}) 
+	
+/]
+[query public getTimeFormatted(time: Time) : String = 
+	invoke('org.mdse.pts.timetable.acceleo.TT2HTML.services.TimeFormattingService', 'getTimeFormatted(time.Time)', Sequence{time}) 
+	
+/]
+[template public generateElement(aTimetable : Timetable)]
+[comment @main/]
+[file ('Timetable.html', false, 'UTF-8')]
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1>Timetable</h1>
+				</div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-6">
+					<h3>Arrivals</h3>
+				</div>
+				<div class="col-6">
+					<h3>Departures</h3>
+				</div>
+			</div>
+			<br/>
+			[for (day: String | Sequence{'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'})]
+				<div class="row">
+					<div class="col-6">
+						[let arrivals: Collection(Arrival) = getArrivalsByDay_Sorted(aTimetable.entries, day) ]
+							[if arrivals->size() > 0]
+								<div class="row">
+									<div class="col-12">
+										<h4>[day/]</h4>
+									</div>
+								</div>
+								[for (arrival: Arrival | arrivals)]
+									<div class="row">
+									 	<div class="col-12">
+											[getTimeFormatted(arrival.time)/] [arrival.train/] from [arrival.fromStation/] on platform [arrival.platform/]
+										</div>
+									</div>
+								[/for]
+							[/if]
+						[/let]
+					</div>
+					<div class="col-6">
+						[let departures: Collection(Departure) = getDeparturesByDay_Sorted(aTimetable.entries, day) ]
+							[if departures->size() > 0]
+								<div class="row">
+									<div class="col-12">
+										<h4>[day/]</h4>
+									</div>
+								</div>
+								[for (departure: Departure | departures)]
+									<div class="row">
+										<div class="col-12">
+											[getTimeFormatted(departure.time)/] [departure.train/] to [departure.toStation/] on platform [departure.platform/]
+										</div>
+									</div>
+								[/for]
+							[/if]
+						[/let]
+					</div>
+				</div>
+				<br/>
+			[/for]
+		</div>
+	</body>
+</html>
+[/file]
+[/template]
