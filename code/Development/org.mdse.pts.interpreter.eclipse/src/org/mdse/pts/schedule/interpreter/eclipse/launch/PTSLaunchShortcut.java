@@ -13,6 +13,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.console.MessageConsole;
+import org.mdse.pts.schedule.Schedule;
 import org.mdse.pts.schedule.interpreter.ScheduleInterpreter;
 import org.mdse.pts.schedule.interpreter.eclipse.PTSEclipseUtil;
 
@@ -21,24 +22,24 @@ public class PTSLaunchShortcut implements ILaunchShortcut {
 	@Override
 	public void launch(ISelection selection, String mode) {
 		//Load model
-		IFile fsmFile = PTSEclipseUtil.getFirstIFileFromSelectionWithExtension("fsm", selection);
-//		FSMModel fsmModel = (FSMModel) FSMEclipseUtil.loadModel(fsmFile);
+		IFile scheduelFile = PTSEclipseUtil.getFirstIFileFromSelectionWithExtension("schedule", selection);
+		Schedule scheduleModel = (Schedule) PTSEclipseUtil.loadModel(scheduelFile);
 
-//		interpretFSMModel(fsmModel);
+		interpretScheduleModel(scheduleModel);
 	}
 	
 	@Override
 	public void launch(IEditorPart editor, String mode) {
 		EObject model = getModelFromEditor(editor);
 		
-//		if (model instanceof FSMModel) {
-//			FSMModel fsmModel = (FSMModel) model;
-//			interpretFSMModel(fsmModel);
-//			return;
-//		}
+		if (model instanceof Schedule) {
+			Schedule scheduleModel = (Schedule) model;
+			interpretScheduleModel(scheduleModel);
+			return;
+		}
 		
 		String title = "Error";
-		String message = "The file cannot be interpreted as an FSM model.";
+		String message = "The file cannot be interpreted as a Schedule model.";
 		MessageDialog.openError(null, title, message);
 	}
 	
@@ -56,23 +57,21 @@ public class PTSLaunchShortcut implements ILaunchShortcut {
 			return model;
 		}
 		
-		//TODO: Sirius Editor
-		
 		return null;
 	}
 	
-	protected void interpretFSMModel() {
+	protected void interpretScheduleModel(Schedule scheduleModel) {
 		//Ask for input
-		String interpreterInput = askForInterpreterInput();
+		String interpreterInputPath = askForInterpreterPath();
 		
-		if (interpreterInput != null) {
+		if (interpreterInputPath != null) {
 			//Interpret FSM
-//			interpretFSMModel(fsmModel, interpreterInput);
+			interpretScheduleModel(scheduleModel, interpreterInputPath);
 		}
 	}
 	
-	protected String askForInterpreterInput() {
-		InputDialog inputDialog = new InputDialog(null, "FSM Interpreter Input", "Please provide input for the FSM interpreter", null, null);
+	protected String askForInterpreterPath() {
+		InputDialog inputDialog = new InputDialog(null, "Schedule Interpreter Input", "Please provide the path to your Schedule path", null, null);
 		
 		int returnCode = inputDialog.open();
 		
@@ -83,7 +82,7 @@ public class PTSLaunchShortcut implements ILaunchShortcut {
 		return null;
 	}
 
-	protected void interpretFSMModel(Object model, String interpreterInput) {
+	protected void interpretScheduleModel(Schedule scheduleModel, String interpreterInput) {
 		ScheduleInterpreter interpreter = new ScheduleInterpreter();
 		
 		try {
@@ -91,6 +90,8 @@ public class PTSLaunchShortcut implements ILaunchShortcut {
 			MessageConsole console = PTSEclipseUtil.findOrCreateConsole("FSM Interpreter");
 			console.clearConsole();
 			console.activate();
+//			TODO: Simulate train
+//			TODO: Create new timetable model
 			OutputStream consoleOutputStream = console.newOutputStream();
 			
 //			interpreter.interpret(model, interpreterInput, consoleOutputStream);
