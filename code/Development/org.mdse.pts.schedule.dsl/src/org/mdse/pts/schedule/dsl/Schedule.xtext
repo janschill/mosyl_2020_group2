@@ -44,7 +44,7 @@ time+=STime
 //("STOP" "AT" stop += [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform "FOR" stopTime+=INT "MIN")*
 //"TERMINATE" "AT" terminate = [networkM::Station|STRING] "ON" "PLATFORM" platform+=Platform
 "START" "AT" transits+=Transit
-"DRIVE" "VIA" transits+=Transit
+("DRIVE" "VIA" transits+=Transit)?
 ("STOP" "AT" transits+=Transit)*
 "TERMINATE" "AT" transits+=Transit
 ;
