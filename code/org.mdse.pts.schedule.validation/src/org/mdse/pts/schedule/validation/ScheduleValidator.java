@@ -1,6 +1,7 @@
 package org.mdse.pts.schedule.validation;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ui.IStartup;
+import org.mdse.pts.depot.Coach;
+import org.mdse.pts.depot.Locomotive;
+import org.mdse.pts.depot.Train;
 import org.mdse.pts.network.Leg;
 import org.mdse.pts.network.Network;
 import org.mdse.pts.network.Station;
@@ -56,7 +60,7 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 		//modelIsValid &= validateScheduleHasNetwork(schedule);
 		modelIsValid &= validateOnlyOneLeg(schedule);
 		//modelIsValid &= validateSameRouteDiffLeg(schedule);
-		//modelIsValid &= validateLocomotiveWhenTurnReq(schedule);
+		modelIsValid &= validateLocomotiveWhenTurnReq(schedule);
 		
 		return modelIsValid;
 	}
@@ -106,6 +110,7 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 			for(Leg l2 : endLegs)
 				if(l1.getName() == l2.getName())
 					counter++;
+		
 		
 		if(counter>1 && !driveViaExists)
 			constraintViolated = true;
@@ -177,6 +182,49 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 	//When route contains a turn, it must be ensured that the train driving the route has a locomotive as
 	//leading and trailing coach
 	protected boolean validateLocomotiveWhenTurnReq(Schedule schedule) {
+		boolean constraintViolated = false;
+		boolean routeHasTurn = false;
+		
+		List<Route> routes = new ArrayList<Route>();
+		routes.addAll(schedule.getRouteReference());
+		
+		for(Route r : routes) {
+		Train train = r.getTrain();
+		List<Coach> coaches = train.getCoaches();
+		List<Locomotive> locomotives = new ArrayList<Locomotive>();
+		
+		for(Coach c : coaches)
+			if(c instanceof Locomotive)
+				locomotives.add((Locomotive)c);
+		
+		List<Transit> transits = new ArrayList<Transit>();
+		transits.addAll(r.getTransits());
+		List<Station> stations = new ArrayList<Station>();
+		
+		for(Transit t : transits)
+			if(t.getStation() != null) {
+				stations.add(t.getStation());
+			}
+		
+		Object[] stationsArr = stations.toArray();
+		
+			for(int i=0; i<stations.size()-1;i++)
+				for(int j=i+2; j<stations.size()-1;j++) {
+				System.out.println("trans[i]="+stationsArr[i]+" trans[j]="+stationsArr[j]);
+					if(stationsArr[i] == stationsArr[j])
+						routeHasTurn = true;
+				}
+		
+		if(locomotives.size()<2 && routeHasTurn)
+			constraintViolated = true;
+		
+		
+		if(constraintViolated) {
+			return constraintViolated(r, "Train must have locomotive on both ends because specified route has turn.");
+		}
+		
+	 }
+		
 		
 		return true;
 	}
