@@ -1,7 +1,6 @@
 package org.mdse.pts.schedule.validation;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -17,9 +16,7 @@ import org.mdse.pts.depot.Coach;
 import org.mdse.pts.depot.Locomotive;
 import org.mdse.pts.depot.Train;
 import org.mdse.pts.network.Leg;
-import org.mdse.pts.network.Network;
 import org.mdse.pts.network.Station;
-import org.mdse.pts.schedule.NetworkReference;
 import org.mdse.pts.schedule.Route;
 import org.mdse.pts.schedule.Schedule;
 import org.mdse.pts.schedule.SchedulePackage;
@@ -57,27 +54,12 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 	protected boolean validateSchedule(Schedule schedule) {
 		boolean modelIsValid = true;
 		
-		//modelIsValid &= validateScheduleHasNetwork(schedule);
 		modelIsValid &= validateOnlyOneLeg(schedule);
-		//modelIsValid &= validateSameRouteDiffLeg(schedule);
+		modelIsValid &= mandatoryPlatform(schedule);
 		modelIsValid &= validateLocomotiveWhenTurnReq(schedule);
 		
 		return modelIsValid;
 	}
-	
-//	protected boolean validateScheduleHasNetwork(Schedule schedule) {
-//		boolean constraintViolated = false;
-//		
-//		if(schedule.getDepotReference().size() > 1) { 
-//		constraintViolated = true;
-//		}
-//		
-//		if(constraintViolated) {
-//			return constraintViolated(schedule, "Too many depots.");
-//		}
-//	
-//		return true;
-//	}
 	
 	//If there is only one leg connecting two stations, it's not mandatory to be specified explicitly
 	protected boolean validateOnlyOneLeg(Schedule schedule) {
@@ -87,96 +69,79 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 		routes.addAll(schedule.getRouteReference());
 		
 		for(Route r : routes) {
-		boolean driveViaExists = false;
 		
 		List<Transit> transits = new ArrayList<Transit>();
 		transits.addAll(r.getTransits());
-		
-		Transit start =	transits.get(0);
-		Transit end = transits.get(transits.size()-1);
-
-		List<Leg> startLegs = new ArrayList<Leg>();
-		startLegs.addAll(start.getStation().getLegs());
-		
-		List<Leg> endLegs = new ArrayList<Leg>();
-		endLegs.addAll(end.getStation().getLegs());
-
+		List<Station> stations = new ArrayList<Station>();
+		List<Leg> driveVias = new ArrayList<Leg>();
 		for(Transit t : transits)
-			if(t.getLeg() != null && startLegs.contains(t.getLeg()) && endLegs.contains(t.getLeg()))
+			if(t.getStation() != null)
+				stations.add(t.getStation());
+			else
+				driveVias.add(t.getLeg());
+
+
+		for(int i=0;i<stations.size()-1;i++) {
+		boolean driveViaExists = false;
+		
+		Station first =	stations.get(i);
+		Station second = stations.get(i+1);
+		
+		List<Leg> firstLegs = new ArrayList<Leg>();
+		firstLegs.addAll(first.getLegs());
+		
+		List<Leg> secondLegs = new ArrayList<Leg>();
+		secondLegs.addAll(second.getLegs());
+		
+		
+		for(Leg l : driveVias)
+			if(firstLegs.contains(l) && secondLegs.contains(l))
 				driveViaExists = true;
 		
 		int counter = 0;
-		for(Leg l1 : startLegs)
-			for(Leg l2 : endLegs)
+		for(Leg l1 : firstLegs)
+			for(Leg l2 : secondLegs)
 				if(l1.getName() == l2.getName())
 					counter++;
-		
-		
+
+
 		if(counter>1 && !driveViaExists)
 			constraintViolated = true;
 		
-		if(constraintViolated)
-			return constraintViolated(r, "Please specify appropriate leg for route: " + start.getStation().getName().toString() + " - " + end.getStation().getName().toString() + " using DRIVE VIA keyword.");
-		}
 		
+		if(constraintViolated)
+return constraintViolated(r, "Please specify appropriate leg between: " + first.getName().toString() + " and " + second.getName().toString() + " using DRIVE VIA keyword.");
+		 }
+		}
 		
 		return true;
 	}
 	
-	//If there are 2 routes with same endpoints, they must use different leg
-	//?? What if they have different stops or different duration for pause ??
-	//Unnecessary constraint but a lot of effort
-//	protected boolean validateSameRouteDiffLeg(Schedule schedule) {
-//		boolean constraintViolated = false;
-//
-//		List<Route> routes = new ArrayList<Route>();
-//		routes.addAll(schedule.getRouteReference());
-//		
-//		for(Route r1 : routes) {
-//			for(Route r2 : routes) {
-//		List<Transit> transits1 = new ArrayList<Transit>();
-//		transits1.addAll(r1.getTransits());
-//		Transit start1 =	transits1.get(0);
-//		Transit end1 = transits1.get(transits1.size()-1);
-//		List<Leg> startLegs1 = new ArrayList<Leg>();
-//		startLegs1.addAll(start1.getStation().getLegs());
-//		String driveViaLeg1 = "1";
-//		
-//		List<Leg> endLegs1 = new ArrayList<Leg>();
-//		endLegs1.addAll(end1.getStation().getLegs());
-//
-//		for(Transit t1 : transits1)
-//			if(t1.getLeg() != null && startLegs1.contains(t1.getLeg()) && endLegs1.contains(t1.getLeg()))
-//				driveViaLeg1 = t1.getLeg().getName();
-//		
-//		
-//		
-//		List<Transit> transits2 = new ArrayList<Transit>();
-//		transits2.addAll(r2.getTransits());
-//		Transit start2 =	transits2.get(0);
-//		Transit end2 = transits2.get(transits2.size()-1);
-//		List<Leg> startLegs2 = new ArrayList<Leg>();
-//		startLegs2.addAll(start2.getStation().getLegs());
-//		String driveViaLeg2 = "2";
-//		
-//		List<Leg> endLegs2 = new ArrayList<Leg>();
-//		endLegs2.addAll(end2.getStation().getLegs());
-//
-//		for(Transit t2 : transits2)
-//			if(t2.getLeg() != null && startLegs2.contains(t2.getLeg()) && endLegs2.contains(t2.getLeg()))
-//				driveViaLeg2 = t2.getLeg().getName();
-//
-//		if(start1.getStation().getName() == start2.getStation().getName() && end1.getStation().getName() == end2.getStation().getName() && driveViaLeg1 == driveViaLeg2)
-//			constraintViolated = true;
-//		
-//		if(constraintViolated)
-//			return constraintViolated(r1, "Routes with same endpoints and same direction must use different legs in order to avoid duplicates.");
-//		 }
-//		}
-//		
-//		
-//		return true;
-//	}
+	//If transit object has station, it needs platform as well
+		protected boolean mandatoryPlatform(Schedule schedule) {
+			boolean constraintViolated = false;
+
+			List<Route> routes = new ArrayList<Route>();
+			routes.addAll(schedule.getRouteReference());
+			
+			for(Route r : routes) {
+			
+			List<Transit> transits = new ArrayList<Transit>();
+			transits.addAll(r.getTransits());
+			
+			for(Transit t : transits) {
+				if(t.getStation() != null)
+					if(t.getPlatform() == null)
+						constraintViolated = true;
+			
+			
+			if(constraintViolated)
+				return constraintViolated(r, "Please specify platform name for station " + t.getStation().getName());
+				}
+			 }
+			
+			return true;
+		}
 	
 	
 	//When route contains a turn, it must be ensured that the train driving the route has a locomotive as
@@ -208,12 +173,12 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 		
 		Object[] stationsArr = stations.toArray();
 		
-			for(int i=0; i<stations.size()-1;i++)
-				for(int j=i+2; j<stations.size()-1;j++) {
-				System.out.println("trans[i]="+stationsArr[i]+" trans[j]="+stationsArr[j]);
+		//Check if previous and next station are the same. If they are, that means there is a turn.
+		//I.e. Central - North - Central means that North station requires a turn.
+			for(int i=0; i<stations.size();i++)
+				for(int j=i+2; j<stations.size();j++)
 					if(stationsArr[i] == stationsArr[j])
 						routeHasTurn = true;
-				}
 		
 		if(locomotives.size()<2 && routeHasTurn)
 			constraintViolated = true;
