@@ -25,8 +25,11 @@
     </genClasses>
     <genClasses ecoreClass="Schedule.ecore#//STime">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//STime/day"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//STime/hour"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//STime/minute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Schedule.ecore#//STime/hrmin"/>
+    </genClasses>
+    <genClasses ecoreClass="Schedule.ecore#//HrMin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//HrMin/hour"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//HrMin/minute"/>
     </genClasses>
     <genClasses ecoreClass="Schedule.ecore#//StopTime"/>
     <genClasses ecoreClass="Schedule.ecore#//Platform">
@@ -43,7 +46,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Schedule.ecore#//Transit/station"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Schedule.ecore#//Transit/leg"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//Transit/standingDuration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//Transit/isTerminateStop"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

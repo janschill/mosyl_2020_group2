@@ -30,7 +30,6 @@ import org.mdse.pts.schedule.Transit;
  *   <li>{@link org.mdse.pts.schedule.impl.TransitImpl#getStation <em>Station</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.impl.TransitImpl#getLeg <em>Leg</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.impl.TransitImpl#getStandingDuration <em>Standing Duration</em>}</li>
- *   <li>{@link org.mdse.pts.schedule.impl.TransitImpl#isIsTerminateStop <em>Is Terminate Stop</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,26 +84,6 @@ public class TransitImpl extends MinimalEObjectImpl.Container implements Transit
 	 * @ordered
 	 */
 	protected int standingDuration = STANDING_DURATION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isIsTerminateStop() <em>Is Terminate Stop</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsTerminateStop()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean IS_TERMINATE_STOP_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isIsTerminateStop() <em>Is Terminate Stop</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isIsTerminateStop()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean isTerminateStop = IS_TERMINATE_STOP_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -279,29 +258,6 @@ public class TransitImpl extends MinimalEObjectImpl.Container implements Transit
 	 * @generated
 	 */
 	@Override
-	public boolean isIsTerminateStop() {
-		return isTerminateStop;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIsTerminateStop(boolean newIsTerminateStop) {
-		boolean oldIsTerminateStop = isTerminateStop;
-		isTerminateStop = newIsTerminateStop;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SchedulePackage.TRANSIT__IS_TERMINATE_STOP, oldIsTerminateStop, isTerminateStop));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SchedulePackage.TRANSIT__PLATFORM:
@@ -328,8 +284,6 @@ public class TransitImpl extends MinimalEObjectImpl.Container implements Transit
 				return basicGetLeg();
 			case SchedulePackage.TRANSIT__STANDING_DURATION:
 				return getStandingDuration();
-			case SchedulePackage.TRANSIT__IS_TERMINATE_STOP:
-				return isIsTerminateStop();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -353,9 +307,6 @@ public class TransitImpl extends MinimalEObjectImpl.Container implements Transit
 				return;
 			case SchedulePackage.TRANSIT__STANDING_DURATION:
 				setStandingDuration((Integer)newValue);
-				return;
-			case SchedulePackage.TRANSIT__IS_TERMINATE_STOP:
-				setIsTerminateStop((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -381,9 +332,6 @@ public class TransitImpl extends MinimalEObjectImpl.Container implements Transit
 			case SchedulePackage.TRANSIT__STANDING_DURATION:
 				setStandingDuration(STANDING_DURATION_EDEFAULT);
 				return;
-			case SchedulePackage.TRANSIT__IS_TERMINATE_STOP:
-				setIsTerminateStop(IS_TERMINATE_STOP_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -404,8 +352,6 @@ public class TransitImpl extends MinimalEObjectImpl.Container implements Transit
 				return leg != null;
 			case SchedulePackage.TRANSIT__STANDING_DURATION:
 				return standingDuration != STANDING_DURATION_EDEFAULT;
-			case SchedulePackage.TRANSIT__IS_TERMINATE_STOP:
-				return isTerminateStop != IS_TERMINATE_STOP_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -422,8 +368,6 @@ public class TransitImpl extends MinimalEObjectImpl.Container implements Transit
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (standingDuration: ");
 		result.append(standingDuration);
-		result.append(", isTerminateStop: ");
-		result.append(isTerminateStop);
 		result.append(')');
 		return result.toString();
 	}

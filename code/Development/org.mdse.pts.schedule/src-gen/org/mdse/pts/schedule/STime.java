@@ -18,8 +18,7 @@ import org.mdse.pts.time.Day;
  * </p>
  * <ul>
  *   <li>{@link org.mdse.pts.schedule.STime#getDay <em>Day</em>}</li>
- *   <li>{@link org.mdse.pts.schedule.STime#getHour <em>Hour</em>}</li>
- *   <li>{@link org.mdse.pts.schedule.STime#getMinute <em>Minute</em>}</li>
+ *   <li>{@link org.mdse.pts.schedule.STime#getHrmin <em>Hrmin</em>}</li>
  * </ul>
  *
  * @see org.mdse.pts.schedule.SchedulePackage#getSTime()
@@ -42,27 +41,15 @@ public interface STime extends EObject {
 	EList<Day> getDay();
 
 	/**
-	 * Returns the value of the '<em><b>Hour</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Integer}.
+	 * Returns the value of the '<em><b>Hrmin</b></em>' containment reference list.
+	 * The list contents are of type {@link org.mdse.pts.schedule.HrMin}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hour</em>' attribute list.
-	 * @see org.mdse.pts.schedule.SchedulePackage#getSTime_Hour()
-	 * @model
+	 * @return the value of the '<em>Hrmin</em>' containment reference list.
+	 * @see org.mdse.pts.schedule.SchedulePackage#getSTime_Hrmin()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Integer> getHour();
-
-	/**
-	 * Returns the value of the '<em><b>Minute</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Integer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Minute</em>' attribute list.
-	 * @see org.mdse.pts.schedule.SchedulePackage#getSTime_Minute()
-	 * @model
-	 * @generated
-	 */
-	EList<Integer> getMinute();
+	EList<HrMin> getHrmin();
 
 } // STime

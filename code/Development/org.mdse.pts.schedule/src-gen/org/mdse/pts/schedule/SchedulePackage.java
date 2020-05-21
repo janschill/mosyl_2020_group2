@@ -232,22 +232,13 @@ public interface SchedulePackage extends EPackage {
 	int STIME__DAY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Hour</b></em>' attribute list.
+	 * The feature id for the '<em><b>Hrmin</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STIME__HOUR = 1;
-
-	/**
-	 * The feature id for the '<em><b>Minute</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STIME__MINUTE = 2;
+	int STIME__HRMIN = 1;
 
 	/**
 	 * The number of structural features of the '<em>STime</em>' class.
@@ -256,7 +247,7 @@ public interface SchedulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STIME_FEATURE_COUNT = 3;
+	int STIME_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>STime</em>' class.
@@ -268,6 +259,52 @@ public interface SchedulePackage extends EPackage {
 	int STIME_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.mdse.pts.schedule.impl.HrMinImpl <em>Hr Min</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.mdse.pts.schedule.impl.HrMinImpl
+	 * @see org.mdse.pts.schedule.impl.SchedulePackageImpl#getHrMin()
+	 * @generated
+	 */
+	int HR_MIN = 4;
+
+	/**
+	 * The feature id for the '<em><b>Hour</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HR_MIN__HOUR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Minute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HR_MIN__MINUTE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Hr Min</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HR_MIN_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Hr Min</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HR_MIN_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.mdse.pts.schedule.impl.StopTimeImpl <em>Stop Time</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -275,7 +312,7 @@ public interface SchedulePackage extends EPackage {
 	 * @see org.mdse.pts.schedule.impl.SchedulePackageImpl#getStopTime()
 	 * @generated
 	 */
-	int STOP_TIME = 4;
+	int STOP_TIME = 5;
 
 	/**
 	 * The number of structural features of the '<em>Stop Time</em>' class.
@@ -303,7 +340,7 @@ public interface SchedulePackage extends EPackage {
 	 * @see org.mdse.pts.schedule.impl.SchedulePackageImpl#getPlatform()
 	 * @generated
 	 */
-	int PLATFORM = 5;
+	int PLATFORM = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -340,7 +377,7 @@ public interface SchedulePackage extends EPackage {
 	 * @see org.mdse.pts.schedule.impl.SchedulePackageImpl#getNetworkReference()
 	 * @generated
 	 */
-	int NETWORK_REFERENCE = 6;
+	int NETWORK_REFERENCE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Network</b></em>' reference.
@@ -377,7 +414,7 @@ public interface SchedulePackage extends EPackage {
 	 * @see org.mdse.pts.schedule.impl.SchedulePackageImpl#getTrainReference()
 	 * @generated
 	 */
-	int TRAIN_REFERENCE = 7;
+	int TRAIN_REFERENCE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Train</b></em>' reference.
@@ -414,7 +451,7 @@ public interface SchedulePackage extends EPackage {
 	 * @see org.mdse.pts.schedule.impl.SchedulePackageImpl#getTransit()
 	 * @generated
 	 */
-	int TRANSIT = 8;
+	int TRANSIT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Platform</b></em>' containment reference.
@@ -453,22 +490,13 @@ public interface SchedulePackage extends EPackage {
 	int TRANSIT__STANDING_DURATION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Is Terminate Stop</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSIT__IS_TERMINATE_STOP = 4;
-
-	/**
 	 * The number of structural features of the '<em>Transit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSIT_FEATURE_COUNT = 5;
+	int TRANSIT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Transit</em>' class.
@@ -619,26 +647,47 @@ public interface SchedulePackage extends EPackage {
 	EAttribute getSTime_Day();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.mdse.pts.schedule.STime#getHour <em>Hour</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.mdse.pts.schedule.STime#getHrmin <em>Hrmin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Hour</em>'.
-	 * @see org.mdse.pts.schedule.STime#getHour()
+	 * @return the meta object for the containment reference list '<em>Hrmin</em>'.
+	 * @see org.mdse.pts.schedule.STime#getHrmin()
 	 * @see #getSTime()
 	 * @generated
 	 */
-	EAttribute getSTime_Hour();
+	EReference getSTime_Hrmin();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.mdse.pts.schedule.STime#getMinute <em>Minute</em>}'.
+	 * Returns the meta object for class '{@link org.mdse.pts.schedule.HrMin <em>Hr Min</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Minute</em>'.
-	 * @see org.mdse.pts.schedule.STime#getMinute()
-	 * @see #getSTime()
+	 * @return the meta object for class '<em>Hr Min</em>'.
+	 * @see org.mdse.pts.schedule.HrMin
 	 * @generated
 	 */
-	EAttribute getSTime_Minute();
+	EClass getHrMin();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.mdse.pts.schedule.HrMin#getHour <em>Hour</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hour</em>'.
+	 * @see org.mdse.pts.schedule.HrMin#getHour()
+	 * @see #getHrMin()
+	 * @generated
+	 */
+	EAttribute getHrMin_Hour();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.mdse.pts.schedule.HrMin#getMinute <em>Minute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Minute</em>'.
+	 * @see org.mdse.pts.schedule.HrMin#getMinute()
+	 * @see #getHrMin()
+	 * @generated
+	 */
+	EAttribute getHrMin_Minute();
 
 	/**
 	 * Returns the meta object for class '{@link org.mdse.pts.schedule.StopTime <em>Stop Time</em>}'.
@@ -766,17 +815,6 @@ public interface SchedulePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTransit_StandingDuration();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.mdse.pts.schedule.Transit#isIsTerminateStop <em>Is Terminate Stop</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Terminate Stop</em>'.
-	 * @see org.mdse.pts.schedule.Transit#isIsTerminateStop()
-	 * @see #getTransit()
-	 * @generated
-	 */
-	EAttribute getTransit_IsTerminateStop();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -914,20 +952,38 @@ public interface SchedulePackage extends EPackage {
 		EAttribute STIME__DAY = eINSTANCE.getSTime_Day();
 
 		/**
-		 * The meta object literal for the '<em><b>Hour</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Hrmin</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STIME__HOUR = eINSTANCE.getSTime_Hour();
+		EReference STIME__HRMIN = eINSTANCE.getSTime_Hrmin();
 
 		/**
-		 * The meta object literal for the '<em><b>Minute</b></em>' attribute list feature.
+		 * The meta object literal for the '{@link org.mdse.pts.schedule.impl.HrMinImpl <em>Hr Min</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.mdse.pts.schedule.impl.HrMinImpl
+		 * @see org.mdse.pts.schedule.impl.SchedulePackageImpl#getHrMin()
+		 * @generated
+		 */
+		EClass HR_MIN = eINSTANCE.getHrMin();
+
+		/**
+		 * The meta object literal for the '<em><b>Hour</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STIME__MINUTE = eINSTANCE.getSTime_Minute();
+		EAttribute HR_MIN__HOUR = eINSTANCE.getHrMin_Hour();
+
+		/**
+		 * The meta object literal for the '<em><b>Minute</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HR_MIN__MINUTE = eINSTANCE.getHrMin_Minute();
 
 		/**
 		 * The meta object literal for the '{@link org.mdse.pts.schedule.impl.StopTimeImpl <em>Stop Time</em>}' class.
@@ -1034,14 +1090,6 @@ public interface SchedulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRANSIT__STANDING_DURATION = eINSTANCE.getTransit_StandingDuration();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Terminate Stop</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRANSIT__IS_TERMINATE_STOP = eINSTANCE.getTransit_IsTerminateStop();
 
 	}
 

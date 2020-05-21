@@ -58,6 +58,15 @@ public interface ScheduleFactory extends EFactory {
 	STime createSTime();
 
 	/**
+	 * Returns a new object of class '<em>Hr Min</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Hr Min</em>'.
+	 * @generated
+	 */
+	HrMin createHrMin();
+
+	/**
 	 * Returns a new object of class '<em>Stop Time</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

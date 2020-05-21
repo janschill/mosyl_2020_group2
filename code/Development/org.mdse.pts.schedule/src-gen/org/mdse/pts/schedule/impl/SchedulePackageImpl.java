@@ -13,6 +13,7 @@ import org.mdse.pts.depot.DepotPackage;
 
 import org.mdse.pts.network.NetworkPackage;
 import org.mdse.pts.schedule.DepotReference;
+import org.mdse.pts.schedule.HrMin;
 import org.mdse.pts.schedule.NetworkReference;
 import org.mdse.pts.schedule.Platform;
 import org.mdse.pts.schedule.Route;
@@ -59,6 +60,13 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * @generated
 	 */
 	private EClass sTimeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass hrMinEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -297,8 +305,8 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSTime_Hour() {
-		return (EAttribute)sTimeEClass.getEStructuralFeatures().get(1);
+	public EReference getSTime_Hrmin() {
+		return (EReference)sTimeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -307,8 +315,28 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSTime_Minute() {
-		return (EAttribute)sTimeEClass.getEStructuralFeatures().get(2);
+	public EClass getHrMin() {
+		return hrMinEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHrMin_Hour() {
+		return (EAttribute)hrMinEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getHrMin_Minute() {
+		return (EAttribute)hrMinEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -437,16 +465,6 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTransit_IsTerminateStop() {
-		return (EAttribute)transitEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public ScheduleFactory getScheduleFactory() {
 		return (ScheduleFactory)getEFactoryInstance();
 	}
@@ -486,8 +504,11 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 
 		sTimeEClass = createEClass(STIME);
 		createEAttribute(sTimeEClass, STIME__DAY);
-		createEAttribute(sTimeEClass, STIME__HOUR);
-		createEAttribute(sTimeEClass, STIME__MINUTE);
+		createEReference(sTimeEClass, STIME__HRMIN);
+
+		hrMinEClass = createEClass(HR_MIN);
+		createEAttribute(hrMinEClass, HR_MIN__HOUR);
+		createEAttribute(hrMinEClass, HR_MIN__MINUTE);
 
 		stopTimeEClass = createEClass(STOP_TIME);
 
@@ -505,7 +526,6 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 		createEReference(transitEClass, TRANSIT__STATION);
 		createEReference(transitEClass, TRANSIT__LEG);
 		createEAttribute(transitEClass, TRANSIT__STANDING_DURATION);
-		createEAttribute(transitEClass, TRANSIT__IS_TERMINATE_STOP);
 	}
 
 	/**
@@ -559,8 +579,11 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 
 		initEClass(sTimeEClass, STime.class, "STime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSTime_Day(), theTimePackage.getDay(), "day", null, 0, -1, STime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSTime_Hour(), ecorePackage.getEInt(), "hour", null, 0, -1, STime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSTime_Minute(), ecorePackage.getEInt(), "minute", null, 0, -1, STime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSTime_Hrmin(), this.getHrMin(), null, "hrmin", null, 1, -1, STime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(hrMinEClass, HrMin.class, "HrMin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHrMin_Hour(), ecorePackage.getEInt(), "hour", null, 1, 1, HrMin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHrMin_Minute(), ecorePackage.getEInt(), "minute", null, 1, 1, HrMin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stopTimeEClass, StopTime.class, "StopTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -578,7 +601,6 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 		initEReference(getTransit_Station(), theNetworkPackage.getStation(), null, "station", null, 0, 1, Transit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransit_Leg(), theNetworkPackage.getLeg(), null, "leg", null, 0, 1, Transit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransit_StandingDuration(), ecorePackage.getEInt(), "standingDuration", null, 0, 1, Transit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTransit_IsTerminateStop(), ecorePackage.getEBoolean(), "isTerminateStop", null, 0, 1, Transit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

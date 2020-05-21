@@ -20,7 +20,6 @@ import org.mdse.pts.network.Station;
  *   <li>{@link org.mdse.pts.schedule.Transit#getStation <em>Station</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.Transit#getLeg <em>Leg</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.Transit#getStandingDuration <em>Standing Duration</em>}</li>
- *   <li>{@link org.mdse.pts.schedule.Transit#isIsTerminateStop <em>Is Terminate Stop</em>}</li>
  * </ul>
  *
  * @see org.mdse.pts.schedule.SchedulePackage#getTransit()
@@ -115,27 +114,5 @@ public interface Transit extends EObject {
 	 * @generated
 	 */
 	void setStandingDuration(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Terminate Stop</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Terminate Stop</em>' attribute.
-	 * @see #setIsTerminateStop(boolean)
-	 * @see org.mdse.pts.schedule.SchedulePackage#getTransit_IsTerminateStop()
-	 * @model
-	 * @generated
-	 */
-	boolean isIsTerminateStop();
-
-	/**
-	 * Sets the value of the '{@link org.mdse.pts.schedule.Transit#isIsTerminateStop <em>Is Terminate Stop</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Terminate Stop</em>' attribute.
-	 * @see #isIsTerminateStop()
-	 * @generated
-	 */
-	void setIsTerminateStop(boolean value);
 
 } // Transit

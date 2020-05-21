@@ -60,6 +60,7 @@ public class ScheduleFactoryImpl extends EFactoryImpl implements ScheduleFactory
 			case SchedulePackage.DEPOT_REFERENCE: return createDepotReference();
 			case SchedulePackage.ROUTE: return createRoute();
 			case SchedulePackage.STIME: return createSTime();
+			case SchedulePackage.HR_MIN: return createHrMin();
 			case SchedulePackage.STOP_TIME: return createStopTime();
 			case SchedulePackage.PLATFORM: return createPlatform();
 			case SchedulePackage.NETWORK_REFERENCE: return createNetworkReference();
@@ -112,6 +113,17 @@ public class ScheduleFactoryImpl extends EFactoryImpl implements ScheduleFactory
 	public STime createSTime() {
 		STimeImpl sTime = new STimeImpl();
 		return sTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public HrMin createHrMin() {
+		HrMinImpl hrMin = new HrMinImpl();
+		return hrMin;
 	}
 
 	/**

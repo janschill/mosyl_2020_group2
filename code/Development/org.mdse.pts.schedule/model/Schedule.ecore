@@ -23,8 +23,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="STime">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" upperBound="-1" eType="ecore:EEnum ../../org.mdse.pts.time/model/Time.ecore#//Day"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hour" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minute" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hrmin" lowerBound="1" upperBound="-1"
+        eType="#//HrMin" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HrMin">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hour" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minute" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StopTime"/>
@@ -43,6 +47,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="station" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Station"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="leg" eType="ecore:EClass ../../org.mdse.pts.network/model/Network.ecore#//Leg"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="standingDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTerminateStop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

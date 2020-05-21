@@ -84,6 +84,10 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 				return createSTimeAdapter();
 			}
 			@Override
+			public Adapter caseHrMin(HrMin object) {
+				return createHrMinAdapter();
+			}
+			@Override
 			public Adapter caseStopTime(StopTime object) {
 				return createStopTimeAdapter();
 			}
@@ -176,6 +180,20 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSTimeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.HrMin <em>Hr Min</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.mdse.pts.schedule.HrMin
+	 * @generated
+	 */
+	public Adapter createHrMinAdapter() {
 		return null;
 	}
 
