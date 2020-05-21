@@ -57,6 +57,11 @@
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-depot-constraints.png)
 
 ### Constraints on Schedule Metamodel
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-1.png)
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-2.png)
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-3.png)
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-4.png)
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-5.png)
 
 ### Constraints on Timetable Metamodel
 
@@ -81,8 +86,11 @@
 ### Schedule Language
 
 #### Xtext Grammar of Schedule
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-grammar-1.png)
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-grammar-2.png)
 
 #### Screenshot of Example in Schedule Editor
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/schedule-editor.png)
 
 ## Interpretation/Transformations
 
