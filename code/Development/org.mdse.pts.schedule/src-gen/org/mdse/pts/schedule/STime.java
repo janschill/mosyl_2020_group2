@@ -6,8 +6,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.mdse.pts.time.Day;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>STime</b></em>'.
