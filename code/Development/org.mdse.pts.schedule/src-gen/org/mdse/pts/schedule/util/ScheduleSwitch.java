@@ -96,12 +96,6 @@ public class ScheduleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SchedulePackage.STOP_TIME: {
-				StopTime stopTime = (StopTime)theEObject;
-				T result = caseStopTime(stopTime);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SchedulePackage.PLATFORM: {
 				Platform platform = (Platform)theEObject;
 				T result = casePlatform(platform);
@@ -111,12 +105,6 @@ public class ScheduleSwitch<T> extends Switch<T> {
 			case SchedulePackage.NETWORK_REFERENCE: {
 				NetworkReference networkReference = (NetworkReference)theEObject;
 				T result = caseNetworkReference(networkReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SchedulePackage.TRAIN_REFERENCE: {
-				TrainReference trainReference = (TrainReference)theEObject;
-				T result = caseTrainReference(trainReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -206,21 +194,6 @@ public class ScheduleSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Stop Time</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Stop Time</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStopTime(StopTime object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Platform</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -247,21 +220,6 @@ public class ScheduleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNetworkReference(NetworkReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Train Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Train Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTrainReference(TrainReference object) {
 		return null;
 	}
 

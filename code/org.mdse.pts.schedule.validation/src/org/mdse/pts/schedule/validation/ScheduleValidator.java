@@ -55,13 +55,14 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 		boolean modelIsValid = true;
 		
 		modelIsValid &= validateOnlyOneLeg(schedule);
-		modelIsValid &= mandatoryPlatform(schedule);
+		modelIsValid &= mandatoryStopTime(schedule);
 		modelIsValid &= validateLocomotiveWhenTurnReq(schedule);
 		
 		return modelIsValid;
 	}
 	
-	//If there is only one leg connecting two stations, it's not mandatory to be specified explicitly
+	//If there is only one leg connecting two stations, it's not mandatory to be specified explicitly.
+	//Specified leg has to belong to both outbound and inbound stations.
 	protected boolean validateOnlyOneLeg(Schedule schedule) {
 		boolean constraintViolated = false;
 
@@ -72,53 +73,39 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 		
 		List<Transit> transits = new ArrayList<Transit>();
 		transits.addAll(r.getTransits());
-		List<Station> stations = new ArrayList<Station>();
-		List<Leg> driveVias = new ArrayList<Leg>();
-		for(Transit t : transits)
-			if(t.getStation() != null)
-				stations.add(t.getStation());
-			else
-				driveVias.add(t.getLeg());
-
-
-		for(int i=0;i<stations.size()-1;i++) {
-		boolean driveViaExists = false;
 		
-		Station first =	stations.get(i);
-		Station second = stations.get(i+1);
-		
-		List<Leg> firstLegs = new ArrayList<Leg>();
-		firstLegs.addAll(first.getLegs());
-		
-		List<Leg> secondLegs = new ArrayList<Leg>();
-		secondLegs.addAll(second.getLegs());
-		
-		
-		for(Leg l : driveVias)
-			if(firstLegs.contains(l) && secondLegs.contains(l))
-				driveViaExists = true;
-		
-		int counter = 0;
-		for(Leg l1 : firstLegs)
-			for(Leg l2 : secondLegs)
-				if(l1.getName() == l2.getName())
+		for(int i=0; i<transits.size()-1;i++) {
+			int counter = 0;
+			Transit first = transits.get(i);
+			Transit second = transits.get(i+1);
+			
+			for(Leg l : first.getStation().getLegs()) {
+				if(second.getStation().getLegs().contains(l))
 					counter++;
-
-
-		if(counter>1 && !driveViaExists)
+			}
+		
+		if(counter>1 && (first.getLeg() == null || !second.getStation().getLegs().contains(first.getLeg()) || !first.getStation().getLegs().contains(first.getLeg())))
+			constraintViolated = true;
+		
+		if(counter == 1 && first.getLeg() != null)
+				if(!second.getStation().getLegs().contains(first.getLeg()) || !first.getStation().getLegs().contains(first.getLeg()))
+			constraintViolated = true;
+		
+		if(counter < 1)
 			constraintViolated = true;
 		
 		
 		if(constraintViolated)
-return constraintViolated(r, "Please specify appropriate leg between: " + first.getName().toString() + " and " + second.getName().toString() + " using DRIVE VIA keyword.");
+return constraintViolated(r, "Please specify appropriate leg between: " + first.getStation().getName() + " and " + second.getStation().getName() + " using DRIVE VIA keyword.");
 		 }
 		}
 		
 		return true;
 	}
 	
-	//If transit object has station, it needs platform as well
-		protected boolean mandatoryPlatform(Schedule schedule) {
+		//Standing duration at stop is mandatory for all the stations (stops) along the route
+		//except the first and last (start and terminate stations).
+		protected boolean mandatoryStopTime(Schedule schedule) {
 			boolean constraintViolated = false;
 
 			List<Route> routes = new ArrayList<Route>();
@@ -129,14 +116,14 @@ return constraintViolated(r, "Please specify appropriate leg between: " + first.
 			List<Transit> transits = new ArrayList<Transit>();
 			transits.addAll(r.getTransits());
 			
-			for(Transit t : transits) {
-				if(t.getStation() != null)
-					if(t.getPlatform() == null)
+			//skip first and last
+			for(int i=1;i<transits.size()-1;i++) {
+					if(transits.get(i).getStandingDuration() < 1)
 						constraintViolated = true;
 			
 			
 			if(constraintViolated)
-				return constraintViolated(r, "Please specify platform name for station " + t.getStation().getName());
+				return constraintViolated(r, "Please specify standing duration time for stop: " + transits.get(i).getStation().getName());
 				}
 			 }
 			
@@ -144,11 +131,12 @@ return constraintViolated(r, "Please specify appropriate leg between: " + first.
 		}
 	
 	
-	//When route contains a turn, it must be ensured that the train driving the route has a locomotive as
-	//leading and trailing coach
+	//When route contains a turn, it must be ensured that the train driving along that route
+	//has a locomotive as a leading and trailing coach.
 	protected boolean validateLocomotiveWhenTurnReq(Schedule schedule) {
 		boolean constraintViolated = false;
 		boolean routeHasTurn = false;
+		boolean locomotiveAtBothEnd = true;
 		
 		List<Route> routes = new ArrayList<Route>();
 		routes.addAll(schedule.getRouteReference());
@@ -156,31 +144,32 @@ return constraintViolated(r, "Please specify appropriate leg between: " + first.
 		for(Route r : routes) {
 		Train train = r.getTrain();
 		List<Coach> coaches = train.getCoaches();
-		List<Locomotive> locomotives = new ArrayList<Locomotive>();
+		List<Coach> locomotives = new ArrayList<Coach>();
+		locomotives.add(coaches.get(0));
+		locomotives.add(coaches.get(coaches.size()-1));
 		
-		for(Coach c : coaches)
-			if(c instanceof Locomotive)
-				locomotives.add((Locomotive)c);
+		for(Coach l : locomotives)
+			if(l instanceof Locomotive)
+				locomotiveAtBothEnd &= true;
+			else
+				locomotiveAtBothEnd &= false;
 		
 		List<Transit> transits = new ArrayList<Transit>();
 		transits.addAll(r.getTransits());
 		List<Station> stations = new ArrayList<Station>();
 		
 		for(Transit t : transits)
-			if(t.getStation() != null) {
 				stations.add(t.getStation());
-			}
 		
 		Object[] stationsArr = stations.toArray();
 		
 		//Check if previous and next station are the same. If they are, that means there is a turn.
 		//I.e. Central - North - Central means that North station requires a turn.
-			for(int i=0; i<stations.size();i++)
-				for(int j=i+2; j<stations.size();j++)
-					if(stationsArr[i] == stationsArr[j])
+			for(int i=0; i<stations.size()-2;i++)
+					if(stationsArr[i] == stationsArr[i+2])
 						routeHasTurn = true;
 		
-		if(locomotives.size()<2 && routeHasTurn)
+		if(!locomotiveAtBothEnd && routeHasTurn)
 			constraintViolated = true;
 		
 		

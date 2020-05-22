@@ -34,7 +34,7 @@ public interface Transit extends EObject {
 	 * @return the value of the '<em>Platform</em>' containment reference.
 	 * @see #setPlatform(Platform)
 	 * @see org.mdse.pts.schedule.SchedulePackage#getTransit_Platform()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Platform getPlatform();

@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.mdse.pts.schedule.Schedule#getNetworkReference <em>Network Reference</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.Schedule#getDepotReference <em>Depot Reference</em>}</li>
- *   <li>{@link org.mdse.pts.schedule.Schedule#getTrainReference <em>Train Reference</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.Schedule#getRouteReference <em>Route Reference</em>}</li>
  * </ul>
  *
@@ -59,18 +58,6 @@ public interface Schedule extends EObject {
 	 * @generated
 	 */
 	EList<DepotReference> getDepotReference();
-
-	/**
-	 * Returns the value of the '<em><b>Train Reference</b></em>' containment reference list.
-	 * The list contents are of type {@link org.mdse.pts.schedule.TrainReference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Train Reference</em>' containment reference list.
-	 * @see org.mdse.pts.schedule.SchedulePackage#getSchedule_TrainReference()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<TrainReference> getTrainReference();
 
 	/**
 	 * Returns the value of the '<em><b>Route Reference</b></em>' containment reference list.

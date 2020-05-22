@@ -88,20 +88,12 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 				return createHrMinAdapter();
 			}
 			@Override
-			public Adapter caseStopTime(StopTime object) {
-				return createStopTimeAdapter();
-			}
-			@Override
 			public Adapter casePlatform(Platform object) {
 				return createPlatformAdapter();
 			}
 			@Override
 			public Adapter caseNetworkReference(NetworkReference object) {
 				return createNetworkReferenceAdapter();
-			}
-			@Override
-			public Adapter caseTrainReference(TrainReference object) {
-				return createTrainReferenceAdapter();
 			}
 			@Override
 			public Adapter caseTransit(Transit object) {
@@ -198,20 +190,6 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.StopTime <em>Stop Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mdse.pts.schedule.StopTime
-	 * @generated
-	 */
-	public Adapter createStopTimeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.Platform <em>Platform</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -236,20 +214,6 @@ public class ScheduleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNetworkReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.mdse.pts.schedule.TrainReference <em>Train Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.mdse.pts.schedule.TrainReference
-	 * @generated
-	 */
-	public Adapter createTrainReferenceAdapter() {
 		return null;
 	}
 

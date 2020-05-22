@@ -67,15 +67,6 @@ public interface ScheduleFactory extends EFactory {
 	HrMin createHrMin();
 
 	/**
-	 * Returns a new object of class '<em>Stop Time</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Stop Time</em>'.
-	 * @generated
-	 */
-	StopTime createStopTime();
-
-	/**
 	 * Returns a new object of class '<em>Platform</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,15 +83,6 @@ public interface ScheduleFactory extends EFactory {
 	 * @generated
 	 */
 	NetworkReference createNetworkReference();
-
-	/**
-	 * Returns a new object of class '<em>Train Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Train Reference</em>'.
-	 * @generated
-	 */
-	TrainReference createTrainReference();
 
 	/**
 	 * Returns a new object of class '<em>Transit</em>'.

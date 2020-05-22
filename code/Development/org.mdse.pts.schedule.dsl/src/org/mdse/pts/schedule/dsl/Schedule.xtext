@@ -18,7 +18,7 @@ NetworkReference:
 ;
 
 
-//Depot  
+//Depot 
 DepotReference:
 	(depot=[depotM::Depot|STRING] | depot=[depotM::Depot|ID])
 ;
@@ -31,12 +31,13 @@ time+=STime
 ("AND" time+=STime)* ":"
 
 "START" transits+=Transit
-(("DRIVE" "VIA" transits+=Transit) | ("STOP" transits+=Transit))*
+("STOP" transits+=Transit)*
 "TERMINATE" transits+=Transit 
 ;
 
 Transit:
-(leg=[networkM::Leg|STRING] | leg=[networkM::Leg|ID]) | ( "AT" station=[networkM::Station|STRING] "ON" "PLATFORM" platform=Platform ("FOR" standingDuration=INT "MIN")?)
+"AT" station=[networkM::Station|STRING] "ON" "PLATFORM" platform=Platform ("FOR" standingDuration=INT "MIN")? 
+("DRIVE" "VIA" (leg=[networkM::Leg|STRING] | leg=[networkM::Leg|ID]))?
 ;
 
 Platform:

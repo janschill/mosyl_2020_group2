@@ -12,7 +12,6 @@
     <genClasses ecoreClass="Schedule.ecore#//Schedule">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Schedule.ecore#//Schedule/networkReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Schedule.ecore#//Schedule/depotReference"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Schedule.ecore#//Schedule/trainReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Schedule.ecore#//Schedule/routeReference"/>
     </genClasses>
     <genClasses ecoreClass="Schedule.ecore#//DepotReference">
@@ -31,15 +30,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//HrMin/hour"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//HrMin/minute"/>
     </genClasses>
-    <genClasses ecoreClass="Schedule.ecore#//StopTime"/>
     <genClasses ecoreClass="Schedule.ecore#//Platform">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Schedule.ecore#//Platform/name"/>
     </genClasses>
     <genClasses ecoreClass="Schedule.ecore#//NetworkReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Schedule.ecore#//NetworkReference/network"/>
-    </genClasses>
-    <genClasses ecoreClass="Schedule.ecore#//TrainReference">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Schedule.ecore#//TrainReference/train"/>
     </genClasses>
     <genClasses ecoreClass="Schedule.ecore#//Transit">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Schedule.ecore#//Transit/platform"/>

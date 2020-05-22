@@ -23,7 +23,6 @@ import org.mdse.pts.schedule.NetworkReference;
 import org.mdse.pts.schedule.Route;
 import org.mdse.pts.schedule.Schedule;
 import org.mdse.pts.schedule.SchedulePackage;
-import org.mdse.pts.schedule.TrainReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +34,6 @@ import org.mdse.pts.schedule.TrainReference;
  * <ul>
  *   <li>{@link org.mdse.pts.schedule.impl.ScheduleImpl#getNetworkReference <em>Network Reference</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.impl.ScheduleImpl#getDepotReference <em>Depot Reference</em>}</li>
- *   <li>{@link org.mdse.pts.schedule.impl.ScheduleImpl#getTrainReference <em>Train Reference</em>}</li>
  *   <li>{@link org.mdse.pts.schedule.impl.ScheduleImpl#getRouteReference <em>Route Reference</em>}</li>
  * </ul>
  *
@@ -61,16 +59,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * @ordered
 	 */
 	protected EList<DepotReference> depotReference;
-
-	/**
-	 * The cached value of the '{@link #getTrainReference() <em>Train Reference</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTrainReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TrainReference> trainReference;
 
 	/**
 	 * The cached value of the '{@link #getRouteReference() <em>Route Reference</em>}' containment reference list.
@@ -165,19 +153,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * @generated
 	 */
 	@Override
-	public EList<TrainReference> getTrainReference() {
-		if (trainReference == null) {
-			trainReference = new EObjectContainmentEList<TrainReference>(TrainReference.class, this, SchedulePackage.SCHEDULE__TRAIN_REFERENCE);
-		}
-		return trainReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<Route> getRouteReference() {
 		if (routeReference == null) {
 			routeReference = new EObjectContainmentEList<Route>(Route.class, this, SchedulePackage.SCHEDULE__ROUTE_REFERENCE);
@@ -197,8 +172,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 				return basicSetNetworkReference(null, msgs);
 			case SchedulePackage.SCHEDULE__DEPOT_REFERENCE:
 				return ((InternalEList<?>)getDepotReference()).basicRemove(otherEnd, msgs);
-			case SchedulePackage.SCHEDULE__TRAIN_REFERENCE:
-				return ((InternalEList<?>)getTrainReference()).basicRemove(otherEnd, msgs);
 			case SchedulePackage.SCHEDULE__ROUTE_REFERENCE:
 				return ((InternalEList<?>)getRouteReference()).basicRemove(otherEnd, msgs);
 		}
@@ -217,8 +190,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 				return getNetworkReference();
 			case SchedulePackage.SCHEDULE__DEPOT_REFERENCE:
 				return getDepotReference();
-			case SchedulePackage.SCHEDULE__TRAIN_REFERENCE:
-				return getTrainReference();
 			case SchedulePackage.SCHEDULE__ROUTE_REFERENCE:
 				return getRouteReference();
 		}
@@ -240,10 +211,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 			case SchedulePackage.SCHEDULE__DEPOT_REFERENCE:
 				getDepotReference().clear();
 				getDepotReference().addAll((Collection<? extends DepotReference>)newValue);
-				return;
-			case SchedulePackage.SCHEDULE__TRAIN_REFERENCE:
-				getTrainReference().clear();
-				getTrainReference().addAll((Collection<? extends TrainReference>)newValue);
 				return;
 			case SchedulePackage.SCHEDULE__ROUTE_REFERENCE:
 				getRouteReference().clear();
@@ -267,9 +234,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 			case SchedulePackage.SCHEDULE__DEPOT_REFERENCE:
 				getDepotReference().clear();
 				return;
-			case SchedulePackage.SCHEDULE__TRAIN_REFERENCE:
-				getTrainReference().clear();
-				return;
 			case SchedulePackage.SCHEDULE__ROUTE_REFERENCE:
 				getRouteReference().clear();
 				return;
@@ -289,8 +253,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 				return networkReference != null;
 			case SchedulePackage.SCHEDULE__DEPOT_REFERENCE:
 				return depotReference != null && !depotReference.isEmpty();
-			case SchedulePackage.SCHEDULE__TRAIN_REFERENCE:
-				return trainReference != null && !trainReference.isEmpty();
 			case SchedulePackage.SCHEDULE__ROUTE_REFERENCE:
 				return routeReference != null && !routeReference.isEmpty();
 		}

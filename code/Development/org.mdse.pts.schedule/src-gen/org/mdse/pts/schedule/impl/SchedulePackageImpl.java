@@ -21,8 +21,6 @@ import org.mdse.pts.schedule.STime;
 import org.mdse.pts.schedule.Schedule;
 import org.mdse.pts.schedule.ScheduleFactory;
 import org.mdse.pts.schedule.SchedulePackage;
-import org.mdse.pts.schedule.StopTime;
-import org.mdse.pts.schedule.TrainReference;
 import org.mdse.pts.schedule.Transit;
 import org.mdse.pts.time.TimePackage;
 
@@ -73,13 +71,6 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass stopTimeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass platformEClass = null;
 
 	/**
@@ -88,13 +79,6 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * @generated
 	 */
 	private EClass networkReferenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass trainReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,18 +189,8 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSchedule_TrainReference() {
-		return (EReference)scheduleEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getSchedule_RouteReference() {
-		return (EReference)scheduleEClass.getEStructuralFeatures().get(3);
+		return (EReference)scheduleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -345,16 +319,6 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	 * @generated
 	 */
 	@Override
-	public EClass getStopTime() {
-		return stopTimeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getPlatform() {
 		return platformEClass;
 	}
@@ -387,26 +351,6 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 	@Override
 	public EReference getNetworkReference_Network() {
 		return (EReference)networkReferenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getTrainReference() {
-		return trainReferenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTrainReference_Train() {
-		return (EReference)trainReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -491,7 +435,6 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 		scheduleEClass = createEClass(SCHEDULE);
 		createEReference(scheduleEClass, SCHEDULE__NETWORK_REFERENCE);
 		createEReference(scheduleEClass, SCHEDULE__DEPOT_REFERENCE);
-		createEReference(scheduleEClass, SCHEDULE__TRAIN_REFERENCE);
 		createEReference(scheduleEClass, SCHEDULE__ROUTE_REFERENCE);
 
 		depotReferenceEClass = createEClass(DEPOT_REFERENCE);
@@ -510,16 +453,11 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 		createEAttribute(hrMinEClass, HR_MIN__HOUR);
 		createEAttribute(hrMinEClass, HR_MIN__MINUTE);
 
-		stopTimeEClass = createEClass(STOP_TIME);
-
 		platformEClass = createEClass(PLATFORM);
 		createEAttribute(platformEClass, PLATFORM__NAME);
 
 		networkReferenceEClass = createEClass(NETWORK_REFERENCE);
 		createEReference(networkReferenceEClass, NETWORK_REFERENCE__NETWORK);
-
-		trainReferenceEClass = createEClass(TRAIN_REFERENCE);
-		createEReference(trainReferenceEClass, TRAIN_REFERENCE__TRAIN);
 
 		transitEClass = createEClass(TRANSIT);
 		createEReference(transitEClass, TRANSIT__PLATFORM);
@@ -566,7 +504,6 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 		initEClass(scheduleEClass, Schedule.class, "Schedule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSchedule_NetworkReference(), this.getNetworkReference(), null, "networkReference", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchedule_DepotReference(), this.getDepotReference(), null, "depotReference", null, 0, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchedule_TrainReference(), this.getTrainReference(), null, "trainReference", null, 0, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchedule_RouteReference(), this.getRoute(), null, "routeReference", null, 0, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(depotReferenceEClass, DepotReference.class, "DepotReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -585,19 +522,14 @@ public class SchedulePackageImpl extends EPackageImpl implements SchedulePackage
 		initEAttribute(getHrMin_Hour(), ecorePackage.getEInt(), "hour", null, 1, 1, HrMin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHrMin_Minute(), ecorePackage.getEInt(), "minute", null, 1, 1, HrMin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(stopTimeEClass, StopTime.class, "StopTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(platformEClass, Platform.class, "Platform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlatform_Name(), ecorePackage.getEString(), "name", null, 1, 1, Platform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(networkReferenceEClass, NetworkReference.class, "NetworkReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNetworkReference_Network(), theNetworkPackage.getNetwork(), null, "network", null, 0, 1, NetworkReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(trainReferenceEClass, TrainReference.class, "TrainReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTrainReference_Train(), theDepotPackage.getTrain(), null, "train", null, 0, 1, TrainReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(transitEClass, Transit.class, "Transit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTransit_Platform(), this.getPlatform(), null, "platform", null, 0, 1, Transit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTransit_Platform(), this.getPlatform(), null, "platform", null, 1, 1, Transit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransit_Station(), theNetworkPackage.getStation(), null, "station", null, 0, 1, Transit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTransit_Leg(), theNetworkPackage.getLeg(), null, "leg", null, 0, 1, Transit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransit_StandingDuration(), ecorePackage.getEInt(), "standingDuration", null, 0, 1, Transit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

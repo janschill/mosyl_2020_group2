@@ -61,10 +61,8 @@ public class ScheduleFactoryImpl extends EFactoryImpl implements ScheduleFactory
 			case SchedulePackage.ROUTE: return createRoute();
 			case SchedulePackage.STIME: return createSTime();
 			case SchedulePackage.HR_MIN: return createHrMin();
-			case SchedulePackage.STOP_TIME: return createStopTime();
 			case SchedulePackage.PLATFORM: return createPlatform();
 			case SchedulePackage.NETWORK_REFERENCE: return createNetworkReference();
-			case SchedulePackage.TRAIN_REFERENCE: return createTrainReference();
 			case SchedulePackage.TRANSIT: return createTransit();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -132,17 +130,6 @@ public class ScheduleFactoryImpl extends EFactoryImpl implements ScheduleFactory
 	 * @generated
 	 */
 	@Override
-	public StopTime createStopTime() {
-		StopTimeImpl stopTime = new StopTimeImpl();
-		return stopTime;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Platform createPlatform() {
 		PlatformImpl platform = new PlatformImpl();
 		return platform;
@@ -157,17 +144,6 @@ public class ScheduleFactoryImpl extends EFactoryImpl implements ScheduleFactory
 	public NetworkReference createNetworkReference() {
 		NetworkReferenceImpl networkReference = new NetworkReferenceImpl();
 		return networkReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TrainReference createTrainReference() {
-		TrainReferenceImpl trainReference = new TrainReferenceImpl();
-		return trainReference;
 	}
 
 	/**
