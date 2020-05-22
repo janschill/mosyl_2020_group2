@@ -2,11 +2,16 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:network="http://mdse.org/pts/network" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_8sIOAJO8EeqzQYtzBT0w8g" selectedViews="_9LnmYJO8EeqzQYtzBT0w8g" version="14.3.0.201909031200">
     <semanticResources>platform:/resource/Network/Denmark.network</semanticResources>
+    <semanticResources>platform:/resource/Network/SchleswigHolstein.network</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_9LnmYJO8EeqzQYtzBT0w8g">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AS6HcJO9EeqzQYtzBT0w8g" name="Denmark Network Diagram Description" repPath="#_AQo2kJO9EeqzQYtzBT0w8g" changeId="023e6f7a-3d0e-4a66-8f20-63f5632ed81b">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_AS6HcJO9EeqzQYtzBT0w8g" name="Denmark Network Diagram Description" repPath="#_AQo2kJO9EeqzQYtzBT0w8g" changeId="7bafe597-8adb-4538-b98d-0f3b49da3f21">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']"/>
         <target xmi:type="network:Network" href="platform:/resource/Network/Denmark.network#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_yH-y8JnUEeqCsPFsZ8JABQ" name="Schleswig Holstein Network Diagram Description" repPath="#_yHRoUJnUEeqCsPFsZ8JABQ" changeId="bb402499-deec-49d7-8d9d-577fee77c0ff">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']"/>
+        <target xmi:type="network:Network" href="platform:/resource/Network/SchleswigHolstein.network#/"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
   </viewpoint:DAnalysis>
@@ -60,6 +65,127 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_kzbYcZRJEeqSAo5ovne_hA" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kzbYcpRJEeqSAo5ovne_hA" x="97" y="315" width="30" height="30"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_MR84YJnIEeqTuIlexV9mSg" type="2001" element="_MRmTEJnIEeqTuIlexV9mSg">
+          <children xmi:type="notation:Node" xmi:id="_MSBw4JnIEeqTuIlexV9mSg" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_MSBw4ZnIEeqTuIlexV9mSg" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_MSHQcJnIEeqTuIlexV9mSg" type="3005" element="_MRnhMJnIEeqTuIlexV9mSg">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_MSHQcZnIEeqTuIlexV9mSg" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MSHQcpnIEeqTuIlexV9mSg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_MR84YZnIEeqTuIlexV9mSg" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MR84YpnIEeqTuIlexV9mSg" x="441" y="36" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-Mr68JnUEeqCsPFsZ8JABQ" type="2001" element="_-MYY8pnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_-MtJEJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-MtJEZnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-M0d0JnUEeqCsPFsZ8JABQ" type="3005" element="_-MYY85nUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-M0d0ZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M0d0pnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-Mr68ZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Mr68pnUEeqCsPFsZ8JABQ" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-MuXMJnUEeqCsPFsZ8JABQ" type="2001" element="_-MZAAZnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_-MuXM5nUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-MuXNJnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-M1E4JnUEeqCsPFsZ8JABQ" type="3005" element="_-MZnEJnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-M1E4ZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M1E4pnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-MuXMZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-MuXMpnUEeqCsPFsZ8JABQ" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-Mu-QJnUEeqCsPFsZ8JABQ" type="2001" element="_-MZnEpnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_-Mu-Q5nUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-Mu-RJnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-M1E45nUEeqCsPFsZ8JABQ" type="3005" element="_-MZnE5nUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-M1E5JnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M1E5ZnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-Mu-QZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Mu-QpnUEeqCsPFsZ8JABQ" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-MvlUJnUEeqCsPFsZ8JABQ" type="2001" element="_-MaOIZnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_-MvlU5nUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-MvlVJnUEeqCsPFsZ8JABQ" x="-6" y="-16"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-M1E5pnUEeqCsPFsZ8JABQ" type="3005" element="_-MaOIpnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-M1E55nUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M1E6JnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-MvlUZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-MvlUpnUEeqCsPFsZ8JABQ" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-MwMYJnUEeqCsPFsZ8JABQ" type="2001" element="_-Ma1MZnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_-MwMY5nUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-MwMZJnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-M1r8JnUEeqCsPFsZ8JABQ" type="3005" element="_-MbcQJnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-M1r8ZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M1r8pnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-MwMYZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-MwMYpnUEeqCsPFsZ8JABQ" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-MwzcJnUEeqCsPFsZ8JABQ" type="2001" element="_-MbcQpnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_-MxagJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-MxagZnUEeqCsPFsZ8JABQ" y="-16"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-M1r85nUEeqCsPFsZ8JABQ" type="3005" element="_-MbcQ5nUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-M1r9JnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M1r9ZnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-MwzcZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-MwzcpnUEeqCsPFsZ8JABQ" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-MxagpnUEeqCsPFsZ8JABQ" type="2001" element="_-McDUZnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_-MxahZnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-MxahpnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-M1r9pnUEeqCsPFsZ8JABQ" type="3005" element="_-McDUpnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-M1r95nUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M1r-JnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-Mxag5nUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-MxahJnUEeqCsPFsZ8JABQ" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-MyBkJnUEeqCsPFsZ8JABQ" type="2001" element="_-McDVJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_-MyooJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-MyooZnUEeqCsPFsZ8JABQ" x="-7" y="-16"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-M2TAJnUEeqCsPFsZ8JABQ" type="3005" element="_-McDVZnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-M2TAZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M2TApnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-MyBkZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-MyBkpnUEeqCsPFsZ8JABQ" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-MzPsJnUEeqCsPFsZ8JABQ" type="2001" element="_-McqYZnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_-MzPs5nUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-MzPtJnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-M2TA5nUEeqCsPFsZ8JABQ" type="3005" element="_-McqYpnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-M2TBJnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M2TBZnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-MzPsZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-MzPspnUEeqCsPFsZ8JABQ" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_-Mz2wJnUEeqCsPFsZ8JABQ" type="2001" element="_-McqZJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_-Mz2w5nUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_-Mz2xJnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-M2TBpnUEeqCsPFsZ8JABQ" type="3005" element="_-McqZZnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_-M2TB5nUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-M2TCJnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_-Mz2wZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Mz2wpnUEeqCsPFsZ8JABQ" width="30" height="30"/>
+        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_ATD4cpO9EeqzQYtzBT0w8g"/>
         <edges xmi:type="notation:Edge" xmi:id="_ATWzYJO9EeqzQYtzBT0w8g" type="4001" element="_AQsg8JO9EeqzQYtzBT0w8g" source="_ATUXIJO9EeqzQYtzBT0w8g" target="_ATG7wJO9EeqzQYtzBT0w8g">
           <children xmi:type="notation:Node" xmi:id="_ATYBgJO9EeqzQYtzBT0w8g" type="6001">
@@ -109,6 +235,38 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KRjwQJhPEeqTb_ZgtoRLfA" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KRjwQZhPEeqTb_ZgtoRLfA" id="(0.5,0.5)"/>
         </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_PpjtYJnIEeqTuIlexV9mSg" type="4001" element="_PpajcJnIEeqTuIlexV9mSg" source="_MR84YJnIEeqTuIlexV9mSg" target="_ATUXIJO9EeqzQYtzBT0w8g">
+          <children xmi:type="notation:Node" xmi:id="_PpkUcJnIEeqTuIlexV9mSg" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PpkUcZnIEeqTuIlexV9mSg" x="-19" y="-48"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_PplikJnIEeqTuIlexV9mSg" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PplikZnIEeqTuIlexV9mSg" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_PpmJoJnIEeqTuIlexV9mSg" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PpmJoZnIEeqTuIlexV9mSg" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_PpjtYZnIEeqTuIlexV9mSg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_PpjtYpnIEeqTuIlexV9mSg" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PpjtY5nIEeqTuIlexV9mSg" points="[-8, 15, 73, -138]$[-74, 138, 7, -15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ppn-0JnIEeqTuIlexV9mSg" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ppn-0ZnIEeqTuIlexV9mSg" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_D7reEJnVEeqCsPFsZ8JABQ" type="4001" element="_D7EaEJnVEeqCsPFsZ8JABQ" source="_-Mr68JnUEeqCsPFsZ8JABQ" target="_-Mu-QJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_D7ssMJnVEeqCsPFsZ8JABQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D7ssMZnVEeqCsPFsZ8JABQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_D7ssMpnVEeqCsPFsZ8JABQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D7ssM5nVEeqCsPFsZ8JABQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_D7ssNJnVEeqCsPFsZ8JABQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D7ssNZnVEeqCsPFsZ8JABQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_D7sFIJnVEeqCsPFsZ8JABQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_D7sFIZnVEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_D7sFIpnVEeqCsPFsZ8JABQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_D7tTQJnVEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_D7tTQZnVEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+        </edges>
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_AQqEsJO9EeqzQYtzBT0w8g" name="Aarhus" incomingEdges="_AQsg8JO9EeqzQYtzBT0w8g" width="3" height="3" resizeKind="NSEW">
@@ -123,7 +281,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_AQr54ZO9EeqzQYtzBT0w8g" name="København" outgoingEdges="_AQsg8JO9EeqzQYtzBT0w8g _KRdCkJhPEeqTb_ZgtoRLfA" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_AQr54ZO9EeqzQYtzBT0w8g" name="København" outgoingEdges="_AQsg8JO9EeqzQYtzBT0w8g _KRdCkJhPEeqTb_ZgtoRLfA" incomingEdges="_PpajcJnIEeqTuIlexV9mSg" width="3" height="3" resizeKind="NSEW">
       <target xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.1"/>
       <semanticElements xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.1"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -159,6 +317,108 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
     </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_MRmTEJnIEeqTuIlexV9mSg" name="Helsingør" outgoingEdges="_PpajcJnIEeqTuIlexV9mSg" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.4"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.4"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_MRnhMJnIEeqTuIlexV9mSg" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-MYY8pnUEeqCsPFsZ8JABQ" name="Flensburg" outgoingEdges="_D7EaEJnVEeqCsPFsZ8JABQ" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.0"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.0"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_-MYY85nUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-MZAAZnUEeqCsPFsZ8JABQ" name="Niebuell" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.1"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.1"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_-MZnEJnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-MZnEpnUEeqCsPFsZ8JABQ" name="Schleswig" incomingEdges="_D7EaEJnVEeqCsPFsZ8JABQ" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.2"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.2"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_-MZnE5nUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-MaOIZnUEeqCsPFsZ8JABQ" name="Husum" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.3"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.3"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_-MaOIpnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-Ma1MZnUEeqCsPFsZ8JABQ" name="Rendsburg" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.4"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.4"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_-MbcQJnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-MbcQpnUEeqCsPFsZ8JABQ" name="Kiel" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.5"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.5"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_-MbcQ5nUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-McDUZnUEeqCsPFsZ8JABQ" name="Neumuenster" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.6"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.6"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_-McDUpnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-McDVJnUEeqCsPFsZ8JABQ" name="Itzehoe" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.7"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.7"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_-McDVZnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-McqYZnUEeqCsPFsZ8JABQ" name="Luebeck" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.8"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.8"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_-McqYpnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_-McqZJnUEeqCsPFsZ8JABQ" name="Hamburg" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.9"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.9"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_-McqZZnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_AQsg8JO9EeqzQYtzBT0w8g" name="AK 1: 250km" sourceNode="_AQr54ZO9EeqzQYtzBT0w8g" targetNode="_AQqEsJO9EeqzQYtzBT0w8g">
       <target xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.0"/>
       <semanticElements xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.0"/>
@@ -186,9 +446,493 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']"/>
     </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_PpajcJnIEeqTuIlexV9mSg" name="KH 1: 60km" sourceNode="_MRmTEJnIEeqTuIlexV9mSg" targetNode="_AQr54ZO9EeqzQYtzBT0w8g">
+      <target xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.3"/>
+      <semanticElements xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.3"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_PpbKgJnIEeqTuIlexV9mSg" targetArrow="NoDecoration" size="2" centered="Both" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_PpbKgZnIEeqTuIlexV9mSg" labelSize="12" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_D7EaEJnVEeqCsPFsZ8JABQ" name="FS 1: 10km" sourceNode="_-MYY8pnUEeqCsPFsZ8JABQ" targetNode="_-MZnEpnUEeqCsPFsZ8JABQ">
+      <target xmi:type="network:Leg" href="platform:/resource/Network/SchleswigHolstein.network#//@legs.0"/>
+      <semanticElements xmi:type="network:Leg" href="platform:/resource/Network/SchleswigHolstein.network#//@legs.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_D7FoMJnVEeqCsPFsZ8JABQ" targetArrow="NoDecoration" size="2" centered="Both" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_D7FoMZnVEeqCsPFsZ8JABQ" labelSize="12" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']"/>
+    </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_AQpdoJO9EeqzQYtzBT0w8g"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer"/>
     <target xmi:type="network:Network" href="platform:/resource/Network/Denmark.network#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_yHRoUJnUEeqCsPFsZ8JABQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_yHzMwJnUEeqCsPFsZ8JABQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_yHzMwZnUEeqCsPFsZ8JABQ"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_yIgXYJnUEeqCsPFsZ8JABQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_yIgXYZnUEeqCsPFsZ8JABQ" type="Sirius" element="_yHRoUJnUEeqCsPFsZ8JABQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_yImeAJnUEeqCsPFsZ8JABQ" type="2001" element="_yHVSsJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yIzSUJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yIzSUZnUEeqCsPFsZ8JABQ" x="-7" y="-16"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yJ3pUJnUEeqCsPFsZ8JABQ" type="3005" element="_yHWg0JnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yJ3pUZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJ3pUpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yImeAZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yImeApnUEeqCsPFsZ8JABQ" x="873" y="88" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJG0UJnUEeqCsPFsZ8JABQ" type="2001" element="_yHcAYJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJHbYJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJHbYZnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yJ4QYJnUEeqCsPFsZ8JABQ" type="3005" element="_yHcncJnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yJ4QYZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJ4QYpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJG0UZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJG0UpnUEeqCsPFsZ8JABQ" x="947" y="180" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJJQkJnUEeqCsPFsZ8JABQ" type="2001" element="_yHd1kJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJJ3oJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJJ3oZnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yJ43cJnUEeqCsPFsZ8JABQ" type="3005" element="_yHecoJnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yJ43cZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJ43cpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJJQkZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJJQkpnUEeqCsPFsZ8JABQ" x="992" y="90" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJLs0JnUEeqCsPFsZ8JABQ" type="2001" element="_yHfqwJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJM68JnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJM68ZnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yJ5egJnUEeqCsPFsZ8JABQ" type="3005" element="_yHgR0JnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yJ5egZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJ5egpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJLs0ZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJLs0pnUEeqCsPFsZ8JABQ" x="992" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJOJEJnUEeqCsPFsZ8JABQ" type="2001" element="_yHiuEJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJP-QJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJP-QZnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yJ7TsJnUEeqCsPFsZ8JABQ" type="3005" element="_yHiuEZnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yJ7TsZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJ7TspnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJOwIJnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJOwIZnUEeqCsPFsZ8JABQ" x="947" y="270" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJRzcJnUEeqCsPFsZ8JABQ" type="2001" element="_yHjVIZnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJRzc5nUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJRzdJnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yJ76wJnUEeqCsPFsZ8JABQ" type="3005" element="_yHjVIpnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yJ76wZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJ76wpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJRzcZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJRzcpnUEeqCsPFsZ8JABQ" x="4" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJUPsJnUEeqCsPFsZ8JABQ" type="2001" element="_yHj8MZnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJU2wJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJU2wZnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yJ9I4JnUEeqCsPFsZ8JABQ" type="3005" element="_yHj8MpnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yJ9I4ZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJ9I4pnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJUPsZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJUPspnUEeqCsPFsZ8JABQ" x="135" y="144" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJZvQJnUEeqCsPFsZ8JABQ" type="2001" element="_yHj8NJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJa9YJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJa9YZnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yJ--EJnUEeqCsPFsZ8JABQ" type="3005" element="_yHkjQJnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yJ--EZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJ--EpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJZvQZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJZvQpnUEeqCsPFsZ8JABQ" x="45" y="189" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJcykJnUEeqCsPFsZ8JABQ" type="2001" element="_yHkjQpnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJeAsJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJeAsZnUEeqCsPFsZ8JABQ" x="-6" y="-16"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yJ_lIJnUEeqCsPFsZ8JABQ" type="3005" element="_yHkjQ5nUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yJ_lIZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJ_lIpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJcykZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJcykpnUEeqCsPFsZ8JABQ" x="315" y="81" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJgc8JnUEeqCsPFsZ8JABQ" type="2001" element="_yHlKUZnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJhEAJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJhEAZnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yKAMMJnUEeqCsPFsZ8JABQ" type="3005" element="_yHlxYJnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yKAMMZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKAMMpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJgc8ZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJgc8pnUEeqCsPFsZ8JABQ" x="396" y="162" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJiSIJnUEeqCsPFsZ8JABQ" type="2001" element="_yHlxYpnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJjgQJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJjgQZnUEeqCsPFsZ8JABQ" y="-16"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yKAzQJnUEeqCsPFsZ8JABQ" type="3005" element="_yHmYcJnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yKAzQZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKAzQpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJiSIZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJiSIpnUEeqCsPFsZ8JABQ" x="522" y="90" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJkuYJnUEeqCsPFsZ8JABQ" type="2001" element="_yHm_gZnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJlVcJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJlVcZnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yKBaUJnUEeqCsPFsZ8JABQ" type="3005" element="_yHnmkJnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yKBaUZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKBaUpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJkuYZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJkuYpnUEeqCsPFsZ8JABQ" x="468" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJmjkJnUEeqCsPFsZ8JABQ" type="2001" element="_yHoNoJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJnxsJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJnxsZnUEeqCsPFsZ8JABQ" x="-7" y="-16"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yKCBYJnUEeqCsPFsZ8JABQ" type="3005" element="_yHoNoZnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yKCBYZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKCBYpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJmjkZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJmjkpnUEeqCsPFsZ8JABQ" x="639" y="119" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJqN8JnUEeqCsPFsZ8JABQ" type="2001" element="_yHo0sJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJrcEJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJrcEZnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yKCBY5nUEeqCsPFsZ8JABQ" type="3005" element="_yHo0sZnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yKCBZJnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKCBZZnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJqN8ZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJqN8pnUEeqCsPFsZ8JABQ" x="513" y="333" width="30" height="30"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_yJtRQJnUEeqCsPFsZ8JABQ" type="2001" element="_yHpbwZnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yJt4UJnUEeqCsPFsZ8JABQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_yJt4UZnUEeqCsPFsZ8JABQ" x="31" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yKDPgJnUEeqCsPFsZ8JABQ" type="3005" element="_yHpbwpnUEeqCsPFsZ8JABQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_yKDPgZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKDPgpnUEeqCsPFsZ8JABQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_yJtRQZnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yJtRQpnUEeqCsPFsZ8JABQ" x="351" y="261" width="30" height="30"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_yIgXYpnUEeqCsPFsZ8JABQ"/>
+        <edges xmi:type="notation:Edge" xmi:id="_yKHg8JnUEeqCsPFsZ8JABQ" type="4001" element="_yHrQ8JnUEeqCsPFsZ8JABQ" source="_yJG0UJnUEeqCsPFsZ8JABQ" target="_yImeAJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yKKkQJnUEeqCsPFsZ8JABQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKKkQZnUEeqCsPFsZ8JABQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yKLyYJnUEeqCsPFsZ8JABQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKLyYZnUEeqCsPFsZ8JABQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yKMZcJnUEeqCsPFsZ8JABQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKMZcZnUEeqCsPFsZ8JABQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_yKHg8ZnUEeqCsPFsZ8JABQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_yKHg8pnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yKHg85nUEeqCsPFsZ8JABQ" points="[-13, -15, 61, 77]$[-62, -77, 12, 15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yKfUYJnUEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yKfUYZnUEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_yKlbAJnUEeqCsPFsZ8JABQ" type="4001" element="_yHuUQJnUEeqCsPFsZ8JABQ" source="_yJJQkJnUEeqCsPFsZ8JABQ" target="_yJLs0JnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yKn3QJnUEeqCsPFsZ8JABQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKn3QZnUEeqCsPFsZ8JABQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yKoeUJnUEeqCsPFsZ8JABQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKoeUZnUEeqCsPFsZ8JABQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yKoeUpnUEeqCsPFsZ8JABQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yKoeU5nUEeqCsPFsZ8JABQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_yKlbAZnUEeqCsPFsZ8JABQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_yKlbApnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yKlbA5nUEeqCsPFsZ8JABQ" points="[0, -15, 0, 75]$[0, -75, 0, 15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yKqTgJnUEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yKxBMJnUEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_yKxoQJnUEeqCsPFsZ8JABQ" type="4001" element="_yHwwgJnUEeqCsPFsZ8JABQ" source="_yJG0UJnUEeqCsPFsZ8JABQ" target="_yJJQkJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yK0EgJnUEeqCsPFsZ8JABQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yK0EgZnUEeqCsPFsZ8JABQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yK_DoJnUEeqCsPFsZ8JABQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yK_DoZnUEeqCsPFsZ8JABQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yK_DopnUEeqCsPFsZ8JABQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yK_Do5nUEeqCsPFsZ8JABQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_yKxoQZnUEeqCsPFsZ8JABQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_yKxoQpnUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yKxoQ5nUEeqCsPFsZ8JABQ" points="[7, -15, -38, 75]$[37, -75, -8, 15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yK_qsJnUEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yLFxUJnUEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_yLFxUZnUEeqCsPFsZ8JABQ" type="4001" element="_yHx-oJnUEeqCsPFsZ8JABQ" source="_yJOJEJnUEeqCsPFsZ8JABQ" target="_yJG0UJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_yLGYYJnUEeqCsPFsZ8JABQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yLGYYZnUEeqCsPFsZ8JABQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yLGYYpnUEeqCsPFsZ8JABQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yLGYY5nUEeqCsPFsZ8JABQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_yLG_cJnUEeqCsPFsZ8JABQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yLG_cZnUEeqCsPFsZ8JABQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_yLFxUpnUEeqCsPFsZ8JABQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_yLFxU5nUEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yLFxVJnUEeqCsPFsZ8JABQ" points="[0, -15, 0, 75]$[0, -75, 0, 15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yLHmgJnUEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yLHmgZnUEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_D7pB0JnVEeqCsPFsZ8JABQ" type="4001" element="_D7eCsJnVEeqCsPFsZ8JABQ" source="_yJRzcJnUEeqCsPFsZ8JABQ" target="_yJZvQJnUEeqCsPFsZ8JABQ">
+          <children xmi:type="notation:Node" xmi:id="_D7po4JnVEeqCsPFsZ8JABQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D7po4ZnVEeqCsPFsZ8JABQ" x="-9" y="-6"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_D7po4pnVEeqCsPFsZ8JABQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D7po45nVEeqCsPFsZ8JABQ" x="8" y="7"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_D7qP8JnVEeqCsPFsZ8JABQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D7qP8ZnVEeqCsPFsZ8JABQ" x="7" y="8"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_D7pB0ZnVEeqCsPFsZ8JABQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_D7pB0pnVEeqCsPFsZ8JABQ" fontName=".AppleSystemUIFont" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_D7pB05nVEeqCsPFsZ8JABQ" points="[3, 15, -38, -174]$[37, 174, -4, -15]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_D7q3AJnVEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_D7q3AZnVEeqCsPFsZ8JABQ" id="(0.5,0.5)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHVSsJnUEeqCsPFsZ8JABQ" name="Aarhus" incomingEdges="_yHrQ8JnUEeqCsPFsZ8JABQ" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.0"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.0"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHWg0JnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHcAYJnUEeqCsPFsZ8JABQ" name="København" outgoingEdges="_yHrQ8JnUEeqCsPFsZ8JABQ _yHwwgJnUEeqCsPFsZ8JABQ" incomingEdges="_yHx-oJnUEeqCsPFsZ8JABQ" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.1"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.1"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHcncJnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHd1kJnUEeqCsPFsZ8JABQ" name="Kolding" outgoingEdges="_yHuUQJnUEeqCsPFsZ8JABQ" incomingEdges="_yHwwgJnUEeqCsPFsZ8JABQ" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.2"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.2"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHecoJnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHfqwJnUEeqCsPFsZ8JABQ" name="Flensburg" incomingEdges="_yHuUQJnUEeqCsPFsZ8JABQ" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.3"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.3"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHgR0JnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHiuEJnUEeqCsPFsZ8JABQ" name="Helsingør" outgoingEdges="_yHx-oJnUEeqCsPFsZ8JABQ" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.4"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/Denmark.network#//@stations.4"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHiuEZnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHjVIZnUEeqCsPFsZ8JABQ" name="Flensburg" outgoingEdges="_D7eCsJnVEeqCsPFsZ8JABQ" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.0"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.0"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHjVIpnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHj8MZnUEeqCsPFsZ8JABQ" name="Niebuell" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.1"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHj8MpnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHj8NJnUEeqCsPFsZ8JABQ" name="Schleswig" incomingEdges="_D7eCsJnVEeqCsPFsZ8JABQ" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.2"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.2"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHkjQJnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHkjQpnUEeqCsPFsZ8JABQ" name="Husum" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.3"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.3"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHkjQ5nUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHlKUZnUEeqCsPFsZ8JABQ" name="Rendsburg" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.4"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.4"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHlxYJnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHlxYpnUEeqCsPFsZ8JABQ" name="Kiel" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.5"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.5"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHmYcJnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHm_gZnUEeqCsPFsZ8JABQ" name="Neumuenster" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.6"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.6"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHnmkJnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHoNoJnUEeqCsPFsZ8JABQ" name="Itzehoe" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.7"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.7"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHoNoZnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHo0sJnUEeqCsPFsZ8JABQ" name="Luebeck" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.8"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.8"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHo0sZnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_yHpbwZnUEeqCsPFsZ8JABQ" name="Hamburg" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.9"/>
+      <semanticElements xmi:type="network:Station" href="platform:/resource/Network/SchleswigHolstein.network#//@stations.9"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_yHpbwpnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false" labelAlignment="LEFT" workspacePath="/org.mdse.pts.network.dsl/icons/Station.gif">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Station']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_yHrQ8JnUEeqCsPFsZ8JABQ" name="AK 1: 250km" sourceNode="_yHcAYJnUEeqCsPFsZ8JABQ" targetNode="_yHVSsJnUEeqCsPFsZ8JABQ">
+      <target xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.0"/>
+      <semanticElements xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_yHr4AJnUEeqCsPFsZ8JABQ" targetArrow="NoDecoration" size="2" centered="Both" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_yHr4AZnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_yHuUQJnUEeqCsPFsZ8JABQ" name="KFL 1: 100km" sourceNode="_yHd1kJnUEeqCsPFsZ8JABQ" targetNode="_yHfqwJnUEeqCsPFsZ8JABQ">
+      <target xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.1"/>
+      <semanticElements xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_yHuUQZnUEeqCsPFsZ8JABQ" targetArrow="NoDecoration" size="2" centered="Both" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_yHuUQpnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_yHwwgJnUEeqCsPFsZ8JABQ" name="KK 1: 150km" sourceNode="_yHcAYJnUEeqCsPFsZ8JABQ" targetNode="_yHd1kJnUEeqCsPFsZ8JABQ">
+      <target xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.2"/>
+      <semanticElements xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_yHwwgZnUEeqCsPFsZ8JABQ" targetArrow="NoDecoration" size="2" centered="Both" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_yHwwgpnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_yHx-oJnUEeqCsPFsZ8JABQ" name="KH 1: 60km" sourceNode="_yHiuEJnUEeqCsPFsZ8JABQ" targetNode="_yHcAYJnUEeqCsPFsZ8JABQ">
+      <target xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.3"/>
+      <semanticElements xmi:type="network:Leg" href="platform:/resource/Network/Denmark.network#//@legs.3"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_yHx-oZnUEeqCsPFsZ8JABQ" targetArrow="NoDecoration" size="2" centered="Both" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_yHx-opnUEeqCsPFsZ8JABQ" labelSize="12" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_D7eCsJnVEeqCsPFsZ8JABQ" name="FS 1: 10km" sourceNode="_yHjVIZnUEeqCsPFsZ8JABQ" targetNode="_yHj8NJnUEeqCsPFsZ8JABQ">
+      <target xmi:type="network:Leg" href="platform:/resource/Network/SchleswigHolstein.network#//@legs.0"/>
+      <semanticElements xmi:type="network:Leg" href="platform:/resource/Network/SchleswigHolstein.network#//@legs.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_D7epwJnVEeqCsPFsZ8JABQ" targetArrow="NoDecoration" size="2" centered="Both" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_D7epwZnVEeqCsPFsZ8JABQ" labelSize="12" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Leg']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_yHSPYJnUEeqCsPFsZ8JABQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.mdse.pts.network.dsl/description/Network.odesign#//@ownedViewpoints[name='NetworkViewpoint']/@ownedRepresentations[name='Network%20Diagram%20Description']/@defaultLayer"/>
+    <target xmi:type="network:Network" href="platform:/resource/Network/SchleswigHolstein.network#/"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>
