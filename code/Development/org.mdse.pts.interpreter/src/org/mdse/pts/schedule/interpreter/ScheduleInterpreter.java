@@ -5,6 +5,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.EList;
 import org.mdse.pts.depot.*;
@@ -25,8 +26,7 @@ public class ScheduleInterpreter {
 	}
 
 //	TODO: I am not sure about this
-	private static List<Timetable> generateTimetables(Schedule schedule,
-			HashMap<String, Timetable> simulatedTrains) {
+	private static List<Timetable> generateTimetables(Schedule schedule, HashMap<String, Timetable> simulatedTrains) {
 		Network network = (Network) schedule.getNetworkReference().getNetwork();
 		List<Timetable> timetables = new ArrayList<Timetable>();
 		EList<Station> stations = network.getStations();
@@ -45,43 +45,78 @@ public class ScheduleInterpreter {
 
 //	TODO: This is getting somewhere, but I am unsure about this approach
 //	on generating all the correct timetables
+//	Station startStation = route.getTransits().get(0).getStation();
+//	It communicates the idea.
 	private static HashMap<String, Timetable> simulateTrains(Schedule schedule) {
 		HashMap<String, Timetable> trips = new HashMap<String, Timetable>();
 		EList<Route> routes = schedule.getRouteReference(); // It is how it is.
 
 		for (Route route : routes) {
-			Train train = route.getTrain();
-			Station startStation = route.getTransits().get(0).getStation();
+			Train currentTrain = route.getTrain();
 			int currentTravelTime = 0;
+			List<STime> startingTimes = route.getTime();
 			Transit previousTransit = null;
 			int index = 1;
 			for (Transit transit : route.getTransits()) {
 				Station currentStation = transit.getStation();
+				Timetable timetable = trips.get(currentStation.getName());
+				if (timetable == null) {
+					timetable = new TimetableFactoryImpl().createTimetable();
+				}
 				Transit nextTransit = null;
 				if (index < route.getTransits().size()) {
 					nextTransit = route.getTransits().get(index);
 				}
 				Leg leg = transit.getLeg();
 				if (previousTransit != null) {
-					int travelTime;
+					int travelTimeInMinutes;
 					if (leg == null) {
-						travelTime = getTravelTimeInMinutes(previousTransit.getStation(), currentStation, train);
+						travelTimeInMinutes = getTravelTimeInMinutes(previousTransit.getStation(), currentStation, currentTrain);
 					} else {
-						travelTime = getTravelTimeInMinutes(leg, train);
+						travelTimeInMinutes = getTravelTimeInMinutes(leg, currentTrain);
 					}
-					Arrival arrival = new TimetableFactoryImpl().createArrival();
-					arrival.setTrain(train.getName());
-					arrival.setFromStation(currentStation.getName());
-					arrival.setPlatform(transit.getPlatform().getName());
-//					arrival.setTime(setArrivalTime);
+					
+					List<Departure> previousTransitDepartures = trips.get(previousTransit.getStation().getName()).getEntries().stream()
+							.filter(Departure.class::isInstance)
+							.map(Departure.class::cast)
+							.filter(d -> d.getToStation().equals(currentStation.getName()))
+							.filter(t -> t.getTrain().equals(currentTrain.getName()))
+							.collect(Collectors.toList());
+					for (Departure previousDeparture : previousTransitDepartures) {
+						Arrival arrival = new TimetableFactoryImpl().createArrival();
+						arrival.setTrain(currentTrain.getName());
+						arrival.setFromStation(previousTransit.getStation().getName());
+						arrival.setPlatform(transit.getPlatform().getName());
+						arrival.setTime(calculateTravelTime(previousDeparture.getTime(), travelTimeInMinutes));
+						timetable.getEntries().add(arrival);
+
+						if (nextTransit != null) {
+							Departure departure = new TimetableFactoryImpl().createDeparture();
+							departure.setTrain(currentTrain.getName());
+							departure.setToStation(nextTransit.getStation().getName());
+							departure.setPlatform(transit.getPlatform().getName());
+//							TODO: if standingDuration null time is 0
+//							departure.setTime(setDepartureTime, currentTravelTime, travelTime, transit.getStandingDuration());
+							timetable.getEntries().add(departure);
+						}
+					}
+				} else {
+					if (nextTransit != null) {
+						for (STime time : startingTimes) {
+							for (time.Day day : time.getDay()) {
+								for (HrMin hrMin : time.getHrmin()) {
+									Departure departure = new TimetableFactoryImpl().createDeparture();
+									departure.setTrain(currentTrain.getName());
+									departure.setToStation(nextTransit.getStation().getName());
+									departure.setPlatform(nextTransit.getPlatform().getName());
+//									departure.setTime(setDepartureTime, currentTravelTime, travelTime, transit.getStandingDuration());
+									timetable.getEntries().add(departure);
+								}
+							}
+						}
+					}
 				}
-				if (nextTransit != null) {
-					Departure departure = new TimetableFactoryImpl().createDeparture();
-					departure.setTrain(train.getName());
-					departure.setToStation(nextTransit.getStation().getName());
-					departure.setPlatform(nextTransit.getPlatform().getName());
-//					departure.setTime(setDepartureTime());
-				}
+				trips.put(currentStation.getName(), timetable);
 				previousTransit = transit;
 				index++;
 			}
@@ -90,6 +125,12 @@ public class ScheduleInterpreter {
 		return null;
 	}
 
+	private static time.Time calculateTravelTime(time.Time time, int travelTimeInMinutes) {
+		time.Time travelTime = (time.Time) new TimeFactoryImpl().createTime();
+
+		return travelTime;
+	}
+	
 	private static Leg getLegBetweenStations(Station previousStation, Station station) {
 		if (previousStation != null) {
 			for (Leg leg : previousStation.getLegs()) {
@@ -101,13 +142,13 @@ public class ScheduleInterpreter {
 		return null;
 	}
 
-//	private static void castTime(Entry entry, time.Day day, Integer hour) {
-//		Time time = new TimeFactoryImpl().createTime();
-//		org.mdse.pts.time.Day day_ = (org.mdse.pts.time.Day) day;
-//		time.setDay(day);
-//		time.setHour(hour);
+	private static void castTime(STime stime) {
+		Time time = new TimeFactoryImpl().createTime();
+		int dayValue = stime.getDay().get(0).getValue();
+		time.setDay(Day.get(dayValue));
+//		time.setHour(stime);
 //		time.setMinute(minute);
-//	}
+	}
 
 	private static int getTravelTimeInMinutes(Leg leg, Train train) {
 		float travelTimeMinutes = (float) (leg.getDistance() / getAverageSpeed(train));
@@ -119,12 +160,13 @@ public class ScheduleInterpreter {
 		return getTravelTimeInMinutes(leg, train);
 	}
 
+//
 //	private static time.Time calculateTravelTime() {
 //		time.Time travelTime = (time.Time) new TimeFactoryImpl().createTime();
 //
 //		return travelTime;
 //	}
-
+	
 	private static int getAverageSpeed(Train train) {
 		if (train instanceof RegionalTrain) {
 			return 80;
