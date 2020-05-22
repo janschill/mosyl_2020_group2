@@ -2,11 +2,10 @@
  */
 package org.mdse.pts.time.impl;
 
-import java.util.Collection;
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.mdse.pts.time.Day;
 import org.mdse.pts.time.Time;
 import org.mdse.pts.time.TimePackage;
@@ -28,34 +27,64 @@ import org.mdse.pts.time.TimePackage;
  */
 public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	/**
-	 * The cached value of the '{@link #getDay() <em>Day</em>}' attribute list.
+	 * The default value of the '{@link #getDay() <em>Day</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDay()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Day> day;
+	protected static final Day DAY_EDEFAULT = Day.MONDAY;
 
 	/**
-	 * The cached value of the '{@link #getHour() <em>Hour</em>}' attribute list.
+	 * The cached value of the '{@link #getDay() <em>Day</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDay()
+	 * @generated
+	 * @ordered
+	 */
+	protected Day day = DAY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getHour() <em>Hour</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getHour()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Integer> hour;
+	protected static final int HOUR_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getMinute() <em>Minute</em>}' attribute list.
+	 * The cached value of the '{@link #getHour() <em>Hour</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHour()
+	 * @generated
+	 * @ordered
+	 */
+	protected int hour = HOUR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMinute() <em>Minute</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMinute()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Integer> minute;
+	protected static final int MINUTE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getMinute() <em>Minute</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinute()
+	 * @generated
+	 * @ordered
+	 */
+	protected int minute = MINUTE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,10 +111,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	 * @generated
 	 */
 	@Override
-	public EList<Day> getDay() {
-		if (day == null) {
-			day = new EDataTypeUniqueEList<Day>(Day.class, this, TimePackage.TIME__DAY);
-		}
+	public Day getDay() {
 		return day;
 	}
 
@@ -95,10 +121,20 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	 * @generated
 	 */
 	@Override
-	public EList<Integer> getHour() {
-		if (hour == null) {
-			hour = new EDataTypeUniqueEList<Integer>(Integer.class, this, TimePackage.TIME__HOUR);
-		}
+	public void setDay(Day newDay) {
+		Day oldDay = day;
+		day = newDay == null ? DAY_EDEFAULT : newDay;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TimePackage.TIME__DAY, oldDay, day));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getHour() {
 		return hour;
 	}
 
@@ -108,11 +144,34 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	 * @generated
 	 */
 	@Override
-	public EList<Integer> getMinute() {
-		if (minute == null) {
-			minute = new EDataTypeUniqueEList<Integer>(Integer.class, this, TimePackage.TIME__MINUTE);
-		}
+	public void setHour(int newHour) {
+		int oldHour = hour;
+		hour = newHour;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TimePackage.TIME__HOUR, oldHour, hour));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getMinute() {
 		return minute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMinute(int newMinute) {
+		int oldMinute = minute;
+		minute = newMinute;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TimePackage.TIME__MINUTE, oldMinute, minute));
 	}
 
 	/**
@@ -143,16 +202,13 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TimePackage.TIME__DAY:
-				getDay().clear();
-				getDay().addAll((Collection<? extends Day>)newValue);
+				setDay((Day)newValue);
 				return;
 			case TimePackage.TIME__HOUR:
-				getHour().clear();
-				getHour().addAll((Collection<? extends Integer>)newValue);
+				setHour((Integer)newValue);
 				return;
 			case TimePackage.TIME__MINUTE:
-				getMinute().clear();
-				getMinute().addAll((Collection<? extends Integer>)newValue);
+				setMinute((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -167,13 +223,13 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TimePackage.TIME__DAY:
-				getDay().clear();
+				setDay(DAY_EDEFAULT);
 				return;
 			case TimePackage.TIME__HOUR:
-				getHour().clear();
+				setHour(HOUR_EDEFAULT);
 				return;
 			case TimePackage.TIME__MINUTE:
-				getMinute().clear();
+				setMinute(MINUTE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -188,11 +244,11 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TimePackage.TIME__DAY:
-				return day != null && !day.isEmpty();
+				return day != DAY_EDEFAULT;
 			case TimePackage.TIME__HOUR:
-				return hour != null && !hour.isEmpty();
+				return hour != HOUR_EDEFAULT;
 			case TimePackage.TIME__MINUTE:
-				return minute != null && !minute.isEmpty();
+				return minute != MINUTE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

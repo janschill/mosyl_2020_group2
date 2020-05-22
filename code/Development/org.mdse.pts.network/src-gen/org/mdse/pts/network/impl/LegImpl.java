@@ -2,22 +2,12 @@
  */
 package org.mdse.pts.network.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.mdse.pts.network.Leg;
 import org.mdse.pts.network.NetworkPackage;
 import org.mdse.pts.network.Station;
@@ -32,7 +22,8 @@ import org.mdse.pts.network.Station;
  * <ul>
  *   <li>{@link org.mdse.pts.network.impl.LegImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.mdse.pts.network.impl.LegImpl#getDistance <em>Distance</em>}</li>
- *   <li>{@link org.mdse.pts.network.impl.LegImpl#getStations <em>Stations</em>}</li>
+ *   <li>{@link org.mdse.pts.network.impl.LegImpl#getSourceStation <em>Source Station</em>}</li>
+ *   <li>{@link org.mdse.pts.network.impl.LegImpl#getTargetStation <em>Target Station</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,14 +70,24 @@ public class LegImpl extends MinimalEObjectImpl.Container implements Leg {
 	protected int distance = DISTANCE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStations() <em>Stations</em>}' reference list.
+	 * The cached value of the '{@link #getSourceStation() <em>Source Station</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStations()
+	 * @see #getSourceStation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Station> stations;
+	protected Station sourceStation;
+
+	/**
+	 * The cached value of the '{@link #getTargetStation() <em>Target Station</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetStation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Station targetStation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -159,11 +160,16 @@ public class LegImpl extends MinimalEObjectImpl.Container implements Leg {
 	 * @generated
 	 */
 	@Override
-	public EList<Station> getStations() {
-		if (stations == null) {
-			stations = new EObjectWithInverseResolvingEList.ManyInverse<Station>(Station.class, this, NetworkPackage.LEG__STATIONS, NetworkPackage.STATION__LEGS);
+	public Station getSourceStation() {
+		if (sourceStation != null && sourceStation.eIsProxy()) {
+			InternalEObject oldSourceStation = (InternalEObject)sourceStation;
+			sourceStation = (Station)eResolveProxy(oldSourceStation);
+			if (sourceStation != oldSourceStation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NetworkPackage.LEG__SOURCE_STATION, oldSourceStation, sourceStation));
+			}
 		}
-		return stations;
+		return sourceStation;
 	}
 
 	/**
@@ -171,14 +177,8 @@ public class LegImpl extends MinimalEObjectImpl.Container implements Leg {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case NetworkPackage.LEG__STATIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStations()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+	public Station basicGetSourceStation() {
+		return sourceStation;
 	}
 
 	/**
@@ -187,12 +187,51 @@ public class LegImpl extends MinimalEObjectImpl.Container implements Leg {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case NetworkPackage.LEG__STATIONS:
-				return ((InternalEList<?>)getStations()).basicRemove(otherEnd, msgs);
+	public void setSourceStation(Station newSourceStation) {
+		Station oldSourceStation = sourceStation;
+		sourceStation = newSourceStation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NetworkPackage.LEG__SOURCE_STATION, oldSourceStation, sourceStation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Station getTargetStation() {
+		if (targetStation != null && targetStation.eIsProxy()) {
+			InternalEObject oldTargetStation = (InternalEObject)targetStation;
+			targetStation = (Station)eResolveProxy(oldTargetStation);
+			if (targetStation != oldTargetStation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, NetworkPackage.LEG__TARGET_STATION, oldTargetStation, targetStation));
+			}
 		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		return targetStation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Station basicGetTargetStation() {
+		return targetStation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTargetStation(Station newTargetStation) {
+		Station oldTargetStation = targetStation;
+		targetStation = newTargetStation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, NetworkPackage.LEG__TARGET_STATION, oldTargetStation, targetStation));
 	}
 
 	/**
@@ -207,8 +246,12 @@ public class LegImpl extends MinimalEObjectImpl.Container implements Leg {
 				return getName();
 			case NetworkPackage.LEG__DISTANCE:
 				return getDistance();
-			case NetworkPackage.LEG__STATIONS:
-				return getStations();
+			case NetworkPackage.LEG__SOURCE_STATION:
+				if (resolve) return getSourceStation();
+				return basicGetSourceStation();
+			case NetworkPackage.LEG__TARGET_STATION:
+				if (resolve) return getTargetStation();
+				return basicGetTargetStation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,9 +271,11 @@ public class LegImpl extends MinimalEObjectImpl.Container implements Leg {
 			case NetworkPackage.LEG__DISTANCE:
 				setDistance((Integer)newValue);
 				return;
-			case NetworkPackage.LEG__STATIONS:
-				getStations().clear();
-				getStations().addAll((Collection<? extends Station>)newValue);
+			case NetworkPackage.LEG__SOURCE_STATION:
+				setSourceStation((Station)newValue);
+				return;
+			case NetworkPackage.LEG__TARGET_STATION:
+				setTargetStation((Station)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -250,8 +295,11 @@ public class LegImpl extends MinimalEObjectImpl.Container implements Leg {
 			case NetworkPackage.LEG__DISTANCE:
 				setDistance(DISTANCE_EDEFAULT);
 				return;
-			case NetworkPackage.LEG__STATIONS:
-				getStations().clear();
+			case NetworkPackage.LEG__SOURCE_STATION:
+				setSourceStation((Station)null);
+				return;
+			case NetworkPackage.LEG__TARGET_STATION:
+				setTargetStation((Station)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -269,8 +317,10 @@ public class LegImpl extends MinimalEObjectImpl.Container implements Leg {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case NetworkPackage.LEG__DISTANCE:
 				return distance != DISTANCE_EDEFAULT;
-			case NetworkPackage.LEG__STATIONS:
-				return stations != null && !stations.isEmpty();
+			case NetworkPackage.LEG__SOURCE_STATION:
+				return sourceStation != null;
+			case NetworkPackage.LEG__TARGET_STATION:
+				return targetStation != null;
 		}
 		return super.eIsSet(featureID);
 	}

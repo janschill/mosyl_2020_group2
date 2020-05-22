@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.mdse.pts.network.NetworkPackage#getNetwork()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NetworkNameUnique LegMustCarryNameWhenAnotherLegExistsBtwnSameStations'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot NetworkNameUnique='\n\t\t\tNetwork.allInstances()-&gt;isUnique(name)' LegMustCarryNameWhenAnotherLegExistsBtwnSameStations='\n\t\t\tself.legs-&gt;forAll(leg1 |\n\t\t\t\tself.legs-&gt;forAll(leg2 |\t\n\t\t\t\t\tleg1 &lt;&gt; leg2 implies (\n\t\t\t\t\t\tnot (leg1.stations-&gt;isEmpty() or leg2.stations-&gt;isEmpty()) implies (\n\t\t\t\t\t\t\tleg1.stations-&gt;includesAll(leg2.stations) implies (\n\t\t\t\t\t\t\t(leg1.name &lt;&gt; null) and (leg2.name &lt;&gt; null) and (leg1.name &lt;&gt; leg2.name)\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t)\n\t\t\t\t\t)\n\t\t\t\t)\n\t\t\t)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot NetworkNameUnique='\n\t\t\tNetwork.allInstances()-&gt;isUnique(name)' LegMustCarryNameWhenAnotherLegExistsBtwnSameStations='\n\t\t\tself.legs-&gt;forAll(leg1 |\n\t\t\t\tself.legs-&gt;forAll(leg2 |\t\n\t\t\t\t\tleg1 &lt;&gt; leg2 implies (\n\t\t\t\t\t\t(leg1.sourceStation &lt;&gt; leg2.sourceStation) and (leg1.targetStation &lt;&gt; leg2.targetStation) implies (\n\t\t\t\t\t\t(leg1.name &lt;&gt; null) and (leg2.name &lt;&gt; null) and (leg1.name &lt;&gt; leg2.name)\n\t\t\t\t\t\t)\n\t\t\t\t\t)\n\t\t\t\t)\n\t\t\t)'"
  * @generated
  */
 public interface Network extends EObject {

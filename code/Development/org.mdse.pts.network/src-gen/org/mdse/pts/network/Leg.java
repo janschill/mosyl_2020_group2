@@ -2,8 +2,6 @@
  */
 package org.mdse.pts.network;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.mdse.pts.network.Leg#getName <em>Name</em>}</li>
  *   <li>{@link org.mdse.pts.network.Leg#getDistance <em>Distance</em>}</li>
- *   <li>{@link org.mdse.pts.network.Leg#getStations <em>Stations</em>}</li>
+ *   <li>{@link org.mdse.pts.network.Leg#getSourceStation <em>Source Station</em>}</li>
+ *   <li>{@link org.mdse.pts.network.Leg#getTargetStation <em>Target Station</em>}</li>
  * </ul>
  *
  * @see org.mdse.pts.network.NetworkPackage#getLeg()
@@ -71,17 +70,47 @@ public interface Leg extends EObject {
 	void setDistance(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Stations</b></em>' reference list.
-	 * The list contents are of type {@link org.mdse.pts.network.Station}.
-	 * It is bidirectional and its opposite is '{@link org.mdse.pts.network.Station#getLegs <em>Legs</em>}'.
+	 * Returns the value of the '<em><b>Source Station</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Stations</em>' reference list.
-	 * @see org.mdse.pts.network.NetworkPackage#getLeg_Stations()
-	 * @see org.mdse.pts.network.Station#getLegs
-	 * @model opposite="legs" lower="2" upper="2"
+	 * @return the value of the '<em>Source Station</em>' reference.
+	 * @see #setSourceStation(Station)
+	 * @see org.mdse.pts.network.NetworkPackage#getLeg_SourceStation()
+	 * @model required="true"
 	 * @generated
 	 */
-	EList<Station> getStations();
+	Station getSourceStation();
+
+	/**
+	 * Sets the value of the '{@link org.mdse.pts.network.Leg#getSourceStation <em>Source Station</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Station</em>' reference.
+	 * @see #getSourceStation()
+	 * @generated
+	 */
+	void setSourceStation(Station value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Station</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Station</em>' reference.
+	 * @see #setTargetStation(Station)
+	 * @see org.mdse.pts.network.NetworkPackage#getLeg_TargetStation()
+	 * @model required="true"
+	 * @generated
+	 */
+	Station getTargetStation();
+
+	/**
+	 * Sets the value of the '{@link org.mdse.pts.network.Leg#getTargetStation <em>Target Station</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Station</em>' reference.
+	 * @see #getTargetStation()
+	 * @generated
+	 */
+	void setTargetStation(Station value);
 
 } // Leg

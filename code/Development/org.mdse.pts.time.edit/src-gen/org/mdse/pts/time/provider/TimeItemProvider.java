@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.mdse.pts.time.Day;
 import org.mdse.pts.time.Time;
 import org.mdse.pts.time.TimePackage;
 
@@ -151,7 +152,11 @@ public class TimeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Time_type");
+		Day labelValue = ((Time)object).getDay();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Time_type") :
+			getString("_UI_Time_type") + " " + label;
 	}
 
 

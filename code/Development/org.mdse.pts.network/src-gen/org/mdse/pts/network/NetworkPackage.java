@@ -188,13 +188,22 @@ public interface NetworkPackage extends EPackage {
 	int LEG__DISTANCE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Stations</b></em>' reference list.
+	 * The feature id for the '<em><b>Source Station</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LEG__STATIONS = 2;
+	int LEG__SOURCE_STATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Target Station</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEG__TARGET_STATION = 3;
 
 	/**
 	 * The number of structural features of the '<em>Leg</em>' class.
@@ -203,7 +212,7 @@ public interface NetworkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEG_FEATURE_COUNT = 3;
+	int LEG_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Leg</em>' class.
@@ -323,15 +332,26 @@ public interface NetworkPackage extends EPackage {
 	EAttribute getLeg_Distance();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.mdse.pts.network.Leg#getStations <em>Stations</em>}'.
+	 * Returns the meta object for the reference '{@link org.mdse.pts.network.Leg#getSourceStation <em>Source Station</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Stations</em>'.
-	 * @see org.mdse.pts.network.Leg#getStations()
+	 * @return the meta object for the reference '<em>Source Station</em>'.
+	 * @see org.mdse.pts.network.Leg#getSourceStation()
 	 * @see #getLeg()
 	 * @generated
 	 */
-	EReference getLeg_Stations();
+	EReference getLeg_SourceStation();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.mdse.pts.network.Leg#getTargetStation <em>Target Station</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target Station</em>'.
+	 * @see org.mdse.pts.network.Leg#getTargetStation()
+	 * @see #getLeg()
+	 * @generated
+	 */
+	EReference getLeg_TargetStation();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -443,12 +463,20 @@ public interface NetworkPackage extends EPackage {
 		EAttribute LEG__DISTANCE = eINSTANCE.getLeg_Distance();
 
 		/**
-		 * The meta object literal for the '<em><b>Stations</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Source Station</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LEG__STATIONS = eINSTANCE.getLeg_Stations();
+		EReference LEG__SOURCE_STATION = eINSTANCE.getLeg_SourceStation();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Station</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LEG__TARGET_STATION = eINSTANCE.getLeg_TargetStation();
 
 	}
 

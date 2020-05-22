@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EPackage;
  * @see org.mdse.pts.time.TimeFactory
  * @model kind="package"
  *        annotation="http://www.eclipse.org/OCL/Import ecore='http://www.eclipse.org/emf/2002/Ecore'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface TimePackage extends EPackage {
@@ -68,7 +69,7 @@ public interface TimePackage extends EPackage {
 	int TIME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Day</b></em>' attribute list.
+	 * The feature id for the '<em><b>Day</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -77,7 +78,7 @@ public interface TimePackage extends EPackage {
 	int TIME__DAY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Hour</b></em>' attribute list.
+	 * The feature id for the '<em><b>Hour</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -86,7 +87,7 @@ public interface TimePackage extends EPackage {
 	int TIME__HOUR = 1;
 
 	/**
-	 * The feature id for the '<em><b>Minute</b></em>' attribute list.
+	 * The feature id for the '<em><b>Minute</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -134,10 +135,10 @@ public interface TimePackage extends EPackage {
 	EClass getTime();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.mdse.pts.time.Time#getDay <em>Day</em>}'.
+	 * Returns the meta object for the attribute '{@link org.mdse.pts.time.Time#getDay <em>Day</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Day</em>'.
+	 * @return the meta object for the attribute '<em>Day</em>'.
 	 * @see org.mdse.pts.time.Time#getDay()
 	 * @see #getTime()
 	 * @generated
@@ -145,10 +146,10 @@ public interface TimePackage extends EPackage {
 	EAttribute getTime_Day();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.mdse.pts.time.Time#getHour <em>Hour</em>}'.
+	 * Returns the meta object for the attribute '{@link org.mdse.pts.time.Time#getHour <em>Hour</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Hour</em>'.
+	 * @return the meta object for the attribute '<em>Hour</em>'.
 	 * @see org.mdse.pts.time.Time#getHour()
 	 * @see #getTime()
 	 * @generated
@@ -156,10 +157,10 @@ public interface TimePackage extends EPackage {
 	EAttribute getTime_Hour();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.mdse.pts.time.Time#getMinute <em>Minute</em>}'.
+	 * Returns the meta object for the attribute '{@link org.mdse.pts.time.Time#getMinute <em>Minute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Minute</em>'.
+	 * @return the meta object for the attribute '<em>Minute</em>'.
 	 * @see org.mdse.pts.time.Time#getMinute()
 	 * @see #getTime()
 	 * @generated
@@ -210,7 +211,7 @@ public interface TimePackage extends EPackage {
 		EClass TIME = eINSTANCE.getTime();
 
 		/**
-		 * The meta object literal for the '<em><b>Day</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Day</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -218,7 +219,7 @@ public interface TimePackage extends EPackage {
 		EAttribute TIME__DAY = eINSTANCE.getTime_Day();
 
 		/**
-		 * The meta object literal for the '<em><b>Hour</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Hour</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -226,7 +227,7 @@ public interface TimePackage extends EPackage {
 		EAttribute TIME__HOUR = eINSTANCE.getTime_Hour();
 
 		/**
-		 * The meta object literal for the '<em><b>Minute</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Minute</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

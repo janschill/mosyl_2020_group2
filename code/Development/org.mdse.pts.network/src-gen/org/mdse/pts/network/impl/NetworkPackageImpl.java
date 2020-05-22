@@ -223,8 +223,18 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getLeg_Stations() {
+	public EReference getLeg_SourceStation() {
 		return (EReference)legEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getLeg_TargetStation() {
+		return (EReference)legEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -268,7 +278,8 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage {
 		legEClass = createEClass(LEG);
 		createEAttribute(legEClass, LEG__NAME);
 		createEAttribute(legEClass, LEG__DISTANCE);
-		createEReference(legEClass, LEG__STATIONS);
+		createEReference(legEClass, LEG__SOURCE_STATION);
+		createEReference(legEClass, LEG__TARGET_STATION);
 	}
 
 	/**
@@ -308,12 +319,13 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage {
 
 		initEClass(stationEClass, Station.class, "Station", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStation_Name(), ecorePackage.getEString(), "name", null, 1, 1, Station.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStation_Legs(), this.getLeg(), this.getLeg_Stations(), "legs", null, 0, -1, Station.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStation_Legs(), this.getLeg(), null, "legs", null, 0, -1, Station.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(legEClass, Leg.class, "Leg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLeg_Name(), ecorePackage.getEString(), "name", null, 0, 1, Leg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLeg_Distance(), ecorePackage.getEInt(), "distance", null, 1, 1, Leg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLeg_Stations(), this.getStation(), this.getStation_Legs(), "stations", null, 2, 2, Leg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLeg_SourceStation(), this.getStation(), null, "sourceStation", null, 1, 1, Leg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLeg_TargetStation(), this.getStation(), null, "targetStation", null, 1, 1, Leg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -386,7 +398,7 @@ public class NetworkPackageImpl extends EPackageImpl implements NetworkPackage {
 		   source,
 		   new String[] {
 			   "NetworkNameUnique", "\n\t\t\tNetwork.allInstances()->isUnique(name)",
-			   "LegMustCarryNameWhenAnotherLegExistsBtwnSameStations", "\n\t\t\tself.legs->forAll(leg1 |\n\t\t\t\tself.legs->forAll(leg2 |\t\n\t\t\t\t\tleg1 <> leg2 implies (\n\t\t\t\t\t\tnot (leg1.stations->isEmpty() or leg2.stations->isEmpty()) implies (\n\t\t\t\t\t\t\tleg1.stations->includesAll(leg2.stations) implies (\n\t\t\t\t\t\t\t(leg1.name <> null) and (leg2.name <> null) and (leg1.name <> leg2.name)\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t)\n\t\t\t\t\t)\n\t\t\t\t)\n\t\t\t)"
+			   "LegMustCarryNameWhenAnotherLegExistsBtwnSameStations", "\n\t\t\tself.legs->forAll(leg1 |\n\t\t\t\tself.legs->forAll(leg2 |\t\n\t\t\t\t\tleg1 <> leg2 implies (\n\t\t\t\t\t\t(leg1.sourceStation <> leg2.sourceStation) and (leg1.targetStation <> leg2.targetStation) implies (\n\t\t\t\t\t\t(leg1.name <> null) and (leg2.name <> null) and (leg1.name <> leg2.name)\n\t\t\t\t\t\t)\n\t\t\t\t\t)\n\t\t\t\t)\n\t\t\t)"
 		   });
 		addAnnotation
 		  (legEClass,

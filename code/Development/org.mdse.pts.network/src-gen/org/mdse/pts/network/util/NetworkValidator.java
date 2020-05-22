@@ -157,10 +157,8 @@ public class NetworkValidator extends EObjectValidator {
 		"\t\t\tself.legs->forAll(leg1 |\n" +
 		"\t\t\t\tself.legs->forAll(leg2 |\t\n" +
 		"\t\t\t\t\tleg1 <> leg2 implies (\n" +
-		"\t\t\t\t\t\tnot (leg1.stations->isEmpty() or leg2.stations->isEmpty()) implies (\n" +
-		"\t\t\t\t\t\t\tleg1.stations->includesAll(leg2.stations) implies (\n" +
-		"\t\t\t\t\t\t\t(leg1.name <> null) and (leg2.name <> null) and (leg1.name <> leg2.name)\n" +
-		"\t\t\t\t\t\t\t)\n" +
+		"\t\t\t\t\t\t(leg1.sourceStation <> leg2.sourceStation) and (leg1.targetStation <> leg2.targetStation) implies (\n" +
+		"\t\t\t\t\t\t(leg1.name <> null) and (leg2.name <> null) and (leg1.name <> leg2.name)\n" +
 		"\t\t\t\t\t\t)\n" +
 		"\t\t\t\t\t)\n" +
 		"\t\t\t\t)\n" +

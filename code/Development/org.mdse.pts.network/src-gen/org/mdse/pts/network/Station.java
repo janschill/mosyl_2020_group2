@@ -49,13 +49,11 @@ public interface Station extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Legs</b></em>' reference list.
 	 * The list contents are of type {@link org.mdse.pts.network.Leg}.
-	 * It is bidirectional and its opposite is '{@link org.mdse.pts.network.Leg#getStations <em>Stations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Legs</em>' reference list.
 	 * @see org.mdse.pts.network.NetworkPackage#getStation_Legs()
-	 * @see org.mdse.pts.network.Leg#getStations
-	 * @model opposite="stations"
+	 * @model
 	 * @generated
 	 */
 	EList<Leg> getLegs();
