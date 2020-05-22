@@ -3,6 +3,8 @@ package org.mdse.pts.schedule.interpreter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,6 +15,7 @@ import org.mdse.pts.network.*;
 import org.mdse.pts.schedule.*;
 import org.mdse.pts.timetable.*;
 import org.mdse.pts.time.*;
+import org.mdse.pts.time.Time;
 import org.mdse.pts.time.Day;
 import org.mdse.pts.timetable.impl.TimetableFactoryImpl;
 import org.mdse.pts.timetable.impl.TimetableImpl;
@@ -125,8 +128,19 @@ public class ScheduleInterpreter {
 		return null;
 	}
 
-	private static time.Time calculateTravelTime(time.Time time, int travelTimeInMinutes) {
-		time.Time travelTime = (time.Time) new TimeFactoryImpl().createTime();
+	private static Time calculateTravelTime(Time previousTime, int travelTimeInMinutes) {
+		Day day = previousTime.getDay();
+		int hour = previousTime.getHour();
+		int minute = previousTime.getMinute();
+		
+		Calendar cal = GregorianCalendar.getInstance();
+		cal.set(Calendar.DAY_OF_WEEK, day.getValue());
+		cal.set(Calendar.HOUR_OF_DAY, hour);
+		cal.set(Calendar.MINUTE, minute);
+		cal.add(Calendar.MINUTE, travelTimeInMinutes);
+		
+		Time travelTime = new TimeFactoryImpl().createTime();
+		travelTime.setDay(Day.get(cal.get(Calendar.DAY_OF_WEEK)));
 
 		return travelTime;
 	}
