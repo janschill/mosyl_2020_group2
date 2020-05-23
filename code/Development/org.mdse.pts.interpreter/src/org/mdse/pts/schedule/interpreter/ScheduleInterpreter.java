@@ -4,8 +4,8 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.EList;
 import org.mdse.pts.depot.*;
@@ -30,82 +30,102 @@ public class ScheduleInterpreter {
 		for (Route route : routes) {
 			Train currentTrain = route.getTrain();
 			List<STime> startingTimes = route.getTime();
-			Transit previousTransit = null;
-			int index = 1;
-			for (Transit transit : route.getTransits()) {
-				Station currentStation = transit.getStation();
+			List<Departure> previousTransitDepartures = new LinkedList<>();
+
+			Transit previousTransit = null, currentTransit, nextTransit;
+			for (int idx = 0; idx < route.getTransits().size(); idx++) {
+				currentTransit = route.getTransits().get(idx);
+				Station currentStation = currentTransit.getStation();
 				Timetable timetable = trips.get(currentStation.getName());
 				if (timetable == null) {
 					timetable = new TimetableFactoryImpl().createTimetable();
 					timetable.setStationName(currentStation.getName());
 				}
-				Transit nextTransit = null;
-				if (index < route.getTransits().size()) {
-					nextTransit = route.getTransits().get(index);
-				}
-				Leg leg = transit.getLeg();
-				if (previousTransit != null) {
-					int travelTimeInMinutes = getTravelTimeInMinutes(leg, previousTransit, currentStation, currentTrain);
 
-					List<Departure> previousTransitDepartures = trips.get(previousTransit.getStation().getName())
-							.getEntries().stream().filter(Departure.class::isInstance).map(Departure.class::cast)
-							.filter(d -> d.getToStation().equals(currentStation.getName()))
-							.filter(t -> t.getTrain().equals(currentTrain.getName())).collect(Collectors.toList());
+				nextTransit = null;
+				if (idx + 1 < route.getTransits().size()) {
+					nextTransit = route.getTransits().get(idx + 1);
+				}
+
+				Leg leg = currentTransit.getLeg();
+				if (previousTransit != null) {
+					int travelTimeInMinutes = getTravelTimeInMinutes(leg, previousTransit, currentStation,
+							currentTrain);
+					List<Departure> tmp = new LinkedList<Departure>();
 					for (Departure previousDeparture : previousTransitDepartures) {
-						Arrival arrival = new TimetableFactoryImpl().createArrival();
-						arrival.setTrain(currentTrain.getName());
-						arrival.setFromStation(previousTransit.getStation().getName());
-						arrival.setPlatform(transit.getPlatform().getName());
 						Time arrivalTime = addTime(previousDeparture.getTime(), travelTimeInMinutes);
-						arrival.setTime(arrivalTime);
+						Arrival arrival = createArrival(currentTrain, previousTransit, currentTransit, arrivalTime);
 						timetable.getEntries().add(arrival);
 
 						if (nextTransit != null) {
-							Departure departure = new TimetableFactoryImpl().createDeparture();
-							departure.setTrain(currentTrain.getName());
-							departure.setToStation(nextTransit.getStation().getName());
-							departure.setPlatform(transit.getPlatform().getName());
-							departure.setTime(addTime(arrivalTime, transit.getStandingDuration()));
+							Time departureTime = addTime(arrivalTime, currentTransit.getStandingDuration());
+							Departure departure = createDepature(currentTrain, nextTransit, departureTime);
 							timetable.getEntries().add(departure);
+							tmp.add(departure);
 						}
 					}
+					previousTransitDepartures = tmp;
 				} else {
 					if (nextTransit != null) {
-						for (STime time : startingTimes) {
-							for (Day day : time.getDay()) {
-								for (HrMin hrMin : time.getHrmin()) {
-									Departure departure = new TimetableFactoryImpl().createDeparture();
-									departure.setTrain(currentTrain.getName());
-									departure.setToStation(nextTransit.getStation().getName());
-									departure.setPlatform(nextTransit.getPlatform().getName());
-									Time departureTime = new TimeFactoryImpl().createTime();
-									departureTime.setDay(day);
-									departureTime.setHour(hrMin.getHour());
-									departureTime.setMinute(hrMin.getMinute());
-									departure.setTime(departureTime);
-									timetable.getEntries().add(departure);
-								}
-							}
+						for (Time time : translateSTimes(startingTimes)) {
+							Departure departure = createDepature(currentTrain, nextTransit, time);
+							timetable.getEntries().add(departure);
+							previousTransitDepartures.add(departure);
 						}
 					}
 				}
 				trips.put(currentStation.getName(), timetable);
-				previousTransit = transit;
-				index++;
+				previousTransit = currentTransit;
 			}
 		}
 		return trips;
 	}
 
-	private static int getTravelTimeInMinutes(Leg leg, Transit previousTransit, Station currentStation, Train currentTrain) {
+	private static List<Time> translateSTimes(List<STime> stimes) {
+		List<Time> times = new LinkedList<Time>();
+		Time time;
+		for (STime stime : stimes) {
+			for (Day day : stime.getDay()) {
+				for (HrMin hrMin : stime.getHrmin()) {
+					time = new TimeFactoryImpl().createTime();
+					time.setDay(day);
+					time.setHour(hrMin.getHour());
+					time.setMinute(hrMin.getMinute());
+					times.add(time);
+				}
+			}
+		}
+		return times;
+	}
+
+	private static Arrival createArrival(Train train, Transit previousTransit, Transit currentTransit,
+			Time arrivalTime) {
+		Arrival arrival = new TimetableFactoryImpl().createArrival();
+		arrival.setTrain(train.getName());
+		arrival.setFromStation(previousTransit.getStation().getName());
+		arrival.setPlatform(currentTransit.getPlatform().getName());
+		arrival.setTime(arrivalTime);
+		return arrival;
+	}
+
+	private static Departure createDepature(Train train, Transit nextTransit, Time departureTime) {
+		Departure departure = new TimetableFactoryImpl().createDeparture();
+		departure.setTrain(train.getName());
+		departure.setToStation(nextTransit.getStation().getName());
+		departure.setPlatform(nextTransit.getPlatform().getName());
+		departure.setTime(departureTime);
+		return departure;
+	}
+
+	private static int getTravelTimeInMinutes(Leg leg, Transit previousTransit, Station currentStation,
+			Train currentTrain) {
 		if (leg == null) {
-			return getTravelTimeInMinutes(previousTransit.getStation(), currentStation,
-					currentTrain);
+			return getTravelTimeInMinutes(previousTransit.getStation(), currentStation, currentTrain);
 		} else {
 			return getTravelTimeInMinutes(leg, currentTrain);
 		}
 	}
-	
+
 	private static Time addTime(Time previousTime, int travelTimeInMinutes) {
 		Day day = previousTime.getDay();
 		int hour = previousTime.getHour();
@@ -138,7 +158,7 @@ public class ScheduleInterpreter {
 
 	private static int getTravelTimeInMinutes(Leg leg, Train train) {
 		float travelTimeMinutes = (float) (leg.getDistance() / (getAverageSpeed(train) / 60));
-		return (int) (travelTimeMinutes);
+		return (int) travelTimeMinutes;
 	}
 
 	private static int getTravelTimeInMinutes(Station previousStation, Station station, Train train) {

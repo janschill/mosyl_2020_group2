@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorPart;
@@ -27,15 +26,11 @@ public class PTSLaunchShortcut implements ILaunchShortcut {
 	public void launch(ISelection selection, String mode) {
 		IFile scheduleFile = PTSEclipseUtil.getFirstIFileFromSelectionWithExtension("schedule", selection);
 		EObject eObject = PTSEclipseUtil.loadModel(scheduleFile);
-		ResourceSet rs = EcoreIOUtil.getDefaultResourceSet(eObject);
-		IProject project = EclipseUtil.resolveProjectFromResource(rs.getResources().get(0));
+		IProject project = getIProjectFromEObject(eObject);
 		Schedule scheduleModel = (Schedule) eObject;
 		Collection<Timetable> timetables = interpretScheduleModel(scheduleModel);
-
-		for (Timetable timetable : timetables) {
-			IFile file = project.getFile(removeWhitespace(timetable.getStationName()) + ".timetable");
-			EcoreIOUtil.saveModelAs(scheduleModel, file);
-		}
+		outputTimetables(timetables, project);
+		
 	}
 
 	private static String removeWhitespace(String stringValue) {
@@ -45,22 +40,30 @@ public class PTSLaunchShortcut implements ILaunchShortcut {
 	@Override
 	public void launch(IEditorPart editor, String mode) {
 		EObject eObject = getModelFromEditor(editor);
-		ResourceSet rs = EcoreIOUtil.getDefaultResourceSet(eObject);
-		IProject project = EclipseUtil.resolveProjectFromResource(rs.getResources().get(0));
-
+		IProject project = getIProjectFromEObject(eObject);
 		if (eObject instanceof Schedule) {
 			Schedule scheduleModel = (Schedule) eObject;
 			Collection<Timetable> timetables = interpretScheduleModel(scheduleModel);
-			for (Timetable timetable : timetables) {
-				IFile file = project.getFile(removeWhitespace(timetable.getStationName()) + ".timetable");
-				EcoreIOUtil.saveModelAs(timetable, file);
-			}
+			outputTimetables(timetables, project);
 			return;
 		}
 
 		String title = "Error";
 		String message = "The file cannot be interpreted as a Schedule model.";
 		MessageDialog.openError(null, title, message);
+	}
+	
+	private IProject getIProjectFromEObject(EObject eObject) {
+		ResourceSet rs = EcoreIOUtil.getDefaultResourceSet(eObject);
+		return EclipseUtil.resolveProjectFromResource(rs.getResources().get(0));
+	}
+	
+	private static void outputTimetables(Collection<Timetable> timetables, IProject targetProject) {
+		IFile file;
+		for (Timetable timetable : timetables) {
+			file = targetProject.getFile(removeWhitespace(timetable.getStationName()) + ".timetable");
+			EcoreIOUtil.saveModelAs(timetable, file);
+		}
 	}
 
 	protected EObject getModelFromEditor(IEditorPart editor) {
