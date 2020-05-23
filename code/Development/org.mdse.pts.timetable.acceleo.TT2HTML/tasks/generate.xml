@@ -1,35 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="org.mdse.pts.timetable.acceleo.TT2HTML">
-    <property name="ECLIPSE_HOME" value="../../../../../eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../.."/>
+    <property name="ECLIPSE_HOME" value="../../../../../../eclipse/modeling-2019-12/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../eclipse-workspace-mosyl-project"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.mdse.pts.timetable.acceleo.TT2HTML.libraryclasspath">
         <pathelement location="${ECLIPSE_WORKSPACE}/org.mdse.pts.timetable.acceleo.TT2HTML/bin"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime_3.17.100.v20200203-0917.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi_3.15.200.v20200214-1600.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi.compatibility.state_1.1.700.v20200207-2156.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.common_3.11.0.v20200206-0817.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.jobs_3.10.700.v20200106-1020.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.registry_3.8.700.v20200121-1457.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.preferences_3.7.700.v20191213-1901.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.contenttype_3.7.600.v20200124-1609.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.app_1.4.400.v20191212-0743.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore_2.21.0.v20200127-1342.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.common_2.18.0.v20191225-1014.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.resources_3.13.700.v20200209-1624.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.ecore.xmi_2.16.0.v20190528-0725.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl_3.15.0.v20200309-0848.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.common_1.8.400.v20200309-0848.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ocl.ecore_3.15.0.v20200309-0848.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.common_3.7.9.201911060712.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.model_3.7.9.201911060712.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.profiler_3.7.9.201911060712.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.acceleo.engine_3.7.9.201911060712.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen.ecore_2.21.0.v20200112-0705.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.emf.codegen_2.19.0.v20190821-1536.jar"/>
-        <pathelement location="${ECLIPSE_HOME}/plugins/com.google.guava_27.1.0.v20190517-1946.jar"/>
     </path>
 
     <path id="org.mdse.pts.timetable.acceleo.TT2HTML.classpath">
