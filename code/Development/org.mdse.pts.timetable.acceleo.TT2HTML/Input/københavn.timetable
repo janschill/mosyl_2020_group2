@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<timetable:Timetable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:timetable="http://mdse.org/pts/timetable" stationName="K&#xf8;benhavn">
+  <entries xsi:type="timetable:Arrival" train="IC500" platform="PLAT2" fromStation="Aarhus">
+    <time hour="16" minute="34"/>
+  </entries>
+  <entries xsi:type="timetable:Departure" train="IC500" platform="PLAT2" toStation="Helsing&#xf8;r">
+    <time hour="16" minute="41"/>
+  </entries>
+  <entries xsi:type="timetable:Arrival" train="IC500" platform="PLAT2" fromStation="Aarhus">
+    <time day="Tuesday" minute="20"/>
+  </entries>
+  <entries xsi:type="timetable:Departure" train="IC500" platform="PLAT2" toStation="Helsing&#xf8;r">
+    <time day="Tuesday" minute="27"/>
+  </entries>
+  <entries xsi:type="timetable:Arrival" train="IC500" platform="PLAT2" fromStation="Aarhus">
+    <time day="Thursday" hour="16" minute="34"/>
+  </entries>
+  <entries xsi:type="timetable:Departure" train="IC500" platform="PLAT2" toStation="Helsing&#xf8;r">
+    <time day="Thursday" hour="16" minute="41"/>
+  </entries>
+  <entries xsi:type="timetable:Arrival" train="IC500" platform="PLAT2" fromStation="Aarhus">
+    <time day="Friday" minute="20"/>
+  </entries>
+  <entries xsi:type="timetable:Departure" train="IC500" platform="PLAT2" toStation="Helsing&#xf8;r">
+    <time day="Friday" minute="27"/>
+  </entries>
+</timetable:Timetable>

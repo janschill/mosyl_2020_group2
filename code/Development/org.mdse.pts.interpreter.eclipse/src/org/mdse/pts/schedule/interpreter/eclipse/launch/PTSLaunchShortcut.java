@@ -1,8 +1,6 @@
 package org.mdse.pts.schedule.interpreter.eclipse.launch;
 
 import java.util.Collection;
-import java.util.List;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.debug.ui.ILaunchShortcut;
@@ -55,9 +53,8 @@ public class PTSLaunchShortcut implements ILaunchShortcut {
 			Collection<Timetable> timetables = interpretScheduleModel(scheduleModel);
 			for (Timetable timetable : timetables) {
 				IFile file = project.getFile(removeWhitespace(timetable.getStationName()) + ".timetable");
-				EcoreIOUtil.saveModelAs(scheduleModel, file);
+				EcoreIOUtil.saveModelAs(timetable, file);
 			}
-
 			return;
 		}
 
@@ -79,27 +76,6 @@ public class PTSLaunchShortcut implements ILaunchShortcut {
 
 		return null;
 	}
-//	
-//	protected void interpretScheduleModel(Schedule scheduleModel) {
-//		String interpreterInputPath = askForInterpreterPath();
-//		
-//		if (interpreterInputPath != null) {
-//			interpretScheduleModel(scheduleModel, interpreterInputPath);
-//		}
-//	}
-
-	protected String askForInterpreterPath() {
-		InputDialog inputDialog = new InputDialog(null, "Schedule Interpreter Input",
-				"Please provide the path to your Schedule path", null, null);
-
-		int returnCode = inputDialog.open();
-
-		if (returnCode == InputDialog.OK) {
-			return inputDialog.getValue();
-		}
-
-		return null;
-	}
 
 	protected Collection<Timetable> interpretScheduleModel(Schedule scheduleModel) {
 		ScheduleInterpreter interpreter = new ScheduleInterpreter();
@@ -112,5 +88,4 @@ public class PTSLaunchShortcut implements ILaunchShortcut {
 		return timetables;
 
 	}
-
 }

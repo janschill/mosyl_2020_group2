@@ -9,7 +9,7 @@
 	
 /]
 [query public getTimeFormatted(time: Time) : String = 
-	invoke('org.mdse.pts.timetable.acceleo.TT2HTML.services.TimeFormattingService', 'getTimeFormatted(time.Time)', Sequence{time}) 
+	invoke('org.mdse.pts.timetable.acceleo.TT2HTML.services.TimeFormattingService', 'getTimeFormatted(org.mdse.pts.time.Time)', Sequence{time}) 
 	
 /]
 [template public generateElement(aTimetable : Timetable)]
@@ -18,6 +18,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	</head>
 	
@@ -25,7 +26,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h1>Timetable</h1>
+					<h1>[aTimetable.stationName/] </h1>
 				</div>
 			</div>
 			<br/>
@@ -69,7 +70,7 @@
 								[for (departure: Departure | departures)]
 									<div class="row">
 										<div class="col-12">
-											[getTimeFormatted(departure.time)/] [departure.train/] to [departure.toStation/] on platform [departure.platform/]
+											[getTimeFormatted(departure.time)/] [departure.train/] to [departure.toStation/] from platform [departure.platform/]
 										</div>
 									</div>
 								[/for]

@@ -1,8 +1,5 @@
 package org.mdse.pts.schedule.interpreter;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.GregorianCalendar;
@@ -68,7 +65,6 @@ public class ScheduleInterpreter {
 							departure.setTrain(currentTrain.getName());
 							departure.setToStation(nextTransit.getStation().getName());
 							departure.setPlatform(transit.getPlatform().getName());
-//							TODO: could be null, probably not
 							departure.setTime(addTime(arrivalTime, transit.getStandingDuration()));
 							timetable.getEntries().add(departure);
 						}
@@ -97,9 +93,8 @@ public class ScheduleInterpreter {
 				previousTransit = transit;
 				index++;
 			}
-
 		}
-		return null;
+		return trips;
 	}
 
 	private static int getTravelTimeInMinutes(Leg leg, Transit previousTransit, Station currentStation, Train currentTrain) {
@@ -142,8 +137,8 @@ public class ScheduleInterpreter {
 	}
 
 	private static int getTravelTimeInMinutes(Leg leg, Train train) {
-		float travelTimeMinutes = (float) (leg.getDistance() / getAverageSpeed(train));
-		return (int) (travelTimeMinutes * 60);
+		float travelTimeMinutes = (float) (leg.getDistance() / (getAverageSpeed(train) / 60));
+		return (int) (travelTimeMinutes);
 	}
 
 	private static int getTravelTimeInMinutes(Station previousStation, Station station, Train train) {

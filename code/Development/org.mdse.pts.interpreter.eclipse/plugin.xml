@@ -42,10 +42,10 @@
          point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
             class="org.mdse.pts.schedule.interpreter.eclipse.launch.PTSLaunchShortcut"
-            description="Executes a Finite State Machine (FSM)"
+            description="Runs ScheduleToTimetables"
             icon="icons/FSM16.gif"
-            id="org.mdse.fsm.interpreter.eclipse.launch.FSMLaunchShortcutType"
-            label="Execute FSM"
+            id="org.mdse.pts.schedule.interpreter.eclipse.launch.PTSLaunchShortcut"
+            label="Run ScheduleToTimetables"
             modes="run">
           <contextualLaunch>
            <enablement>
@@ -56,13 +56,13 @@
                      operator="and">
                   <adapt type="org.eclipse.core.resources.IFile"/>
                     <test property="org.eclipse.debug.ui.matchesPattern"
-                          value="*.fsm"/>
+                          value="*.schedule"/>
                </iterate>
              </with>
            </enablement>
            <contextLabel
               mode="run"
-              label="FSM"/>
+              label="ScheduleToTimetables"/>
          </contextualLaunch>
       </shortcut>
    </extension>

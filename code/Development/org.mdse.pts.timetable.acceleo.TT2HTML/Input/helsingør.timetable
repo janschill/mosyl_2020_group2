@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<timetable:Timetable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:timetable="http://mdse.org/pts/timetable" stationName="Helsing&#xf8;r">
+  <entries xsi:type="timetable:Arrival" train="IC500" platform="PLAT3" fromStation="K&#xf8;benhavn">
+    <time hour="17" minute="11"/>
+  </entries>
+  <entries xsi:type="timetable:Arrival" train="IC500" platform="PLAT3" fromStation="K&#xf8;benhavn">
+    <time day="Tuesday" minute="57"/>
+  </entries>
+  <entries xsi:type="timetable:Arrival" train="IC500" platform="PLAT3" fromStation="K&#xf8;benhavn">
+    <time day="Thursday" hour="17" minute="11"/>
+  </entries>
+  <entries xsi:type="timetable:Arrival" train="IC500" platform="PLAT3" fromStation="K&#xf8;benhavn">
+    <time day="Friday" minute="57"/>
+  </entries>
+</timetable:Timetable>

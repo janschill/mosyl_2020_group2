@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<timetable:Timetable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:timetable="http://mdse.org/pts/timetable" stationName="Aarhus">
+  <entries xsi:type="timetable:Departure" train="IC500" platform="PLAT2" toStation="K&#xf8;benhavn">
+    <time hour="16" minute="4"/>
+  </entries>
+  <entries xsi:type="timetable:Departure" train="IC500" platform="PLAT2" toStation="K&#xf8;benhavn">
+    <time hour="23" minute="50"/>
+  </entries>
+  <entries xsi:type="timetable:Departure" train="IC500" platform="PLAT2" toStation="K&#xf8;benhavn">
+    <time day="Thursday" hour="16" minute="4"/>
+  </entries>
+  <entries xsi:type="timetable:Departure" train="IC500" platform="PLAT2" toStation="K&#xf8;benhavn">
+    <time day="Thursday" hour="23" minute="50"/>
+  </entries>
+</timetable:Timetable>
