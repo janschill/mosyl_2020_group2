@@ -61,7 +61,6 @@
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-2.png)
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-3.png)
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-4.png)
-![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-5.png)
 
 ### Constraints on Timetable Metamodel
 
