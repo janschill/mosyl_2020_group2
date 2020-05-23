@@ -15,5 +15,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.mdse.pts.common;visibility:=reexport,
  org.mdse.pts.depot;visibility:=reexport,
- org.mdse.pts.network;visibility:=reexport
+ org.mdse.pts.network;visibility:=reexport,
+ org.mdse.pts.time;visibility:=reexport
 Bundle-ActivationPolicy: lazy

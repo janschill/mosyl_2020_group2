@@ -1,16 +1,59 @@
 grammar org.mdse.pts.schedule.dsl.Schedule hidden(WS, ML_COMMENT, SL_COMMENT)
 
-import "http://mdse.org/pts/network" as network
-import "http://mdse.org/pts/depot" as depot
+import "http://mdse.org/pts/network" as networkM
+import "http://mdse.org/pts/depot" as depotM
+import "http://mdse.org/pts/time" as timeM
 import "http://mdse.org/pts/schedule"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
+ 
 Schedule:
-	"schedule" networkReference=NetworkReference "with" withDepot+=[depot::Depot] ":" 
+	"SCHEDULE" "FOR" networkReference=NetworkReference "WITH" depotReference+=DepotReference ("," depotReference+=DepotReference)* ":" 
+	(routeReference+=Route)+
 ;
 
+//Network
 NetworkReference:
-"for" for=[network::Network]	
+	(network=[networkM::Network|STRING] | network=[networkM::Network|ID])
+;
+
+
+//Depot 
+DepotReference:
+	(depot=[depotM::Depot|STRING] | depot=[depotM::Depot|ID])
+;
+
+//Route
+Route:
+"TRAIN" (train=[depotM::Train|STRING] | train=[depotM::Train|ID])
+"ON"
+time+=STime
+("AND" time+=STime)* ":"
+
+"START" transits+=Transit
+("STOP" transits+=Transit)*
+"TERMINATE" transits+=Transit 
+;
+
+Transit:
+"AT" station=[networkM::Station|STRING] "ON" "PLATFORM" platform=Platform ("FOR" standingDuration=INT "MIN")? 
+("DRIVE" "VIA" (leg=[networkM::Leg|STRING] | leg=[networkM::Leg|ID]))?
+;
+
+Platform:
+	name=STRING
+;
+
+STime:
+day+=Day ("," day+=Day)* "AT" hrmin+=HrMin ("AND" hrmin+=HrMin)*
+;
+
+HrMin:
+	hour=INT":"minute=INT
+;
+
+enum Day returns timeM::Day:
+ Monday = "Monday" | Tuesday = "Tuesday" | Wednesday = "Wednesday" | Thursday = "Thursday" | Friday = "Friday" | Saturday = "Saturday" | Sunday = "Sunday"
 ;
 
 //TODO: Define syntax rules
@@ -34,7 +77,7 @@ terminal INT returns ecore::EInt:
 terminal STRING:
 	'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"'
 ;
-
+ 
 terminal ML_COMMENT:
 	'/*' -> '*/'
 ;
@@ -45,4 +88,4 @@ terminal SL_COMMENT:
 
 terminal WS:
 	(' '|'\t'|'\r'|'\n')+
-;
+; 
