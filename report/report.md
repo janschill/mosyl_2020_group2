@@ -7,6 +7,7 @@
     2. [Depot Metamodel](#Depot-Metamodel)
     3. [Schedule Metamodel](#Schedule-Metamodel)
     4. [Timetable Metamodel](#Timetable-Metamodel)
+    5. [Time Metamodel](#Time-Metamodel)
 2. [Constraints](#Constraints)
     1. [Constraints on Network Metamodel](#Constraints-on-Network-Metamodel)
     2. [Constraints on Depot Metamodel](#Constraints-on-Depot-Metamodel)
@@ -46,6 +47,10 @@
 
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-timetable.png)
 
+### Time Metamodel
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-time.png)
+
 ## Constraints
 
 ### Constraints on Network Metamodel
@@ -57,13 +62,20 @@
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-depot-constraints.png)
 
 ### Constraints on Schedule Metamodel
+
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-1.png)
+
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-2.png)
+
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-3.png)
+
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-4.png)
+
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-constraints-5.png)
 
-### Constraints on Timetable Metamodel
+### Constraints on Time Metamodel
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-time-constraints.png)
 
 ## Languages
 
@@ -81,15 +93,28 @@
 
 #### Sirius Model of Depot
 
+##### Layer
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-depot-graphical_editor_layer.png)
+
+##### Tools
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-depot-graphical_editor_tools.png)
+
 #### Screenshot of Example in Depot Editor
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-depot-graphical_editor_example.png)
 
 ### Schedule Language
 
 #### Xtext Grammar of Schedule
+
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-grammar-1.png)
+
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/metamodel-schedule-grammar-2.png)
 
 #### Screenshot of Example in Schedule Editor
+
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/schedule-editor.png)
 
 ## Interpretation/Transformations
@@ -100,9 +125,18 @@
 
 ![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/m2m-stationplan-network-result.png)
 
-
 ### Interpreter for Schedule to Create Timetables
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/interpreter-schedule-1.png)
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/interpreter-schedule-2.png)
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/interpreter-schedule-3.png)
 
 ### M2T Transformation Timetable to HTML
 
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/m2t-timetable-html.png)
+
 ### Screenshot Example of Timetable HTML in Browser
+
+![](https://github.com/janschill/mosyl_2020_group2/raw/master/report/images/timetable-mt2_example.PNG)
