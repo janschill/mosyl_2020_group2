@@ -33,33 +33,4 @@
             contributorClass="org.mdse.pts.schedule.presentation.ScheduleActionBarContributor">
       </editor>
    </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated Schedule -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="time.presentation.TimeModelWizardID"
-            name="%_UI_TimeModelWizard_label"
-            class="time.presentation.TimeModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/TimeModelFile.gif">
-         <description>%_UI_TimeModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated Schedule -->
-      <editor
-            id="time.presentation.TimeEditorID"
-            name="%_UI_TimeEditor_label"
-            icon="icons/full/obj16/TimeModelFile.gif"
-            extensions="time"
-            class="time.presentation.TimeEditor"
-            contributorClass="time.presentation.TimeActionBarContributor">
-      </editor>
-   </extension>
-
 </plugin>
