@@ -17,7 +17,9 @@ import org.mdse.pts.depot.Locomotive;
 import org.mdse.pts.depot.Train;
 import org.mdse.pts.network.Leg;
 import org.mdse.pts.network.Station;
+import org.mdse.pts.schedule.HrMin;
 import org.mdse.pts.schedule.Route;
+import org.mdse.pts.schedule.STime;
 import org.mdse.pts.schedule.Schedule;
 import org.mdse.pts.schedule.SchedulePackage;
 import org.mdse.pts.schedule.Transit;
@@ -57,6 +59,7 @@ public class ScheduleValidator extends EObjectValidator implements IStartup {
 		modelIsValid &= validateOnlyOneLeg(schedule);
 		modelIsValid &= mandatoryStopTime(schedule);
 		modelIsValid &= validateLocomotiveWhenTurnReq(schedule);
+		modelIsValid &= STimeFormat(schedule);
 		
 		return modelIsValid;
 	}
@@ -129,7 +132,36 @@ return constraintViolated(r, "Please specify appropriate leg between: " + first.
 			
 			return true;
 		}
-	
+		
+		
+		protected boolean STimeFormat(Schedule schedule) {
+			boolean constraintViolated = false;
+
+			List<Route> routes = new ArrayList<Route>();
+			routes.addAll(schedule.getRouteReference());
+			
+			for(Route r : routes) {
+			
+			List<STime> times = new ArrayList<STime>();
+			times.addAll(r.getTime());
+			
+			for(STime st : times) {
+			List<HrMin> hrmins = new ArrayList<HrMin>();
+			hrmins.addAll(st.getHrmin());
+			for(HrMin hr : hrmins)
+				if(hr.getHour()<0 || hr.getHour()>23 || hr.getMinute()<0 || hr.getMinute()>59)
+					constraintViolated = true;
+			
+			
+				
+			if(constraintViolated)
+				return constraintViolated(r, "Please specify time in format 00-23:00-59");
+				}
+			 }
+			
+			return true;
+		}
+		
 	
 	//When route contains a turn, it must be ensured that the train driving along that route
 	//has a locomotive as a leading and trailing coach.
