@@ -11,6 +11,7 @@
       ecorePackage="Timetable.ecore#/">
     <genClasses ecoreClass="Timetable.ecore#//Timetable">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Timetable.ecore#//Timetable/entries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timetable.ecore#//Timetable/stationName"/>
     </genClasses>
     <genClasses ecoreClass="Timetable.ecore#//Arrival">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Timetable.ecore#//Arrival/fromStation"/>

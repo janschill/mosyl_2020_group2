@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Interpreter
+Bundle-SymbolicName: org.mdse.pts.schedule.interpreter;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: org.mdse.fsm.interpreter
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.mdse.pts.schedule.interpreter
+Require-Bundle: org.mdse.pts.schedule;bundle-version="1.0.0",
+ org.mdse.pts.timetable;bundle-version="1.0.0",
+ org.mdse.pts.time;bundle-version="1.0.0"

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <network:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:network="http://mdse.org/pts/network" name="Denmark">
   <stations name="Aarhus" legs="//@legs.0"/>
-  <stations name="København" legs="//@legs.0 //@legs.2"/>
+  <stations name="København" legs="//@legs.0 //@legs.2 //@legs.3"/>
   <stations name="Kolding" legs="//@legs.1 //@legs.2"/>
   <stations name="Flensburg" legs="//@legs.1"/>
-  <legs name="AK 1" distance="250" sourceStation="//@stations.1" targetStation="//@stations.0"/>
+  <stations name="Helsingør" legs="//@legs.3"/>
+  <legs name="AK 1" distance="250" sourceStation="//@stations.0" targetStation="//@stations.1"/>
   <legs name="KFL 1" distance="100" sourceStation="//@stations.2" targetStation="//@stations.3"/>
   <legs name="KK 1" distance="150" sourceStation="//@stations.1" targetStation="//@stations.2"/>
+  <legs name="KH 1" distance="60" sourceStation="//@stations.1" targetStation="//@stations.4"/>
+  <legs name="AF 1" distance="20" sourceStation="//@stations.0" targetStation="//@stations.3"/>
 </network:Network>
